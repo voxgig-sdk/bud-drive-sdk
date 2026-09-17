@@ -1,0 +1,4097 @@
+{
+ "openapi": "3.0.3",
+ "info": {
+  "title": "Drive API",
+  "version": "1.0.0",
+  "contact": {
+   "name": "API Support",
+   "url": "http://www.thisisbud.com/support",
+   "email": "contact@thisisbud.com"
+  },
+  "x-logo": {
+   "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATAAAABuCAQAAAAKAYdLAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4wQDDggcbXcx7wAABeJJREFUeNrt3W2IFVUcx/HvXRW1VdQedy1bZVfoYX0osVQyfSGElKbRA5oFIaIlhAkWUYm6gvqqDMHMoBeKlhayCCZC2AMRPay7aJrSZmauZhQqaj7t7u1Fi965987s7D1n7pk7/j73zX2Y85//mXt2Zu45Z2ZBREREREREREREREREREREREREREREREREREREREREREREREREROIiZSFGH+YxgsOs5U/X1bFiPDPpQT3bu1DmcaZyg+vErWpjD+s47zoN6Mte0qRJc4Iq18lYMJv2jvosD11mRUeJpD32UO7664BFGQl94DoZY704fbU2rQwKVWYwbc6bQlSPBaYbtMz4K7nP53lpGkK/q8+7MTxUmeEWtmJcGX+j5psmM0I3l9vCirKAV36OuE46QsbfaHL/9opnL9tcpxBf3V0nkAgzWMRj9HadhrH+3Gk7pBqYDZdY3oXfnHE2gc1U2gyoQ6Rk+pKZdgOqgYnXF7TYDGe3gcWgW85QH9cJxMAVm8HsNrBqhhV1U9g33XUCzo1gsM1wdhtYio8ZWsytYdksFrpOwbGhbLYb0PavyLs5wA+c9v28lRa+Zzt/+y5RwwKqaOCdgCjZRvEit/A1a7jou8xwJjOMAb7D+ylqqCmw1imeZ0oCBrv7Mzp+/QofFTDCdZG13Jw3Wi1nOpbZT9+QGUziUkeZ3T49z+P4pqCRuCkhM1jjfMwwqsdG182rsAaWJs0JxuWJ9knGEq+EzODHjDLTcj5NsbjgwehwDazm6vyL5D2MG5i7booKdjE25917M57XhoxUG1hmJUsjrmWtlVl18ZQ2DeCyH6ycT7kpIJ+wuQWVeZJXI69HcpsXHDQN4LajtZIlkcbvzWqn9St1R3nPNIT93wzt/MSZPO+nqKA65699Nos5FdHmgZkMzHnvIj9zLm9+Q7jd0nqP8VtkdSqWNppYxT+u08g+yW8OnKRXw4ac08hnPUscyvjkw5AZXM4os9jzyY6sdZ3h5YC++jLm0lrASf50T5krzEn0QbOLbB8in2FvwKfNPJczCXd0hLV7wPPqL8bybt691//aWWfhkPo2681PjZPDbgP7lYZOl1nNJs9rW4elXD2zfkK8wIFOy2w1XuuWyOpTkuw2sHOhlqrzvIqu59gbuYEdIcqcjSyb65SLX5EHOepgrbuKtJ6nHNQtxtx0U5xM8DoXMkez7K5xM7Tp4iS4WOvszvss5feSP9Fvo5EVnDDfHGJfpd157Y48xFRGmfaEaWcu/qqYZxpCDcxcqR8Mg9xlGkANzNz+BDcx4zEJNTBzv5gPCSeXTvJtmM+3PJqIKdNj6GE3pJsG5mIwOMp1ptnABgd1sq+G7ebnXZncHCKjG3+M1zpLTzMz7AZ00cBG5pmlFb3JmkQTSpPd21HZbWD9Qy21zPPK/zricNH6+B7mvZFreTpEtAFWt0dpsnoWZreBVTG+kyVS1GVN4/vDd9lJVIRY5yzfPdPlrPHHdTwYItr1bkLcTia8M1qPM9F3yRRjcuaYprNmHxzyfNbQyQlnGTM47ynhndFan7WuCywLODz35I2sC9DCXheZHBNpsXvZmu1fkZXs5rjPnPzb8hyAzrIzINr9HOBIwNXat+ZcleS1hame1714izc55jNvbVDBtz7pyWuJuI15P/tnx1F0UwzsQpprO5nil2KIQSZbqcspnwp57+iu2MQT1mMmhNue/MMR3xfwMi8VYRhnmJqXP/MG1lZwyVNMy9l/FR4tf/mdvB553Uz2sXFn+n1YaGCNBZZr5mH25by7xzCb3PKrmM+lgmK1BV4hdc0+2g2zjq8m1wlAOY1dvqXGKep87oZYzUmDW3Vs8+myuIf6Am6AsiT0Nljp/CYl0Twaze9ZaaN3u5w5jAy5L2ylhe/4nAu+S1Qwl+oCsrjCV2wM2KXfwSPUcmPIGv9LPZ91Ye1TEnEb80ztNLE+Dv8MS0RERERERERERERERERERERERERERERERERERERERERERERERERs+Q/rhi5WauEgfQAAAABJRU5ErkJggg=="
+  },
+  "description": "Drive lets you understand your customers using the flags it compiles from data across every\nsource you bring in — not just transactions — build segments from those flags, and run\npersonalised campaigns against them. Drive works in a loop: **understand** your customers (via\nthe flags that make up Drive's criteria), **segment** them (Drive Segments API), and **engage**\nthem (Drive Campaigns API). Measuring a campaign's performance feeds back into segmentation, so\nthe next audience is sharper than the last.\n\nCampaigns don't have to be built step by step, either: describe the outcome you want in plain\nlanguage and Drive's campaign agent finds the matching audience, writes the copy, generates the\nartwork, and estimates the opportunity for you.\n\nSegments V2 endpoints return non-standard vendor content types\n(`application/vnd.bud.drive.notification+json`, `.criteria+json`, `.visualisation+json`,\n`.criteria-options+json`) rather than plain `application/json` — check the `Content-Type` of\nthese responses rather than assuming JSON.\n"
+ },
+ "servers": [
+  {
+   "url": "https://api-sandbox.thisisbud.com",
+   "description": "Bud sandbox"
+  }
+ ],
+ "paths": {
+  "/drive-api/v1/tags": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Retrieve Segment Tags",
+    "operationId": "v1_segment_tags_get",
+    "description": "Retrieves every segment tag used across your organisation.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "in": "header",
+      "name": "X-Client-Id",
+      "schema": {
+       "type": "string"
+      },
+      "required": true,
+      "description": "The API Client Identifier (Service Application Identifier).",
+      "example": "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Retrieve Segment Tags Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "title": "Operation Id Field",
+           "type": "string",
+           "description": "A unique identifier/reference associated with a given endpoint/operation"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "title": "Segment Tag",
+            "type": "object",
+            "properties": {
+             "tag": {
+              "type": "string"
+             },
+             "created_at": {
+              "type": "string",
+              "format": "date-time"
+             },
+             "created_by": {
+              "type": "string"
+             }
+            }
+           }
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "results": {
+             "type": "integer"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_tags_get",
+         "data": [
+          {
+           "tag": "January Campaign",
+           "created_at": "2023-11-06T00:00:00Z",
+           "created_by": "70a7a98b-805a-43cc-a9a3-f07e88c84025"
+          }
+         ],
+         "metadata": {
+          "results": 1
+         }
+        }
+       }
+      }
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/{campaign_id}": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Campaign",
+    "operationId": "drive_v1_campaign_get",
+    "description": "Retrieves a campaign.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "campaign_id",
+      "in": "path",
+      "schema": {
+       "type": "string",
+       "format": "uuid"
+      },
+      "required": true,
+      "description": "The ID of the campaign.",
+      "example": "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Retrieve Campaign Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "title": "Campaign",
+           "type": "object",
+           "required": [
+            "campaign_id"
+           ],
+           "properties": {
+            "campaign_id": {
+             "type": "string",
+             "format": "uuid"
+            },
+            "template_id": {
+             "type": "string",
+             "format": "uuid"
+            },
+            "name": {
+             "type": "string"
+            },
+            "description": {
+             "type": "string"
+            },
+            "audience": {
+             "type": "string",
+             "format": "uuid",
+             "description": "The ID of the segment this campaign targets."
+            },
+            "status": {
+             "type": "string",
+             "description": "The campaign's current status. Potential values are subject to change and may be\nconverted to enums at a future unspecified date.\n\n| Value     | Description                                                    |\n|-----------|------------------------------------------------------------------|\n| `live`    | Currently running                                              |\n| `paused`  | Temporarily paused                                             |\n| `ended`   | Finished                                                       |\n| `pending` | Scheduled but not yet live (derived, not settable directly)   |\n"
+            },
+            "created_at": {
+             "type": "string",
+             "format": "date-time"
+            },
+            "created_by": {
+             "type": "string"
+            },
+            "channels": {
+             "$ref": "#/paths/~1drive-api~1v1~1campaigns/post/requestBody/content/application~1json/schema/properties/channels"
+            },
+            "schedule": {
+             "$ref": "#/paths/~1drive-api~1v1~1campaigns/post/requestBody/content/application~1json/schema/properties/schedule"
+            },
+            "duration": {
+             "$ref": "#/paths/~1drive-api~1v1~1campaigns/post/requestBody/content/application~1json/schema/properties/duration"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaign_get",
+         "data": {
+          "campaign_id": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+          "template_id": "0fdb0218-eaae-4b3f-9ce2-694404b3399c",
+          "name": "This is a new campaign",
+          "description": "Here is the description",
+          "audience": "08bb7126-cbdb-4e92-b27d-2fabc72ea21a",
+          "status": "live",
+          "created_at": "2026-07-07T00:30:00Z",
+          "created_by": "auth0|65423dc3277ae1aa42014e01"
+         }
+        }
+       }
+      }
+     },
+     "404": {
+      "description": "Campaign not found"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Delete Campaign",
+    "operationId": "drive_v1_campaign_delete",
+    "description": "Permanently deletes a campaign.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Deleted"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/{campaign_id}/insights/performance/trends": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Campaign Performance Trends",
+    "operationId": "drive_campaign_insights_performance_trends_get",
+    "description": "Retrieves performance metrics and trends for a campaign.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}/get/parameters/1"
+     },
+     {
+      "name": "start_date",
+      "in": "query",
+      "schema": {
+       "type": "string",
+       "format": "date"
+      },
+      "description": "Start of the date range to retrieve performance trends for."
+     },
+     {
+      "name": "end_date",
+      "in": "query",
+      "schema": {
+       "type": "string",
+       "format": "date"
+      },
+      "description": "End of the date range to retrieve performance trends for."
+     },
+     {
+      "name": "aggregation_type",
+      "in": "query",
+      "schema": {
+       "type": "string",
+       "default": "daily"
+      },
+      "description": "Whether trend values are aggregated daily or cumulatively. Potential values are subject\nto change and may be converted to enums at a future unspecified date.\n\n| Value        | Description                          |\n|--------------|----------------------------------------|\n| `daily`      | Per-day values                       |\n| `cumulative` | A running total over the period      |\n"
+     },
+     {
+      "name": "metrics",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "description": "One or more of: `campaign_audience`, `customers_triggered`, `impressions_total`,\n`impressions_unique`, `impression_rate`, `primary_button_total_clicks`,\n`primary_button_unique_clicks`, `primary_button_click_efficiency`,\n`secondary_button_total_clicks`, `secondary_button_unique_clicks`,\n`secondary_button_click_efficiency`, `secondary_button_no_primary_button_unique_clicks`.\n"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Performance Trends Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "additionalProperties": {
+            "title": "Performance Trend Metric",
+            "type": "object",
+            "properties": {
+             "headline": {
+              "type": "object",
+              "properties": {
+               "format": {
+                "type": "string",
+                "description": "How to render the headline value. Potential values are subject to change and\nmay be converted to enums at a future unspecified date.\n\n| Value     | Description                                |\n|-----------|-----------------------------------------------|\n| `counter` | A single running-total value               |\n"
+               },
+               "value": {
+                "type": "number"
+               }
+              }
+             },
+             "trend": {
+              "type": "object",
+              "properties": {
+               "format": {
+                "type": "string",
+                "description": "How to render the trend value. Potential values are subject to change and may\nbe converted to enums at a future unspecified date.\n\n| Value   | Description                                  |\n|---------|-------------------------------------------------|\n| `trend` | A time series of points                      |\n"
+               },
+               "value": {
+                "type": "array",
+                "items": {
+                 "title": "Performance Trend Point",
+                 "type": "object",
+                 "properties": {
+                  "date": {
+                   "type": "string",
+                   "format": "date"
+                  },
+                  "value": {
+                   "type": "number"
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_campaign_insights_performance_trends_get",
+         "data": {
+          "campaign_audience": {
+           "headline": {
+            "format": "counter",
+            "value": 12000
+           },
+           "trend": {
+            "format": "trend",
+            "value": [
+             {
+              "date": "2026-07-01",
+              "value": 12000
+             }
+            ]
+           }
+          },
+          "primary_button_unique_clicks": {
+           "headline": {
+            "format": "counter",
+            "value": 340
+           },
+           "trend": {
+            "format": "trend",
+            "value": [
+             {
+              "date": "2026-07-01",
+              "value": 340
+             }
+            ]
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns": {
+   "post": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Create Campaign",
+    "operationId": "drive_v1_campaigns_post",
+    "description": "Creates a new campaign. Triggers aren't a separate endpoint — they're expressed as BudQL inside the campaign's `schedule`; see [docs.thisisbud.com/docs/custom-insights](https://docs.thisisbud.com/docs/custom-insights).\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Create Campaign Request",
+        "type": "object",
+        "required": [
+         "name",
+         "audience"
+        ],
+        "properties": {
+         "template_id": {
+          "type": "string",
+          "format": "uuid"
+         },
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "audience": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The ID of the segment this campaign targets."
+         },
+         "channels": {
+          "title": "Campaign Channels",
+          "type": "object",
+          "properties": {
+           "action_card": {
+            "title": "Campaign Action Card Channel",
+            "type": "object",
+            "properties": {
+             "headline": {
+              "type": "string"
+             },
+             "message": {
+              "type": "string"
+             },
+             "primary_button": {
+              "$ref": "#/paths/~1drive-api~1v1~1campaigns~1banner-widgets/get/responses/200/content/application~1json/schema/properties/data/items/properties/primary_button"
+             },
+             "image_url": {
+              "type": "string",
+              "format": "uri"
+             },
+             "styling": {
+              "$ref": "#/paths/~1drive-api~1v1~1campaigns~1banner-widgets/get/responses/200/content/application~1json/schema/properties/data/items/properties/styling"
+             },
+             "priority_order": {
+              "type": "integer"
+             }
+            }
+           }
+          }
+         },
+         "schedule": {
+          "title": "Campaign Schedule",
+          "type": "object",
+          "description": "When the campaign is published. `type: when_published` starts immediately; trigger-based\nschedules are expressed as BudQL — see\n[docs.thisisbud.com/docs/custom-insights](https://docs.thisisbud.com/docs/custom-insights).\n",
+          "properties": {
+           "type": {
+            "type": "string"
+           }
+          }
+         },
+         "duration": {
+          "title": "Campaign Duration",
+          "type": "object",
+          "properties": {
+           "intervals": {
+            "type": "integer"
+           },
+           "interval_type": {
+            "type": "string",
+            "description": "The unit `intervals` is measured in. Potential values are subject to change and may\nbe converted to enums at a future unspecified date.\n\n| Value   | Description                    |\n|---------|-----------------------------------|\n| `DAY`   | Duration measured in days      |\n| `WEEK`  | Duration measured in weeks     |\n| `MONTH` | Duration measured in months    |\n"
+           }
+          }
+         }
+        }
+       },
+       "example": {
+        "template_id": "0fdb0218-eaae-4b3f-9ce2-694404b3399c",
+        "name": "This is a new campaign",
+        "description": "Here is the description",
+        "audience": "08bb7126-cbdb-4e92-b27d-2fabc72ea21a",
+        "channels": {
+         "action_card": {
+          "headline": "This is your headline",
+          "message": "Welcome to this campaign",
+          "primary_button": {
+           "text": "Click Here!",
+           "url": "https://thisisbud.com"
+          },
+          "image_url": "https://thisisbud.com/campaign.png",
+          "styling": {
+           "type": "custom",
+           "accent_color": "#cccccc",
+           "text_color": "#ffffff",
+           "font": "Arial"
+          },
+          "priority_order": 0
+         }
+        },
+        "schedule": {
+         "type": "when_published"
+        },
+        "duration": {
+         "intervals": 30,
+         "interval_type": "DAY"
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Create Campaign Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "properties": {
+            "campaign_id": {
+             "type": "string",
+             "format": "uuid"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaigns_post",
+         "data": {
+          "campaign_id": "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Campaigns",
+    "operationId": "drive_v1_campaigns_get",
+    "description": "Lists and searches your campaigns.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "status",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Filter campaigns by status. Potential values are subject to change and may be converted\nto enums at a future unspecified date.\n\n| Value     | Description                                                    |\n|-----------|------------------------------------------------------------------|\n| `live`    | Currently running                                              |\n| `paused`  | Temporarily paused                                             |\n| `ended`   | Finished                                                       |\n| `pending` | Scheduled but not yet live (derived, not settable directly)   |\n"
+     },
+     {
+      "name": "created_by",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Filter campaigns by the identifier of the user who created them."
+     },
+     {
+      "name": "items_per_page",
+      "in": "query",
+      "schema": {
+       "type": "integer"
+      },
+      "description": "Maximum number of campaigns to return per page. Max 1000, default 100."
+     },
+     {
+      "name": "page_token",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Pagination token from a previous request's `metadata.next_page_token`."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "List Campaigns Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}/get/responses/200/content/application~1json/schema/properties/data"
+           }
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "next_page_token": {
+             "type": "string"
+            },
+            "items_per_page": {
+             "type": "integer"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaigns_get",
+         "data": [
+          {
+           "campaign_id": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+           "template_id": "0fdb0218-eaae-4b3f-9ce2-694404b3399c",
+           "name": "This is a new campaign",
+           "description": "Here is the description",
+           "audience": "08bb7126-cbdb-4e92-b27d-2fabc72ea21a",
+           "status": "live",
+           "created_at": "2026-07-07T00:30:00Z",
+           "created_by": "auth0|65423dc3277ae1aa42014e01"
+          }
+         ],
+         "metadata": {
+          "next_page_token": "...",
+          "items_per_page": 100
+         }
+        }
+       }
+      }
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/{campaign_id}/content": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Campaign Content",
+    "operationId": "drive_v1_campaign_content_get",
+    "description": "Retrieves a campaign's live and draft content.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Retrieve Campaign Content Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "properties": {
+            "current": {
+             "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}~1content/put/requestBody/content/application~1json/schema"
+            },
+            "draft": {
+             "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}~1content/put/requestBody/content/application~1json/schema"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaign_content_get",
+         "data": {
+          "current": {
+           "name": "This is a new campaign",
+           "description": "Here is the description",
+           "audience": "08bb7126-cbdb-4e92-b27d-2fabc72ea21a",
+           "channels": {
+            "action_card": {
+             "headline": "This is your headline",
+             "message": "Welcome to this campaign"
+            }
+           }
+          },
+          "draft": {
+           "name": "This is a new campaign - updated!",
+           "description": "Here is the description",
+           "audience": "b308ce11-50ff-4a85-aa49-5124d04bdb30",
+           "channels": {
+            "action_card": {
+             "headline": "This is your new headline",
+             "message": "Welcome to this campaign"
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "404": {
+      "description": "Campaign not found"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Update Campaign Content",
+    "operationId": "drive_v1_campaign_content_put",
+    "description": "Updates a campaign's draft content. Triggers aren't a separate endpoint — they're expressed as BudQL inside the campaign's `schedule`; see [docs.thisisbud.com/docs/custom-insights](https://docs.thisisbud.com/docs/custom-insights).\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}/get/parameters/1"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Campaign Content",
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "audience": {
+          "type": "string",
+          "format": "uuid"
+         },
+         "channels": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns/post/requestBody/content/application~1json/schema/properties/channels"
+         },
+         "schedule": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns/post/requestBody/content/application~1json/schema/properties/schedule"
+         },
+         "duration": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns/post/requestBody/content/application~1json/schema/properties/duration"
+         }
+        }
+       },
+       "example": {
+        "name": "This is a new campaign - updated!",
+        "description": "Here is the description",
+        "audience": "b308ce11-50ff-4a85-aa49-5124d04bdb30",
+        "channels": {
+         "action_card": {
+          "headline": "This is your new headline",
+          "message": "Welcome to this campaign",
+          "primary_button": {
+           "text": "Click Here!",
+           "url": "https://thisisbud.com"
+          },
+          "image_url": "https://thisisbud.com/campaign.png",
+          "styling": {
+           "type": "custom",
+           "accent_color": "#cccccc",
+           "text_color": "#ffffff",
+           "font": "Arial"
+          },
+          "priority_order": 0
+         }
+        },
+        "schedule": {
+         "type": "when_published"
+        },
+        "duration": {
+         "intervals": 90,
+         "interval_type": "DAY"
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "description": "Updated"
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/banner-widgets": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Banner Widgets",
+    "operationId": "drive_v1_campaigns_banner_widgets_get",
+    "description": "Retrieves the active campaign banners a specific customer is eligible to see. **Note**: unlike every other Drive Campaigns API endpoint, this one authenticates as an end customer rather than as a dashboard user.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "in": "header",
+      "name": "X-Customer-Id",
+      "schema": {
+       "type": "string",
+       "format": "uuid"
+      },
+      "required": true,
+      "description": "A unique identifier for a Customer, as registered on Bud's platform.",
+      "example": "c3339af9-2426-44d4-9c4d-ddb8fd281e23"
+     },
+     {
+      "name": "channel",
+      "in": "query",
+      "schema": {
+       "type": "string",
+       "default": "action_card"
+      },
+      "description": "The channel to retrieve eligible banner widgets for. Potential values are subject to\nchange and may be converted to enums at a future unspecified date.\n\n| Value         | Description                                              |\n|---------------|-------------------------------------------------------------|\n| `action_card` | The only currently supported customer-facing channel      |\n"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Banner Widgets Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "title": "Banner Widget",
+            "type": "object",
+            "properties": {
+             "campaign_id": {
+              "type": "string",
+              "format": "uuid"
+             },
+             "created_at": {
+              "type": "string",
+              "format": "date-time"
+             },
+             "headline": {
+              "type": "string"
+             },
+             "message": {
+              "type": "string"
+             },
+             "template_variables": {
+              "type": "object"
+             },
+             "primary_button": {
+              "title": "Campaign Button",
+              "type": "object",
+              "properties": {
+               "text": {
+                "type": "string"
+               },
+               "url": {
+                "type": "string",
+                "format": "uri"
+               }
+              }
+             },
+             "image_url": {
+              "type": "string",
+              "format": "uri"
+             },
+             "styling": {
+              "title": "Campaign Styling",
+              "type": "object",
+              "properties": {
+               "type": {
+                "type": "string",
+                "description": "Where the styling values come from. Potential values are subject to change and may\nbe converted to enums at a future unspecified date.\n\n| Value    | Description                                              |\n|----------|-------------------------------------------------------------|\n| `custom` | Styling is set explicitly on the campaign                  |\n| `brand`  | Styling inherits the organisation's brand defaults         |\n"
+               },
+               "accent_color": {
+                "type": "string"
+               },
+               "text_color": {
+                "type": "string"
+               },
+               "font": {
+                "type": "string"
+               }
+              }
+             },
+             "priority_order": {
+              "type": "integer"
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaigns_banner_widgets_get",
+         "data": [
+          {
+           "campaign_id": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+           "created_at": "2026-07-07T00:30:00Z",
+           "headline": "Hello {{ customer_name }} - want better insurance?",
+           "message": "You earn {{ mean_income }} - we can get you some better insurance!",
+           "template_variables": {
+            "customer_name": "Jim",
+            "mean_income": "10000"
+           },
+           "primary_button": {
+            "text": "Click here!",
+            "url": "https://thisisbud.com/click-here"
+           },
+           "image_url": "https://thisisbud.com/campaign.png",
+           "styling": {
+            "type": "brand"
+           },
+           "priority_order": 0
+          }
+         ]
+        }
+       }
+      }
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/{campaign_id}/status": {
+   "put": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Update Campaign Status",
+    "operationId": "drive_v1_campaign_status_put",
+    "description": "Sets a campaign live, paused, or ended.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1campaigns~1{campaign_id}/get/parameters/1"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Update Campaign Status Request",
+        "type": "object",
+        "required": [
+         "status"
+        ],
+        "properties": {
+         "status": {
+          "type": "string",
+          "description": "The status to set. `pending`/`scheduled` states are derived, not settable directly.\nPotential values are subject to change and may be converted to enums at a future\nunspecified date.\n\n| Value    | Description         |\n|----------|-----------------------|\n| `live`   | Currently running   |\n| `paused` | Temporarily paused  |\n| `ended`  | Finished            |\n"
+         }
+        }
+       },
+       "example": {
+        "status": "paused"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "description": "Status Updated"
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/agent/{generation_id}": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Campaign Agent Run",
+    "operationId": "drive_v1_campaigns_agent_get",
+    "description": "Reports where a run has got to, and carries the finished campaign once it is done. `result` is null until the status is `completed`, so you poll this one endpoint throughout rather than switching to another when the run finishes.\n\nA run belongs to the organisation that created it; another organisation's run is reported as not found rather than forbidden.\n\nOnce a run completes, pass `result.template_id` to Create Campaign as `template_id` to turn the drafted campaign into a live one.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "generation_id",
+      "in": "path",
+      "schema": {
+       "type": "string"
+      },
+      "required": true,
+      "description": "The ID returned when the campaign agent run was created.",
+      "example": "ceca9875e4674c6699fc404b76f1786f"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Campaign Agent Run Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "title": "Campaign Agent Run",
+           "type": "object",
+           "properties": {
+            "id": {
+             "type": "string"
+            },
+            "status": {
+             "type": "string",
+             "description": "Where the run has got to. `failed` is not final — a failed run may be retried automatically, so a later poll can return `running`.\n",
+             "enum": [
+              "pending",
+              "running",
+              "completed",
+              "failed"
+             ]
+            },
+            "created_at": {
+             "type": "string",
+             "format": "date-time",
+             "nullable": true
+            },
+            "started_at": {
+             "type": "string",
+             "format": "date-time",
+             "nullable": true
+            },
+            "completed_at": {
+             "type": "string",
+             "format": "date-time",
+             "nullable": true
+            },
+            "result": {
+             "title": "Campaign Agent Result",
+             "type": "object",
+             "nullable": true,
+             "description": "The campaign a completed run produced. Null until the run reports `completed`.",
+             "properties": {
+              "template_id": {
+               "type": "string",
+               "description": "The campaign template this run saved. Pass it as `template_id` to Create Campaign to turn the drafted campaign into a live one.\n"
+              },
+              "audience": {
+               "title": "Campaign Agent Audience",
+               "type": "object",
+               "description": "Who the campaign targets, delivered as a Drive segment.",
+               "properties": {
+                "segment_id": {
+                 "type": "string",
+                 "format": "uuid",
+                 "nullable": true,
+                 "description": "The segment holding the audience. Usable anywhere segments are."
+                },
+                "name": {
+                 "type": "string",
+                 "nullable": true
+                },
+                "description": {
+                 "type": "string",
+                 "nullable": true
+                },
+                "size": {
+                 "type": "integer",
+                 "nullable": true,
+                 "description": "How many customers matched when the run completed."
+                }
+               }
+              },
+              "campaign": {
+               "title": "Campaign Agent Campaign",
+               "type": "object",
+               "description": "The campaign the agent built for this audience.",
+               "properties": {
+                "label": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "A short internal label for whoever manages the campaign. Not shown to customers."
+                },
+                "rationale": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "Why this audience and this campaign. Not shown to customers."
+                },
+                "title": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "Customer-facing headline."
+                },
+                "description": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "Customer-facing body copy."
+                },
+                "primary_cta": {
+                 "type": "string",
+                 "nullable": true
+                },
+                "secondary_cta": {
+                 "type": "string",
+                 "nullable": true
+                },
+                "objective": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "The campaign's business goal, such as Acquisition, Upsell or Reduce Churn."
+                },
+                "product": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "The financial product being promoted."
+                },
+                "insight": {
+                 "type": "string",
+                 "nullable": true,
+                 "description": "The data-driven insight about the audience that motivates the campaign."
+                }
+               }
+              },
+              "estimated_value": {
+               "title": "Campaign Agent Estimated Value",
+               "type": "object",
+               "nullable": true,
+               "description": "The agent's estimate of how valuable this opportunity is.",
+               "properties": {
+                "tier": {
+                 "type": "string"
+                },
+                "label": {
+                 "type": "string"
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaigns_agent_get",
+         "data": {
+          "id": "ceca9875e4674c6699fc404b76f1786f",
+          "status": "completed",
+          "created_at": "2026-09-08T09:12:04Z",
+          "started_at": "2026-09-08T09:12:05Z",
+          "completed_at": "2026-09-08T09:26:41Z",
+          "result": {
+           "template_id": "ceca9875e4674c6699fc404b76f1786f",
+           "audience": {
+            "segment_id": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+            "name": "High-earning renters",
+            "description": "Customers earning over 2,200 USD a month who rent their home.",
+            "size": 4213
+           },
+           "campaign": {
+            "label": "High-earning renters",
+            "rationale": "Targets renters with strong income who hold no lending product.",
+            "title": "Ready to stop renting?",
+            "description": "You're earning well. See how much you could borrow towards a first home.",
+            "primary_cta": "Check eligibility",
+            "secondary_cta": "Learn more",
+            "objective": "Acquisition",
+            "product": "Mortgage",
+            "insight": "28% of renters in this income band hold no lending product with us."
+           },
+           "estimated_value": {
+            "tier": "high",
+            "label": "High"
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/agent": {
+   "post": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Build Campaign From Business Goal",
+    "operationId": "drive_v1_campaigns_agent_post",
+    "description": "Starts a campaign agent run and returns immediately. You describe the outcome you want in plain language, and the agent finds the audience that matches it, writes the campaign copy, generates the artwork and estimates the value of the opportunity.\n\nRuns take minutes rather than seconds, so poll `GET /drive-api/v1/campaigns/agent/{generation_id}` every 10-15 seconds until the status is `completed`; that response then carries the campaign under `result`.\n\nWhat the agent knows about your organisation — its context, tone of voice, branding and image style — is configured by Bud on your behalf, so most requests send nothing but the goal. Any of those can be overridden for a single run by sending it in the body; overrides apply to that run only and are never saved.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Create Campaign Agent Run Request",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "campaign_goal"
+        ],
+        "properties": {
+         "campaign_goal": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The business goal the campaign should serve, in plain language."
+         },
+         "context": {
+          "title": "Campaign Agent Override",
+          "type": "string",
+          "nullable": true,
+          "maxLength": 4000,
+          "description": "Overrides your configured value for this run only. Leave it out to use what Bud has configured for you, or send an empty string to drop it for this run. Nothing sent here is saved against your organisation.\n"
+         },
+         "tone_of_voice": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns~1agent/post/requestBody/content/application~1json/schema/properties/context"
+         },
+         "branding": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns~1agent/post/requestBody/content/application~1json/schema/properties/context"
+         },
+         "image_style": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns~1agent/post/requestBody/content/application~1json/schema/properties/context"
+         },
+         "extra_context": {
+          "$ref": "#/paths/~1drive-api~1v1~1campaigns~1agent/post/requestBody/content/application~1json/schema/properties/context"
+         }
+        }
+       },
+       "example": {
+        "campaign_goal": "find people who earn more than 2200 USD a month and are renters"
+       }
+      }
+     }
+    },
+    "responses": {
+     "202": {
+      "description": "Accepted",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Create Campaign Agent Run Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "properties": {
+            "id": {
+             "type": "string",
+             "description": "The ID to poll for progress."
+            },
+            "status": {
+             "type": "string",
+             "enum": [
+              "pending",
+              "running",
+              "completed",
+              "failed"
+             ]
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaigns_agent_post",
+         "data": {
+          "id": "ceca9875e4674c6699fc404b76f1786f",
+          "status": "pending"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaigns/content-variables": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Campaign Content Variables",
+    "operationId": "drive_v1_campaigns_content_variables_get",
+    "description": "Lists the personalization variables available for use in campaign content.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Content Variables Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "title": "Content Variable",
+            "type": "object",
+            "properties": {
+             "name": {
+              "type": "string"
+             },
+             "label": {
+              "type": "string"
+             },
+             "description": {
+              "type": "string"
+             },
+             "type": {
+              "type": "string"
+             },
+             "examples": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "properties": {
+                "currency": {
+                 "type": "string"
+                },
+                "value": {
+                 "type": "string"
+                }
+               }
+              }
+             },
+             "parameters": {
+              "type": "array",
+              "items": {
+               "title": "Content Variable Parameter",
+               "type": "object",
+               "properties": {
+                "name": {
+                 "type": "string"
+                },
+                "type": {
+                 "type": "string"
+                },
+                "label": {
+                 "type": "string"
+                }
+               }
+              }
+             },
+             "group": {
+              "type": "string"
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "drive_v1_campaigns_content_variables_get",
+         "data": [
+          {
+           "name": "total_spending_per_category",
+           "label": "Total Spending Per Category",
+           "description": "The customer's total spend in a given category over a time window.",
+           "type": "currency",
+           "examples": [
+            {
+             "currency": "GBP",
+             "value": "100.00"
+            }
+           ],
+           "parameters": [
+            {
+             "name": "category",
+             "type": "category_l2",
+             "label": "Category"
+            },
+            {
+             "name": "intervals",
+             "type": "integer",
+             "label": "Intervals"
+            },
+            {
+             "name": "interval_type",
+             "type": "interval_type",
+             "label": "Interval Type"
+            }
+           ],
+           "group": "Spending"
+          }
+         ]
+        }
+       }
+      }
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaign-templates/templates/{template_id}": {
+   "delete": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Delete Campaign Template",
+    "operationId": "v1_client_campaign_templates_delete",
+    "description": "Removes your organisation's own customisation of a campaign template.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "template_id",
+      "in": "path",
+      "schema": {
+       "type": "string"
+      },
+      "required": true,
+      "description": "The ID of the campaign template.",
+      "example": "89d133a9-02f8-4217-adb8-1d341fc91101"
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "No Content"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/{segment_id}": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Retrieve Segment",
+    "operationId": "v1_segment_get",
+    "description": "Retrieves a segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "segment_id",
+      "in": "path",
+      "schema": {
+       "type": "string",
+       "format": "uuid"
+      },
+      "required": true,
+      "description": "The ID of the segment.",
+      "example": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Retrieve Segment Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "$ref": "#/paths/~1drive-api~1v1~1segments~1upload/post/responses/200/content/application~1json/schema/properties/data"
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_get",
+         "data": {
+          "id": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+          "name": "High Credit Utilisation",
+          "source": "manual"
+         }
+        }
+       }
+      }
+     },
+     "404": {
+      "description": "Segment not found"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Delete Segment",
+    "operationId": "v1_segment_delete",
+    "description": "Deletes a segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Delete Segment Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "segment_id": {
+             "type": "string",
+             "format": "uuid"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_delete",
+         "metadata": {
+          "segment_id": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+         }
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Segment cannot be deleted — it is in use as a dependency of other segments"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Patch Segment",
+    "operationId": "v1_segment_patch",
+    "description": "Partially updates a segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Patch Segment Request",
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "tags": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "name": "New segment name",
+        "description": "Updated description",
+        "tags": [
+         "September Campaign"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Patch Segment Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "$ref": "#/paths/~1drive-api~1v1~1segments~1upload/post/responses/200/content/application~1json/schema/properties/data"
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_patch",
+         "data": {
+          "id": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+          "name": "New segment name",
+          "description": "Updated description",
+          "tags": [
+           "September Campaign"
+          ]
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Compare Segments (Similarity)",
+    "operationId": "v1_compare_segments_get",
+    "description": "Compares two segments and returns how much their customers overlap.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     },
+     {
+      "name": "other_segment_id",
+      "in": "path",
+      "schema": {
+       "type": "string"
+      },
+      "required": true,
+      "description": "The ID of the segment to compare against.",
+      "example": "7e8aedf9-6be5-4807-afe0-aa292fb2cde2"
+     },
+     {
+      "name": "refresh",
+      "in": "query",
+      "schema": {
+       "type": "boolean"
+      },
+      "description": "If true, re-runs both segments instead of using cached results."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Compare Segments Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "title": "Segment Similarity",
+           "type": "object",
+           "properties": {
+            "jaccard_index": {
+             "type": "number"
+            },
+            "intersection_count": {
+             "type": "integer"
+            },
+            "union_count": {
+             "type": "integer"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_compare_segments_get",
+         "data": {
+          "jaccard_index": 0.25,
+          "intersection_count": 10,
+          "union_count": 40
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "Invalid segment"
+     },
+     "404": {
+      "description": "Segment does not exist"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v2/criteria/run": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Run Ad-hoc Criteria",
+    "operationId": "v2_criteria_run_post",
+    "description": "Runs a criteria definition directly, without saving it as a draft first.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Segment Criteria",
+        "oneOf": [
+         {
+          "title": "Flag Criteria",
+          "type": "object",
+          "required": [
+           "criteria",
+           "name"
+          ],
+          "properties": {
+           "criteria": {
+            "type": "string",
+            "enum": [
+             "flag"
+            ]
+           },
+           "name": {
+            "type": "string"
+           }
+          }
+         },
+         {
+          "title": "Segment Dependency Criteria",
+          "type": "object",
+          "required": [
+           "criteria",
+           "segment_id"
+          ],
+          "properties": {
+           "criteria": {
+            "type": "string",
+            "enum": [
+             "segment_dependency"
+            ]
+           },
+           "segment_id": {
+            "type": "string",
+            "format": "uuid"
+           }
+          }
+         },
+         {
+          "title": "Logical Criteria",
+          "type": "object",
+          "required": [
+           "operator",
+           "operands"
+          ],
+          "properties": {
+           "operator": {
+            "type": "string",
+            "enum": [
+             "logical_and",
+             "logical_or",
+             "logical_not"
+            ]
+           },
+           "operands": {
+            "type": "array",
+            "items": {
+             "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/requestBody/content/application~1json/schema"
+            }
+           }
+          }
+         }
+        ]
+       },
+       "example": {
+        "criteria": "flag",
+        "name": "renter"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.visualisation+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.visualisation+json": {
+        "schema": {
+         "title": "Visualisation Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "properties": {
+            "visualisation_type": {
+             "type": "string",
+             "description": "The shape of the visualisation. Potential values are subject to change and may\nbe converted to enums at a future unspecified date.\n\n| Value     | Description                                    |\n|-----------|--------------------------------------------------|\n| `counter` | A single numeric value visualisation           |\n"
+            },
+            "name": {
+             "type": "string"
+            },
+            "value": {
+             "type": "number"
+            }
+           }
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "run_id": {
+             "type": "string"
+            },
+            "run_type": {
+             "type": "string"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v2_criteria_run_post",
+         "data": {
+          "visualisation_type": "counter",
+          "name": "total_customers",
+          "value": 163
+         },
+         "metadata": {
+          "run_id": "48c675f4-4fc7-43f3-80fd-114ec632f4f7",
+          "run_type": "expiring"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v1/campaign-templates/compiled-templates": {
+   "get": {
+    "tags": [
+     "Drive Campaigns API"
+    ],
+    "summary": "Get Compiled Campaign Templates",
+    "operationId": "v1_compiled_templates_get",
+    "description": "Retrieves the campaign templates available to your organisation. Bud manages template creation and updates internally — clients can read and delete templates, but not create or update them.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "source_type",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Optional filter to return only templates with the specified source type."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Compiled Templates Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "properties": {
+            "templates": {
+             "type": "array",
+             "items": {
+              "title": "Campaign Template",
+              "type": "object",
+              "properties": {
+               "template_id": {
+                "type": "string"
+               },
+               "source": {
+                "title": "Campaign Template Source",
+                "type": "object",
+                "properties": {
+                 "type": {
+                  "type": "string",
+                  "description": "Where the template originates from. Potential values are subject to change and may\nbe converted to enums at a future unspecified date.\n\n| Value    | Description                                                       |\n|----------|----------------------------------------------------------------------|\n| `manual` | Bud's internal creation process (only source type today; agentic template creation is expected to add more) |\n"
+                 },
+                 "metadata": {
+                  "type": "object"
+                 }
+                }
+               },
+               "campaign_fields": {
+                "title": "Campaign Template Fields",
+                "type": "object",
+                "properties": {
+                 "name": {
+                  "type": "string"
+                 },
+                 "description": {
+                  "type": "string"
+                 }
+                }
+               },
+               "criteria": {
+                "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/requestBody/content/application~1json/schema"
+               },
+               "channels": {
+                "type": "object"
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_compiled_templates_get",
+         "data": {
+          "templates": [
+           {
+            "template_id": "89d133a9-02f8-4217-adb8-1d341fc91101",
+            "source": {
+             "type": "manual",
+             "metadata": {}
+            },
+            "campaign_fields": {
+             "name": "Campaign Name",
+             "description": "A description of the purpose of the campaign"
+            },
+            "criteria": {
+             "operator": "logical_and",
+             "operands": [
+              {
+               "criteria": "flag",
+               "name": "insight_name"
+              },
+              {
+               "operator": "logical_not",
+               "operands": [
+                {
+                 "criteria": "flag",
+                 "name": "other_insight"
+                }
+               ]
+              }
+             ]
+            },
+            "channels": {}
+           }
+          ]
+         }
+        }
+       }
+      }
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-mcp/v1/copilot": {
+   "post": {
+    "tags": [
+     "Drive MCP API"
+    ],
+    "summary": "Copilot MCP Server",
+    "operationId": "v1_drive_mcp_copilot_post",
+    "description": "The connection URL for Drive's general copilot Model Context Protocol server. Point an\nMCP Client at this URL to send it JSON-RPC messages, authenticating the same way as any\nother Bud API endpoint.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "MCP JSON-RPC Request",
+        "description": "A [JSON-RPC 2.0](https://www.jsonrpc.org/specification) request, per the Model Context Protocol specification.",
+        "type": "object",
+        "required": [
+         "jsonrpc",
+         "method"
+        ],
+        "properties": {
+         "jsonrpc": {
+          "type": "string",
+          "enum": [
+           "2.0"
+          ]
+         },
+         "id": {
+          "oneOf": [
+           {
+            "type": "string"
+           },
+           {
+            "type": "integer"
+           }
+          ]
+         },
+         "method": {
+          "type": "string"
+         },
+         "params": {
+          "type": "object"
+         }
+        },
+        "example": {
+         "jsonrpc": "2.0",
+         "id": 1,
+         "method": "tools/list"
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "A JSON-RPC response from the MCP server.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "MCP JSON-RPC Response",
+         "description": "A [JSON-RPC 2.0](https://www.jsonrpc.org/specification) response, per the Model Context Protocol specification.",
+         "type": "object",
+         "required": [
+          "jsonrpc",
+          "id"
+         ],
+         "properties": {
+          "jsonrpc": {
+           "type": "string",
+           "enum": [
+            "2.0"
+           ]
+          },
+          "id": {
+           "oneOf": [
+            {
+             "type": "string"
+            },
+            {
+             "type": "integer"
+            }
+           ]
+          },
+          "result": {
+           "type": "object"
+          },
+          "error": {
+           "type": "object",
+           "properties": {
+            "code": {
+             "type": "integer"
+            },
+            "message": {
+             "type": "string"
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "An unauthenticated request was received."
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-mcp/v1/campaigns": {
+   "post": {
+    "tags": [
+     "Drive MCP API"
+    ],
+    "summary": "Campaigns MCP Server",
+    "operationId": "v1_drive_mcp_campaigns_post",
+    "description": "The connection URL for Drive's Campaigns Model Context Protocol server. Point an MCP\nClient at this URL to send it JSON-RPC messages, authenticating the same way as any other\nBud API endpoint.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/paths/~1drive-mcp~1v1~1copilot/post/requestBody/content/application~1json/schema"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "A JSON-RPC response from the MCP server.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-mcp~1v1~1copilot/post/responses/200/content/application~1json/schema"
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "An unauthenticated request was received."
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-mcp/v1/segments": {
+   "post": {
+    "tags": [
+     "Drive MCP API"
+    ],
+    "summary": "Segments MCP Server",
+    "operationId": "v1_drive_mcp_segments_post",
+    "description": "The connection URL for Drive's Segments Model Context Protocol server. Point an MCP\nClient at this URL to send it JSON-RPC messages, authenticating the same way as any other\nBud API endpoint.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/paths/~1drive-mcp~1v1~1copilot/post/requestBody/content/application~1json/schema"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "A JSON-RPC response from the MCP server.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-mcp~1v1~1copilot/post/responses/200/content/application~1json/schema"
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "An unauthenticated request was received."
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/from-existing/criteria": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Create Segment From Existing (Criteria)",
+    "operationId": "v1_segment_from_existing_criteria_post",
+    "description": "Creates a new segment by copying the criteria from an existing segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Create Segment From Criteria Request",
+        "type": "object",
+        "required": [
+         "name",
+         "criteria_from"
+        ],
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "criteria_from": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The ID of the segment whose criteria should be copied."
+         },
+         "fixed_customer_list": {
+          "type": "boolean"
+         },
+         "tags": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "name": "January 2024: High Credit Utilisation Customers",
+        "description": "January 2024: Customers with more than 1 credit card & a mortgage",
+        "criteria_from": "b8b612a4-c1b0-4c8c-b105-991ed5870ee2",
+        "fixed_customer_list": true,
+        "tags": [
+         "January Campaign"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Create Segment From Existing Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "$ref": "#/paths/~1drive-api~1v1~1segments~1upload/post/responses/200/content/application~1json/schema/properties/data"
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_from_existing_criteria_post",
+         "data": {
+          "id": "dd926ab0-1a9b-4c9d-acf1-b54219898878",
+          "name": "January 2024: High Credit Utilisation Customers",
+          "fixed_customer_list": true,
+          "fixed_customer_list_size": 1000,
+          "source": "manual",
+          "tags": [
+           "January Campaign"
+          ]
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/upload": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Upload Segment",
+    "operationId": "v1_segments_upload",
+    "description": "Creates a fixed customer-list segment from an uploaded list of customer IDs.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Upload Segment Request",
+        "type": "object",
+        "required": [
+         "name",
+         "customers"
+        ],
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "customers": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          },
+          "description": "Customer IDs to include in the fixed customer list."
+         },
+         "tags": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "name": "High Risk Customers",
+        "description": "High Risk Customers",
+        "customers": [
+         "b8b612a4-c1b0-4c8c-b105-991ed5870ee2",
+         "0d1e7001-1349-44a4-b970-30d4d2a30a5e"
+        ],
+        "tags": [
+         "January Campaign"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Upload Segment Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "title": "Segment",
+           "type": "object",
+           "required": [
+            "id",
+            "name"
+           ],
+           "properties": {
+            "id": {
+             "type": "string",
+             "format": "uuid"
+            },
+            "name": {
+             "type": "string"
+            },
+            "description": {
+             "type": "string"
+            },
+            "source": {
+             "type": "string",
+             "description": "How the segment was created. Potential values are subject to change and may be\nconverted to enums at a future unspecified date.\n\n| Value           | Description                                    |\n|-----------------|-------------------------------------------------|\n| `manual`        | Built from criteria/groups                     |\n| `uploaded_list` | A fixed customer list from an uploaded file    |\n"
+            },
+            "fixed_customer_list": {
+             "type": "boolean"
+            },
+            "fixed_customer_list_size": {
+             "type": "integer"
+            },
+            "tags": {
+             "type": "array",
+             "items": {
+              "type": "string"
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segments_upload",
+         "data": {
+          "id": "dd926ab0-1a9b-4c9d-acf1-b54219898878",
+          "name": "High Risk Customers",
+          "source": "uploaded_list",
+          "fixed_customer_list": true,
+          "fixed_customer_list_size": 1000,
+          "tags": [
+           "January Campaign"
+          ]
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/from-existing/fixed-customers": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Create Segment From Existing (Fixed Customers)",
+    "operationId": "v1_segment_from_existing_fixed_customers_post",
+    "description": "Creates a new segment from another segment's current members, fixed at the point of creation.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Create Segment From Fixed Customers Request",
+        "type": "object",
+        "required": [
+         "name",
+         "customers_from"
+        ],
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "customers_from": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The ID of the segment whose current members should be copied."
+         },
+         "tags": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "example": {
+        "name": "January 2024: High Credit Utilisation Customers",
+        "description": "January 2024: Customers with more than 1 credit card & a mortgage",
+        "customers_from": "b8b612a4-c1b0-4c8c-b105-991ed5870ee2",
+        "tags": [
+         "January Campaign"
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v1~1segments~1from-existing~1criteria/post/responses/200/content/application~1json/schema"
+        },
+        "example": {
+         "operation_id": "v1_segment_from_existing_fixed_customers_post",
+         "data": {
+          "id": "dd926ab0-1a9b-4c9d-acf1-b54219898878",
+          "name": "January 2024: High Credit Utilisation Customers",
+          "fixed_customer_list": true,
+          "fixed_customer_list_size": 1000,
+          "source": "manual",
+          "tags": [
+           "January Campaign"
+          ]
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/{segment_id}/query": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Query Segment Customers",
+    "operationId": "v1_segment_query_post",
+    "description": "Creates an export of every customer matching a segment and returns a link to download it.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Query Segment Customers Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "title": "Segment Export",
+           "type": "object",
+           "properties": {
+            "total_rows": {
+             "type": "integer"
+            },
+            "_links": {
+             "type": "object",
+             "properties": {
+              "full": {
+               "type": "array",
+               "items": {
+                "type": "string",
+                "format": "uri"
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_query_post",
+         "data": {
+          "total_rows": 1,
+          "_links": {
+           "full": [
+            "https://gcs.com/bucket/id/results-123.csv"
+           ]
+          }
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "description": "Invalid segment"
+     },
+     "404": {
+      "description": "Segment does not exist"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v1/segments/{segment_id}/statistics/overview": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Get Segment Statistics Overview",
+    "operationId": "v1_segment_statistics_overview_get",
+    "description": "Retrieves a segment's current statistics, such as total customers and category spend.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     },
+     {
+      "name": "significant_date",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Optional significant-date label to compute statistics relative to."
+     },
+     {
+      "name": "date_to",
+      "in": "query",
+      "schema": {
+       "type": "string",
+       "format": "date"
+      },
+      "description": "Optional end date to compute statistics up to."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Segment Statistics Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "title": "Segment Statistic",
+            "type": "object",
+            "properties": {
+             "statistics_id": {
+              "type": "string"
+             },
+             "name": {
+              "type": "string"
+             },
+             "type": {
+              "type": "string",
+              "description": "The shape of the statistic's values. Potential values are subject to change and may\nbe converted to enums at a future unspecified date.\n\n| Value         | Description                          |\n|---------------|---------------------------------------|\n| `aggregate`   | A single summary value               |\n| `time_series` | A series of values over time         |\n"
+             },
+             "parameters": {
+              "type": "object"
+             },
+             "values": {
+              "type": "array",
+              "items": {
+               "type": "object"
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v1_segment_statistics_overview_get",
+         "data": [
+          {
+           "name": "total_customers",
+           "type": "aggregate",
+           "values": [
+            {
+             "total": 163
+            }
+           ]
+          },
+          {
+           "statistics_id": "8ac57892-cb04-487e-8323-2a2a9d08b392",
+           "name": "category_l1_spending",
+           "type": "aggregate",
+           "parameters": {
+            "category_l1s": [
+             "gambling_and_lotteries"
+            ]
+           },
+           "values": [
+            {
+             "mean": 267.67,
+             "percentile_50": 250
+            }
+           ]
+          }
+         ]
+        }
+       }
+      }
+     },
+     "404": {
+      "description": "Segment does not exist"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v2/criteria/drafts/{criteria_id}": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Get Draft Criteria",
+    "operationId": "v2_criteria_draft_get",
+    "description": "Retrieves the definition of a draft criteria.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "criteria_id",
+      "in": "path",
+      "schema": {
+       "type": "string",
+       "format": "uuid"
+      },
+      "required": true,
+      "description": "The ID of the criteria.",
+      "example": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.criteria+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.criteria+json": {
+        "schema": {
+         "title": "Criteria Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "title": "Segment Criteria (Saved)",
+           "allOf": [
+            {
+             "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/requestBody/content/application~1json/schema"
+            },
+            {
+             "type": "object",
+             "properties": {
+              "id": {
+               "type": "string",
+               "format": "uuid"
+              }
+             }
+            }
+           ]
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "criteria_id": {
+             "type": "string",
+             "format": "uuid"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v2_criteria_draft_get",
+         "data": {
+          "id": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e",
+          "criteria": "flag",
+          "name": "renter"
+         },
+         "metadata": {
+          "criteria_id": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Update Draft Criteria",
+    "operationId": "v2_criteria_draft_put",
+    "description": "Updates the definition of a draft criteria.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v2~1criteria~1drafts~1{criteria_id}/get/parameters/1"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/requestBody/content/application~1json/schema"
+       },
+       "examples": {
+        "Flag (e.g. renter)": {
+         "value": {
+          "criteria": "flag",
+          "name": "renter"
+         }
+        },
+        "Segment dependency": {
+         "value": {
+          "criteria": "segment_dependency",
+          "segment_id": "7e8aedf9-6be5-4807-afe0-aa292fb2cde2"
+         }
+        },
+        "Conjunction of multiple criteria (renters who are parents with stable income)": {
+         "value": {
+          "operator": "logical_and",
+          "operands": [
+           {
+            "criteria": "flag",
+            "name": "renter"
+           },
+           {
+            "criteria": "flag",
+            "name": "parent"
+           },
+           {
+            "criteria": "flag",
+            "name": "stable_income"
+           }
+          ]
+         }
+        },
+        "Complex nested criteria": {
+         "value": {
+          "operator": "logical_and",
+          "operands": [
+           {
+            "operator": "logical_not",
+            "operands": [
+             {
+              "criteria": "segment_dependency",
+              "segment_id": "65324d52-1dbe-4f5a-80fd-9de785be586b"
+             }
+            ]
+           },
+           {
+            "criteria": "flag",
+            "name": "top_25pct_spenders_on_mortgage"
+           },
+           {
+            "operator": "logical_or",
+            "operands": [
+             {
+              "criteria": "flag",
+              "name": "pays_tv_phone_or_broadband_bill"
+             },
+             {
+              "criteria": "flag",
+              "name": "pays_energy_bill"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.visualisation+json` media type — updating a draft re-runs it and returns the resulting count.",
+      "content": {
+       "application/vnd.bud.drive.visualisation+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/responses/200/content/application~1vnd.bud.drive.visualisation+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_criteria_draft_put",
+         "data": {
+          "visualisation_type": "counter",
+          "name": "total_customers",
+          "value": 87421
+         },
+         "metadata": {
+          "run_id": "48c675f4-4fc7-43f3-80fd-114ec632f4f7",
+          "run_type": "expiring"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/criteria/drafts/{criteria_id}/run": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Run Draft Criteria",
+    "operationId": "v2_criteria_draft_run_post",
+    "description": "Runs a draft criteria and returns the number of matching customers.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v2~1criteria~1drafts~1{criteria_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.visualisation+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.visualisation+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/responses/200/content/application~1vnd.bud.drive.visualisation+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_criteria_draft_run_post",
+         "data": {
+          "visualisation_type": "counter",
+          "name": "total_customers",
+          "value": 163
+         },
+         "metadata": {
+          "run_id": "48c675f4-4fc7-43f3-80fd-114ec632f4f7",
+          "run_type": "expiring"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/segments": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Create Segment",
+    "operationId": "v2_segments_post",
+    "description": "Creates a new segment — empty, seeded from existing criteria, or from an uploaded customer list.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Create Segment (V2) Request",
+        "type": "object",
+        "required": [
+         "name"
+        ],
+        "description": "Determines which kind of segment is created based on which optional fields are present:\nan empty manual segment, a manual segment seeded from an existing draft criteria (via\n`from_criteria_id`), or a fixed customer-list segment from an uploaded list (via `upload`).\n",
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "description": {
+          "type": "string"
+         },
+         "tags": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         },
+         "from_criteria_id": {
+          "type": "string",
+          "format": "uuid"
+         },
+         "upload": {
+          "type": "object",
+          "properties": {
+           "filename": {
+            "type": "string"
+           },
+           "customers": {
+            "type": "array",
+            "items": {
+             "type": "string"
+            }
+           }
+          }
+         }
+        }
+       },
+       "examples": {
+        "Create empty manual segment": {
+         "value": {
+          "name": "New manual segment",
+          "description": "A new manual segment (with an empty criteria)",
+          "tags": [
+           "tag_1",
+           "tag_2"
+          ]
+         }
+        },
+        "Create manual segment from draft criteria": {
+         "value": {
+          "name": "New manual segment from criteria",
+          "description": "Segment will have criteria from an existing draft",
+          "tags": [
+           "tag_criteria"
+          ],
+          "from_criteria_id": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+         }
+        },
+        "Uploaded list of customers": {
+         "value": {
+          "name": "Uploaded list of customers",
+          "description": "List of customers from a campaign",
+          "tags": [
+           "campaign_1"
+          ],
+          "upload": {
+           "filename": "campaign_customers.csv",
+           "customers": [
+            "c1",
+            "c2",
+            "c3"
+           ]
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Created. Response uses the `application/vnd.bud.drive.notification+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.notification+json": {
+        "schema": {
+         "title": "Notification Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "code_id": {
+           "type": "string"
+          },
+          "status": {
+           "type": "string",
+           "description": "The outcome of the operation. Potential values are subject to change and may be\nconverted to enums at a future unspecified date.\n\n| Value     | Description                                |\n|-----------|---------------------------------------------|\n| `success` | The operation completed successfully       |\n"
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "resource_id": {
+             "type": "string"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v2_segments_post",
+         "code_id": "segment_created",
+         "status": "success",
+         "metadata": {
+          "resource_id": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Get Segments",
+    "operationId": "v2_segments_get",
+    "description": "Lists your segments.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "max_per_page",
+      "in": "query",
+      "schema": {
+       "type": "integer"
+      },
+      "description": "Maximum number of segments to return per page."
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "schema": {
+       "type": "integer"
+      },
+      "description": "The page of results to retrieve."
+     },
+     {
+      "name": "search",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Filter segments by name."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "List Segments (V2) Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/paths/~1drive-api~1v1~1segments~1upload/post/responses/200/content/application~1json/schema/properties/data"
+           }
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "results": {
+             "type": "integer"
+            },
+            "max_per_page": {
+             "type": "integer"
+            },
+            "page": {
+             "type": "integer"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v2_segments_get",
+         "data": [
+          {
+           "id": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+           "name": "High Credit Utilisation",
+           "tags": [
+            "January Campaign"
+           ]
+          }
+         ],
+         "metadata": {
+          "results": 1,
+          "max_per_page": 25,
+          "page": 1
+         }
+        }
+       }
+      }
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v2/criteria/drafts": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Create Draft Criteria",
+    "operationId": "v2_criteria_drafts_post",
+    "description": "Creates a new, empty draft criteria to build up before saving it to a segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Created. Response uses the `application/vnd.bud.drive.notification+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.notification+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1segments/post/responses/201/content/application~1vnd.bud.drive.notification+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_criteria_drafts_post",
+         "code_id": "draft_criteria_created",
+         "status": "success",
+         "metadata": {
+          "resource_id": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/criteria/options": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Get Criteria Options",
+    "operationId": "v2_criteria_options_get",
+    "description": "Lists the flags, segments, and custom criteria available to build a new criteria from.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "name": "filter",
+      "in": "query",
+      "schema": {
+       "type": "string"
+      },
+      "description": "Narrow the set of returned criteria options to a single category. Potential values are\nsubject to change and may be converted to enums at a future unspecified date.\n\n| Value            | Description                            |\n|-------------------|-----------------------------------------|\n| `flags`           | Flag-based criteria options            |\n| `segments`        | Segment-dependency criteria options    |\n| `custom_criteria` | Custom criteria options                |\n"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.criteria-options+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.criteria-options+json": {
+        "schema": {
+         "title": "Criteria Options Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "title": "Criteria Option",
+            "type": "object",
+            "properties": {
+             "id": {
+              "type": "string"
+             },
+             "category": {
+              "type": "string"
+             },
+             "hierarchy": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              }
+             },
+             "title": {
+              "type": "string"
+             },
+             "short_title": {
+              "type": "string"
+             },
+             "description": {
+              "type": "string"
+             },
+             "tags": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              }
+             },
+             "_template": {
+              "type": "object"
+             }
+            }
+           }
+          },
+          "metadata": {
+           "type": "object",
+           "properties": {
+            "_links": {
+             "type": "object"
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v2_criteria_options_get",
+         "data": [
+          {
+           "id": "employed",
+           "category": "Lifetime",
+           "hierarchy": [
+            "Employment",
+            "Employment status"
+           ],
+           "title": "Employed",
+           "short_title": "Employed",
+           "description": "Customers that are receiving employment income",
+           "tags": [],
+           "_template": {
+            "value": {
+             "criteria": "flag",
+             "name": "employed"
+            }
+           }
+          },
+          {
+           "id": "segment_1a164dda-0462-4135-bb79-e6032e1a7528",
+           "category": "Segment Dependency",
+           "hierarchy": [
+            "Segments",
+            "Segments"
+           ],
+           "title": "Customers in Campaign 1",
+           "short_title": "Customers in Campaign 1",
+           "description": "Customers who took part in the first campaign",
+           "tags": [],
+           "_template": {
+            "value": {
+             "criteria": "segment_dependency",
+             "segment_id": "1a164dda-0462-4135-bb79-e6032e1a7528"
+            }
+           }
+          }
+         ],
+         "metadata": {
+          "_links": {}
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/criteria/suggestions/segment-name": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Suggest Segment Name",
+    "operationId": "v2_criteria_suggestions_segment_name_post",
+    "description": "Suggests a name and description for a segment, generated from its criteria. Exists to reduce friction in the dashboard UI (pre-fills a name when the user hits create) — kept as an opt-in convenience for API clients too, so use is optional.\n",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "title": "Suggest Segment Name Request",
+        "type": "object",
+        "required": [
+         "criteria"
+        ],
+        "properties": {
+         "criteria": {
+          "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/requestBody/content/application~1json/schema"
+         }
+        }
+       },
+       "example": {
+        "criteria": {
+         "criteria": "flag",
+         "name": "renter"
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "title": "Suggest Segment Name Response",
+         "type": "object",
+         "properties": {
+          "operation_id": {
+           "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+          },
+          "data": {
+           "type": "object",
+           "properties": {
+            "suggestion": {
+             "type": "object",
+             "properties": {
+              "name": {
+               "type": "string"
+              },
+              "description": {
+               "type": "string"
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "example": {
+         "operation_id": "v2_criteria_suggestions_segment_name_post",
+         "data": {
+          "suggestion": {
+           "name": "Renters",
+           "description": "Customers who rent their home."
+          }
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "5XX": {
+      "$ref": "#/components/responses/ServerError"
+     }
+    }
+   }
+  },
+  "/drive-api/v2/segments/{segment_id}/criteria/active-options": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Get Segment Criteria Active Options",
+    "operationId": "v2_segment_criteria_active_options_get",
+    "description": "Lists the criteria options currently applied to a segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.criteria-options+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.criteria-options+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1criteria~1options/get/responses/200/content/application~1vnd.bud.drive.criteria-options+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_segment_criteria_active_options_get",
+         "data": [
+          {
+           "id": "employed",
+           "category": "Lifetime",
+           "hierarchy": [
+            "Employment",
+            "Employment status"
+           ],
+           "title": "Employed",
+           "short_title": "Employed",
+           "description": "Customers that are receiving employment income",
+           "tags": []
+          }
+         ],
+         "metadata": {
+          "_links": {}
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/segments/{segment_id}/criteria": {
+   "get": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Get Segment Criteria",
+    "operationId": "v2_segments_criteria_get",
+    "description": "Retrieves a segment's current criteria.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.criteria+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.criteria+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1criteria~1drafts~1{criteria_id}/get/responses/200/content/application~1vnd.bud.drive.criteria+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_segments_criteria_get",
+         "data": {
+          "id": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e",
+          "criteria": "flag",
+          "name": "renter"
+         },
+         "metadata": {
+          "criteria_id": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/segments/{segment_id}/criteria/{criteria_id}": {
+   "put": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Save Segment Criteria",
+    "operationId": "v2_segments_criteria_put",
+    "description": "Attaches a draft criteria to a segment.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v2~1criteria~1drafts~1{criteria_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.notification+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.notification+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1segments/post/responses/201/content/application~1vnd.bud.drive.notification+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_segments_criteria_put",
+         "code_id": "segment_criteria_updated",
+         "status": "success"
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  },
+  "/drive-api/v2/segments/{segment_id}/criteria/run": {
+   "post": {
+    "tags": [
+     "Drive Segments API"
+    ],
+    "summary": "Run Segment Criteria",
+    "operationId": "v2_segments_criteria_run_post",
+    "description": "Runs a segment's current criteria and returns the number of matching customers.",
+    "security": [
+     {
+      "OAuth2": []
+     }
+    ],
+    "parameters": [
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1tags/get/parameters/0"
+     },
+     {
+      "$ref": "#/paths/~1drive-api~1v1~1segments~1{segment_id}/get/parameters/1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK. Response uses the `application/vnd.bud.drive.visualisation+json` media type.",
+      "content": {
+       "application/vnd.bud.drive.visualisation+json": {
+        "schema": {
+         "$ref": "#/paths/~1drive-api~1v2~1criteria~1run/post/responses/200/content/application~1vnd.bud.drive.visualisation+json/schema"
+        },
+        "example": {
+         "operation_id": "v2_segments_criteria_run_post",
+         "data": {
+          "visualisation_type": "counter",
+          "name": "total_customers",
+          "value": 163
+         },
+         "metadata": {
+          "run_id": "48c675f4-4fc7-43f3-80fd-114ec632f4f7",
+          "run_type": "expiring"
+         }
+        }
+       }
+      }
+     },
+     "4XX": {
+      "description": "Request error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     },
+     "5XX": {
+      "description": "Internal error. Response uses the `application/vnd.bud.drive.notification+json` media type."
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "securitySchemes": {
+   "OAuth2": {
+    "type": "oauth2",
+    "flows": {
+     "clientCredentials": {
+      "tokenUrl": "/v1/oauth/token",
+      "scopes": {}
+     }
+    },
+    "description": "\nAuthentication flow:\n\n1. Perform OAuth2 Client Credentials authentication using API Credentials (`client_id`,`client_secret`) to obtain an `access_token` against `/v1/oauth/token` endpoint,\n2. Use `access_token` as Bearer Authorisation for every other API request,\n3. Include `X-Client-Id` (=client_id) within the header of every API request,\n4. Note that some of the requests may also require `X-Customer-Id` to be provided within the request header.\n\n### Examples\nObtain OAuth2 `access_token` and `refresh_token` using `grant_type=client_credentials` and HTTP Basic auth header\n\n```\ncurl --basic --user {{client_id}}:{{client_secret}} \\\n  -X POST https://api-sandbox.thisisbud.com/v1/oauth/token \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d grant_type=client_credentials\n```\n\nSuccessful response:\n```\n{\n  \"operation_id\": \"oauth_token_post\",\n  \"data\": {\n    \"access_token\": \"dd0c17e3fd6d2ce94aa091257a3ea393b4f9b5cf3d3e998f07dc9826da86ff15\",\n    \"token_type\": \"bearer\",\n    \"expires_in\": 3600,\n    \"refresh_token\": \"fac32cca7559d9f6e8f1dfe9a99c71fa1dcfeb482bedf287d7934d2667ae54b3\"\n  }\n}\n```\n\nRefresh `access_token` token using `refresh_token` against `/v1/oauth/token` endpoint with `grant_type=refresh_token`\n\n```\ncurl -X POST \\\n  https://api-sandbox.thisisbud.com/v1/oauth/token \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -H 'X-Client-Id: {{client_id}}' \\\n  -d 'grant_type=refresh_token&refresh_token={{refresh_token}}'\n```\n\nSuccessful response:\n```\n{\n    \"operation_id\": \"oauth_token_post\",\n    \"data\": {\n        \"access_token\": \"cc0c17e3fd6d2ce94aa091257a3ea393b4f9b5cf3d3e998f07dc9826da86ff94\",\n        \"token_type\": \"bearer\",\n        \"expires_in\": 3600,\n        \"refresh_token\": \"ffc30cca7559d9f6e8f1dfe9a99c71fa1dcfeb482bedf287d7934d2667ae54b3\"\n    }\n}\n```\n"
+   }
+  },
+  "responses": {
+   "BadRequest": {
+    "description": "The request contains an invalid payload.",
+    "content": {
+     "application/json": {
+      "schema": {
+       "title": "Bad Request Response",
+       "type": "object",
+       "description": "Expected response structure",
+       "required": [
+        "operation_id",
+        "code_id",
+        "message",
+        "errors"
+       ],
+       "properties": {
+        "operation_id": {
+         "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+        },
+        "code_id": {
+         "type": "string",
+         "description": "A descriptive enough string that is linked to the reason for the error."
+        },
+        "message": {
+         "type": "string"
+        },
+        "errors": {
+         "anyOf": [
+          {
+           "$ref": "#/components/responses/ServerError/content/application~1json/schema/properties/errors/anyOf/0"
+          },
+          {
+           "$ref": "#/components/responses/ServerError/content/application~1json/schema/properties/errors/anyOf/1"
+          }
+         ]
+        }
+       }
+      }
+     }
+    }
+   },
+   "ServerError": {
+    "description": "An unexpected error occurred on the server side.",
+    "content": {
+     "application/json": {
+      "schema": {
+       "title": "Server Error Response",
+       "type": "object",
+       "required": [
+        "operation_id",
+        "code_id",
+        "message"
+       ],
+       "properties": {
+        "operation_id": {
+         "$ref": "#/paths/~1drive-api~1v1~1tags/get/responses/200/content/application~1json/schema/properties/operation_id"
+        },
+        "code_id": {
+         "type": "string",
+         "description": "A descriptive enough string that is linked to the reason for the error."
+        },
+        "message": {
+         "type": "string",
+         "description": "An actual user friendly error message."
+        },
+        "errors": {
+         "anyOf": [
+          {
+           "title": "Error Object",
+           "type": "object",
+           "nullable": true,
+           "description": "Contains a field specific error message",
+           "additionalProperties": {
+            "type": "string"
+           }
+          },
+          {
+           "title": "Array of Error Object",
+           "description": "Contains a list of error messages",
+           "type": "object",
+           "additionalProperties": {
+            "type": "array",
+            "items": {
+             "type": "string"
+            }
+           }
+          }
+         ]
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
