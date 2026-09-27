@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "drive_mcp_api": {
+      "DRIVE_MCP_API00": {
+        "error": {},
+        "id": "DRIVE_MCP_API00",
+        "jsonrpc": "s3e",
+        "method": "s3f",
+        "params": {},
+        "result": {}
+      },
+      "DRIVE_MCP_API01": {
+        "error": {},
+        "id": "DRIVE_MCP_API01",
+        "jsonrpc": "s7a",
+        "method": "s7b",
+        "params": {},
+        "result": {}
+      },
+      "DRIVE_MCP_API02": {
+        "error": {},
+        "id": "DRIVE_MCP_API02",
+        "jsonrpc": "sb6",
+        "method": "sb7",
+        "params": {},
+        "result": {}
+      }
+    }
+  },
+  "new": {
+    "drive_mcp_api": {
+      "drive_mcp_api_ref01": {
+        "error": {},
+        "jsonrpc": "sf2",
+        "method": "sf3",
+        "params": {},
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /drive-mcp/v1/campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-mcp/v1/copilot": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-mcp/v1/segments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

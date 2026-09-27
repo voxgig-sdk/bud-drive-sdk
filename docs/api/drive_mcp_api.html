@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>DriveMcpApi | Drive API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Drive API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/bud-drive-sdk">voxgig-sdk/bud-drive-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Drive API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/drive_campaigns_api.html">DriveCampaignsApi</a>
+<a aria-current="page" href="../api/drive_mcp_api.html">DriveMcpApi</a><div class="nav-sections"><a class="nav-section" href="#post-drive-mcpv1campaigns">POST /drive-mcp/v1/campaigns</a>
+<a class="nav-section" href="#post-drive-mcpv1copilot">POST /drive-mcp/v1/copilot</a>
+<a class="nav-section" href="#post-drive-mcpv1segments">POST /drive-mcp/v1/segments</a></div>
+<a href="../api/drive_segments_api.html">DriveSegmentsApi</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="drivemcpapi">DriveMcpApi</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-mcpv1campaigns"><code>/drive-mcp/v1/campaigns</code></a></td>
+<td><code>create</code></td>
+<td>A JSON-RPC response from the MCP server</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-mcpv1copilot"><code>/drive-mcp/v1/copilot</code></a></td>
+<td><code>create</code></td>
+<td>A JSON-RPC response from the MCP server</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-mcpv1segments"><code>/drive-mcp/v1/segments</code></a></td>
+<td><code>create</code></td>
+<td>A JSON-RPC response from the MCP server</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.DriveMcpApi(nil).Create(map[string]any{&quot;id&quot;: &quot;example&quot;, &quot;jsonrpc&quot;: &quot;example&quot;, &quot;method&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const created = await client.DriveMcpApi().create({ id: &quot;example&quot;, jsonrpc: &quot;example&quot;, method: &quot;example&quot; })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:DriveMcpApi():create({ id = &quot;example&quot;, jsonrpc = &quot;example&quot;, method = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;DriveMcpApi()-&gt;create([&quot;id&quot; =&gt; &quot;example&quot;, &quot;jsonrpc&quot; =&gt; &quot;example&quot;, &quot;method&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.DriveMcpApi().create({ &quot;id&quot;: &quot;example&quot;, &quot;jsonrpc&quot;: &quot;example&quot;, &quot;method&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.DriveMcpApi().create({ id: &quot;example&quot;, jsonrpc: &quot;example&quot;, method: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Jsonrpc</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Method</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Params</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-drive-mcpv1campaigns" class="operation" data-method="post"><code>POST</code> /drive-mcp/v1/campaigns</h3>
+<p>Operation ID: <code>v1_drive_mcp_campaigns_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string or integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>enum: 2.0</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-a-json-rpc-response-from-the-mcp-server" class="status" data-status="2xx">200: A JSON-RPC response from the MCP server</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string or integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>enum: 2.0</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-an-unauthenticated-request-was-received" class="status" data-status="4xx">401: An unauthenticated request was received</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-mcpv1copilot" class="operation" data-method="post"><code>POST</code> /drive-mcp/v1/copilot</h3>
+<p>Operation ID: <code>v1_drive_mcp_copilot_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string or integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>enum: 2.0</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-a-json-rpc-response-from-the-mcp-server-1" class="status" data-status="2xx">200: A JSON-RPC response from the MCP server</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string or integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>enum: 2.0</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-an-unauthenticated-request-was-received-1" class="status" data-status="4xx">401: An unauthenticated request was received</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-1">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-mcpv1segments" class="operation" data-method="post"><code>POST</code> /drive-mcp/v1/segments</h3>
+<p>Operation ID: <code>v1_drive_mcp_segments_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string or integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>enum: 2.0</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-a-json-rpc-response-from-the-mcp-server-2" class="status" data-status="2xx">200: A JSON-RPC response from the MCP server</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string or integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jsonrpc</code></td>
+<td><code>enum: 2.0</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-an-unauthenticated-request-was-received-2" class="status" data-status="4xx">401: An unauthenticated request was received</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-2">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,3301 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>DriveSegmentsApi | Drive API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Drive API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/bud-drive-sdk">voxgig-sdk/bud-drive-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Drive API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/drive_campaigns_api.html">DriveCampaignsApi</a>
+<a href="../api/drive_mcp_api.html">DriveMcpApi</a>
+<a aria-current="page" href="../api/drive_segments_api.html">DriveSegmentsApi</a><div class="nav-sections"><a class="nav-section" href="#post-drive-apiv1segmentssegment_idquery">POST /drive-api/v1/segments/{segment_id}/query</a>
+<a class="nav-section" href="#post-drive-apiv2criteriadraftscriteria_idrun">POST /drive-api/v2/criteria/drafts/{criteria_id}/run</a>
+<a class="nav-section" href="#post-drive-apiv2segmentssegment_idcriteriarun">POST /drive-api/v2/segments/{segment_id}/criteria/run</a>
+<a class="nav-section" href="#post-drive-apiv1segmentsfrom-existingcriteria">POST /drive-api/v1/segments/from-existing/criteria</a>
+<a class="nav-section" href="#post-drive-apiv1segmentsfrom-existingfixed-customers">POST /drive-api/v1/segments/from-existing/fixed-customers</a>
+<a class="nav-section" href="#post-drive-apiv1segmentsupload">POST /drive-api/v1/segments/upload</a>
+<a class="nav-section" href="#post-drive-apiv2criteriadrafts">POST /drive-api/v2/criteria/drafts</a>
+<a class="nav-section" href="#post-drive-apiv2criteriarun">POST /drive-api/v2/criteria/run</a>
+<a class="nav-section" href="#post-drive-apiv2criteriasuggestionssegment-name">POST /drive-api/v2/criteria/suggestions/segment-name</a>
+<a class="nav-section" href="#post-drive-apiv2segments">POST /drive-api/v2/segments</a>
+<a class="nav-section" href="#get-drive-apiv1segmentssegment_idstatisticsoverview">GET /drive-api/v1/segments/{segment_id}/statistics/overview</a>
+<a class="nav-section" href="#get-drive-apiv2segments">GET /drive-api/v2/segments</a>
+<a class="nav-section" href="#get-drive-apiv1tags">GET /drive-api/v1/tags</a>
+<a class="nav-section" href="#get-drive-apiv1segmentssegment_idsimilarityother_segment_id">GET /drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}</a>
+<a class="nav-section" href="#get-drive-apiv2criteriadraftscriteria_id">GET /drive-api/v2/criteria/drafts/{criteria_id}</a>
+<a class="nav-section" href="#get-drive-apiv2criteriaoptions">GET /drive-api/v2/criteria/options</a>
+<a class="nav-section" href="#get-drive-apiv1segmentssegment_id">GET /drive-api/v1/segments/{segment_id}</a>
+<a class="nav-section" href="#get-drive-apiv2segmentssegment_idcriteria">GET /drive-api/v2/segments/{segment_id}/criteria</a>
+<a class="nav-section" href="#get-drive-apiv2segmentssegment_idcriteriaactive-options">GET /drive-api/v2/segments/{segment_id}/criteria/active-options</a>
+<a class="nav-section" href="#patch-drive-apiv1segmentssegment_id">PATCH /drive-api/v1/segments/{segment_id}</a>
+<a class="nav-section" href="#delete-drive-apiv1segmentssegment_id">DELETE /drive-api/v1/segments/{segment_id}</a>
+<a class="nav-section" href="#put-drive-apiv2segmentssegment_idcriteriacriteria_id">PUT /drive-api/v2/segments/{segment_id}/criteria/{criteria_id}</a>
+<a class="nav-section" href="#put-drive-apiv2criteriadraftscriteria_id">PUT /drive-api/v2/criteria/drafts/{criteria_id}</a></div></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="drivesegmentsapi">DriveSegmentsApi</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv1segmentssegment_idquery"><code>/drive-api/v1/segments/{segment_id}/query</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv2criteriadraftscriteria_idrun"><code>/drive-api/v2/criteria/drafts/{criteria_id}/run</code></a></td>
+<td><code>create</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv2segmentssegment_idcriteriarun"><code>/drive-api/v2/segments/{segment_id}/criteria/run</code></a></td>
+<td><code>create</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv1segmentsfrom-existingcriteria"><code>/drive-api/v1/segments/from-existing/criteria</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv1segmentsfrom-existingfixed-customers"><code>/drive-api/v1/segments/from-existing/fixed-customers</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv1segmentsupload"><code>/drive-api/v1/segments/upload</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv2criteriadrafts"><code>/drive-api/v2/criteria/drafts</code></a></td>
+<td><code>create</code></td>
+<td>Created. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv2criteriarun"><code>/drive-api/v2/criteria/run</code></a></td>
+<td><code>create</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv2criteriasuggestionssegment-name"><code>/drive-api/v2/criteria/suggestions/segment-name</code></a></td>
+<td><code>create</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv2segments"><code>/drive-api/v2/segments</code></a></td>
+<td><code>create</code></td>
+<td>Created. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1segmentssegment_idstatisticsoverview"><code>/drive-api/v1/segments/{segment_id}/statistics/overview</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv2segments"><code>/drive-api/v2/segments</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1tags"><code>/drive-api/v1/tags</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1segmentssegment_idsimilarityother_segment_id"><code>/drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv2criteriadraftscriteria_id"><code>/drive-api/v2/criteria/drafts/{criteria_id}</code></a></td>
+<td><code>load</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.criteria+json</code> media type</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv2criteriaoptions"><code>/drive-api/v2/criteria/options</code></a></td>
+<td><code>load</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.criteria-options+json</code> media type</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1segmentssegment_id"><code>/drive-api/v1/segments/{segment_id}</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv2segmentssegment_idcriteria"><code>/drive-api/v2/segments/{segment_id}/criteria</code></a></td>
+<td><code>load</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.criteria+json</code> media type</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv2segmentssegment_idcriteriaactive-options"><code>/drive-api/v2/segments/{segment_id}/criteria/active-options</code></a></td>
+<td><code>load</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.criteria-options+json</code> media type</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-drive-apiv1segmentssegment_id"><code>/drive-api/v1/segments/{segment_id}</code></a></td>
+<td><code>patch</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-drive-apiv1segmentssegment_id"><code>/drive-api/v1/segments/{segment_id}</code></a></td>
+<td><code>remove</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-drive-apiv2segmentssegment_idcriteriacriteria_id"><code>/drive-api/v2/segments/{segment_id}/criteria/{criteria_id}</code></a></td>
+<td><code>update</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-drive-apiv2criteriadraftscriteria_id"><code>/drive-api/v2/criteria/drafts/{criteria_id}</code></a></td>
+<td><code>update</code></td>
+<td>OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type, updating a draft re-runs it and returns the resulting count</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">drive_segments_apis, err := client.DriveSegmentsApi(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(drive_segments_apis)
+drive_segments_api, err := client.DriveSegmentsApi(nil).Load(map[string]any{&quot;segment_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(drive_segments_api)
+created, err := client.DriveSegmentsApi(nil).Create(map[string]any{&quot;criteria&quot;: &quot;example&quot;, &quot;criteria_from&quot;: &quot;example&quot;, &quot;customers&quot;: []any{}, &quot;customers_from&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.DriveSegmentsApi(nil).Update(map[string]any{&quot;criteria_id&quot;: &quot;example&quot;, &quot;segment_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.DriveSegmentsApi(nil).Remove(map[string]any{&quot;segment_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const drive_segments_apis = await client.DriveSegmentsApi().list()
+const drive_segments_api = await client.DriveSegmentsApi().load({ segment_id: &quot;example&quot; })
+const created = await client.DriveSegmentsApi().create({ criteria: &quot;example&quot;, criteria_from: &quot;example&quot;, customers: [], customers_from: &quot;example&quot;, id: &quot;example&quot;, name: &quot;example&quot; })
+const updated = await client.DriveSegmentsApi().update({ criteria_id: &quot;example&quot;, segment_id: &quot;example&quot; })
+await client.DriveSegmentsApi().remove({ segment_id: &quot;example&quot; })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local drive_segments_apis, err = client:DriveSegmentsApi():list()
+local drive_segments_api, err = client:DriveSegmentsApi():load({ segment_id = &quot;example&quot; })
+local created, err = client:DriveSegmentsApi():create({ criteria = &quot;example&quot;, criteria_from = &quot;example&quot;, customers = {}, customers_from = &quot;example&quot;, id = &quot;example&quot;, name = &quot;example&quot; })
+local updated, err = client:DriveSegmentsApi():update({ criteria_id = &quot;example&quot;, segment_id = &quot;example&quot; })
+local removed, err = client:DriveSegmentsApi():remove({ segment_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$drive_segments_apis = $client-&gt;DriveSegmentsApi()-&gt;list();
+$drive_segments_api = $client-&gt;DriveSegmentsApi()-&gt;load([&quot;segment_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;DriveSegmentsApi()-&gt;create([&quot;criteria&quot; =&gt; &quot;example&quot;, &quot;criteria_from&quot; =&gt; &quot;example&quot;, &quot;customers&quot; =&gt; [], &quot;customers_from&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;DriveSegmentsApi()-&gt;update([&quot;criteria_id&quot; =&gt; &quot;example&quot;, &quot;segment_id&quot; =&gt; &quot;example&quot;]);
+$client-&gt;DriveSegmentsApi()-&gt;remove([&quot;segment_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">drive_segments_apis = client.DriveSegmentsApi().list()
+drive_segments_api = client.DriveSegmentsApi().load({&quot;segment_id&quot;: &quot;example&quot;})
+created = client.DriveSegmentsApi().create({ &quot;criteria&quot;: &quot;example&quot;, &quot;criteria_from&quot;: &quot;example&quot;, &quot;customers&quot;: [], &quot;customers_from&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot; })
+updated = client.DriveSegmentsApi().update({&quot;criteria_id&quot;: &quot;example&quot;, &quot;segment_id&quot;: &quot;example&quot;})
+client.DriveSegmentsApi().remove({&quot;segment_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const drive_segments_apis = await client.DriveSegmentsApi().list()
+const drive_segments_api = await client.DriveSegmentsApi().load({ segment_id: &quot;example&quot; })
+const created = await client.DriveSegmentsApi().create({ criteria: &quot;example&quot;, criteria_from: &quot;example&quot;, customers: [], customers_from: &quot;example&quot;, id: &quot;example&quot;, name: &quot;example&quot; })
+const updated = await client.DriveSegmentsApi().update({ criteria_id: &quot;example&quot;, segment_id: &quot;example&quot; })
+await client.DriveSegmentsApi().remove({ segment_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created By</td>
+</tr>
+<tr>
+<td><code>criteria</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>Criteria</td>
+</tr>
+<tr>
+<td><code>criteria_from</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the segment whose criteria should be copied.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Customer IDs to include in the fixed customer list.</td>
+</tr>
+<tr>
+<td><code>customers_from</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the segment whose current members should be copied.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Fixed Customer List</td>
+</tr>
+<tr>
+<td><code>fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Fixed Customer List Size</td>
+</tr>
+<tr>
+<td><code>from_criteria_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>From Criteria Id</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>intersection_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Intersection Count</td>
+</tr>
+<tr>
+<td><code>jaccard_index</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Jaccard Index</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Parameters</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created.</td>
+</tr>
+<tr>
+<td><code>statistics_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Statistics Id</td>
+</tr>
+<tr>
+<td><code>suggestion</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Suggestion</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Tag</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Tags</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The shape of the statistic's values.</td>
+</tr>
+<tr>
+<td><code>union_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Union Count</td>
+</tr>
+<tr>
+<td><code>upload</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Upload</td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-drive-apiv1segmentssegment_idquery" class="operation" data-method="post"><code>POST</code> /drive-api/v1/segments/{segment_id}/query</h3>
+<p>Operation ID: <code>v1_segment_query_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment Export</td>
+</tr>
+<tr>
+<td><code>data._links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data._links.full</code></td>
+<td><code>array of string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.total_rows</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;_links&quot;: {
+      &quot;full&quot;: [
+        &quot;https://gcs.com/bucket/id/results-123.csv&quot;
+      ]
+    },
+    &quot;total_rows&quot;: 1
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_query_post&quot;
+}
+</code></pre>
+<h5 id="400-invalid-segment" class="status" data-status="4xx">400: Invalid segment</h5>
+<h5 id="404-segment-does-not-exist" class="status" data-status="4xx">404: Segment does not exist</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-apiv2criteriadraftscriteria_idrun" class="operation" data-method="post"><code>POST</code> /drive-api/v2/criteria/drafts/{criteria_id}/run</h3>
+<p>Operation ID: <code>v2_criteria_draft_run_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>criteria_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the criteria. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivevisualisationjson-media-type" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.visualisation+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.value</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.visualisation_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The shape of the visualisation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|--------------------------------------------------| | <code>counter</code> | A single numeric value visualisation |</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;name&quot;: &quot;total_customers&quot;,
+    &quot;value&quot;: 163,
+    &quot;visualisation_type&quot;: &quot;counter&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;run_id&quot;: &quot;48c675f4-4fc7-43f3-80fd-114ec632f4f7&quot;,
+    &quot;run_type&quot;: &quot;expiring&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_draft_run_post&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="post-drive-apiv2segmentssegment_idcriteriarun" class="operation" data-method="post"><code>POST</code> /drive-api/v2/segments/{segment_id}/criteria/run</h3>
+<p>Operation ID: <code>v2_segments_criteria_run_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivevisualisationjson-media-type-1" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.visualisation+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.value</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.visualisation_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The shape of the visualisation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|--------------------------------------------------| | <code>counter</code> | A single numeric value visualisation |</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;name&quot;: &quot;total_customers&quot;,
+    &quot;value&quot;: 163,
+    &quot;visualisation_type&quot;: &quot;counter&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;run_id&quot;: &quot;48c675f4-4fc7-43f3-80fd-114ec632f4f7&quot;,
+    &quot;run_type&quot;: &quot;expiring&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_segments_criteria_run_post&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-1">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-1">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="post-drive-apiv1segmentsfrom-existingcriteria" class="operation" data-method="post"><code>POST</code> /drive-api/v1/segments/from-existing/criteria</h3>
+<p>Operation ID: <code>v1_segment_from_existing_criteria_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>criteria_from</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The ID of the segment whose criteria should be copied.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;criteria_from&quot;: &quot;b8b612a4-c1b0-4c8c-b105-991ed5870ee2&quot;,
+  &quot;description&quot;: &quot;January 2024: Customers with more than 1 credit card &amp; a mortgage&quot;,
+  &quot;fixed_customer_list&quot;: true,
+  &quot;name&quot;: &quot;January 2024: High Credit Utilisation Customers&quot;,
+  &quot;tags&quot;: [
+    &quot;January Campaign&quot;
+  ]
+}
+</code></pre>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment</td>
+</tr>
+<tr>
+<td><code>data.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------------|-------------------------------------------------| | <code>manual</code> | Built from criteria/groups | | <code>uploaded_list</code> | A fixed customer list from an uploaded file |</td>
+</tr>
+<tr>
+<td><code>data.tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;fixed_customer_list&quot;: true,
+    &quot;fixed_customer_list_size&quot;: 1000,
+    &quot;id&quot;: &quot;dd926ab0-1a9b-4c9d-acf1-b54219898878&quot;,
+    &quot;name&quot;: &quot;January 2024: High Credit Utilisation Customers&quot;,
+    &quot;source&quot;: &quot;manual&quot;,
+    &quot;tags&quot;: [
+      &quot;January Campaign&quot;
+    ]
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_from_existing_criteria_post&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-1">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-apiv1segmentsfrom-existingfixed-customers" class="operation" data-method="post"><code>POST</code> /drive-api/v1/segments/from-existing/fixed-customers</h3>
+<p>Operation ID: <code>v1_segment_from_existing_fixed_customers_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>customers_from</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The ID of the segment whose current members should be copied.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;customers_from&quot;: &quot;b8b612a4-c1b0-4c8c-b105-991ed5870ee2&quot;,
+  &quot;description&quot;: &quot;January 2024: Customers with more than 1 credit card &amp; a mortgage&quot;,
+  &quot;name&quot;: &quot;January 2024: High Credit Utilisation Customers&quot;,
+  &quot;tags&quot;: [
+    &quot;January Campaign&quot;
+  ]
+}
+</code></pre>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment</td>
+</tr>
+<tr>
+<td><code>data.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------------|-------------------------------------------------| | <code>manual</code> | Built from criteria/groups | | <code>uploaded_list</code> | A fixed customer list from an uploaded file |</td>
+</tr>
+<tr>
+<td><code>data.tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;fixed_customer_list&quot;: true,
+    &quot;fixed_customer_list_size&quot;: 1000,
+    &quot;id&quot;: &quot;dd926ab0-1a9b-4c9d-acf1-b54219898878&quot;,
+    &quot;name&quot;: &quot;January 2024: High Credit Utilisation Customers&quot;,
+    &quot;source&quot;: &quot;manual&quot;,
+    &quot;tags&quot;: [
+      &quot;January Campaign&quot;
+    ]
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_from_existing_fixed_customers_post&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-1">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-2">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-apiv1segmentsupload" class="operation" data-method="post"><code>POST</code> /drive-api/v1/segments/upload</h3>
+<p>Operation ID: <code>v1_segments_upload</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Customer IDs to include in the fixed customer list.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;customers&quot;: [
+    &quot;b8b612a4-c1b0-4c8c-b105-991ed5870ee2&quot;,
+    &quot;0d1e7001-1349-44a4-b970-30d4d2a30a5e&quot;
+  ],
+  &quot;description&quot;: &quot;High Risk Customers&quot;,
+  &quot;name&quot;: &quot;High Risk Customers&quot;,
+  &quot;tags&quot;: [
+    &quot;January Campaign&quot;
+  ]
+}
+</code></pre>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment</td>
+</tr>
+<tr>
+<td><code>data.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------------|-------------------------------------------------| | <code>manual</code> | Built from criteria/groups | | <code>uploaded_list</code> | A fixed customer list from an uploaded file |</td>
+</tr>
+<tr>
+<td><code>data.tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;fixed_customer_list&quot;: true,
+    &quot;fixed_customer_list_size&quot;: 1000,
+    &quot;id&quot;: &quot;dd926ab0-1a9b-4c9d-acf1-b54219898878&quot;,
+    &quot;name&quot;: &quot;High Risk Customers&quot;,
+    &quot;source&quot;: &quot;uploaded_list&quot;,
+    &quot;tags&quot;: [
+      &quot;January Campaign&quot;
+    ]
+  },
+  &quot;operation_id&quot;: &quot;v1_segments_upload&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-2">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-3">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-apiv2criteriadrafts" class="operation" data-method="post"><code>POST</code> /drive-api/v2/criteria/drafts</h3>
+<p>Operation ID: <code>v2_criteria_drafts_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="201-created-response-uses-the-applicationvndbuddrivenotificationjson-media-type" class="status" data-status="2xx">201: Created. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.notification+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.resource_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The outcome of the operation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|---------------------------------------------| | <code>success</code> | The operation completed successfully |</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;code_id&quot;: &quot;draft_criteria_created&quot;,
+  &quot;metadata&quot;: {
+    &quot;resource_id&quot;: &quot;0ba9049e-25e9-43f2-8ea8-1fcf9dde581e&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_drafts_post&quot;,
+  &quot;status&quot;: &quot;success&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-2">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-2">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="post-drive-apiv2criteriarun" class="operation" data-method="post"><code>POST</code> /drive-api/v2/criteria/run</h3>
+<p>Operation ID: <code>v2_criteria_run_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object or object or object</code>.</p>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;criteria&quot;: &quot;flag&quot;,
+  &quot;name&quot;: &quot;renter&quot;
+}
+</code></pre>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivevisualisationjson-media-type-2" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.visualisation+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.value</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.visualisation_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The shape of the visualisation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|--------------------------------------------------| | <code>counter</code> | A single numeric value visualisation |</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;name&quot;: &quot;total_customers&quot;,
+    &quot;value&quot;: 163,
+    &quot;visualisation_type&quot;: &quot;counter&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;run_id&quot;: &quot;48c675f4-4fc7-43f3-80fd-114ec632f4f7&quot;,
+    &quot;run_type&quot;: &quot;expiring&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_run_post&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-3">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-3">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="post-drive-apiv2criteriasuggestionssegment-name" class="operation" data-method="post"><code>POST</code> /drive-api/v2/criteria/suggestions/segment-name</h3>
+<p>Operation ID: <code>v2_criteria_suggestions_segment_name_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>criteria</code></td>
+<td><code>object or object or object</code></td>
+<td>Yes</td>
+<td>Segment Criteria</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;criteria&quot;: {
+    &quot;criteria&quot;: &quot;flag&quot;,
+    &quot;name&quot;: &quot;renter&quot;
+  }
+}
+</code></pre>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-ok-4" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.suggestion</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.suggestion.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.suggestion.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;suggestion&quot;: {
+      &quot;description&quot;: &quot;Customers who rent their home.&quot;,
+      &quot;name&quot;: &quot;Renters&quot;
+    }
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_suggestions_segment_name_post&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-3">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-4">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-apiv2segments" class="operation" data-method="post"><code>POST</code> /drive-api/v2/segments</h3>
+<p>Operation ID: <code>v2_segments_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>from_criteria_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>upload</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>upload.customers</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>upload.filename</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-9">Responses</h4>
+<h5 id="201-created-response-uses-the-applicationvndbuddrivenotificationjson-media-type-1" class="status" data-status="2xx">201: Created. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.notification+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.resource_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The outcome of the operation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|---------------------------------------------| | <code>success</code> | The operation completed successfully |</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;code_id&quot;: &quot;segment_created&quot;,
+  &quot;metadata&quot;: {
+    &quot;resource_id&quot;: &quot;23303f83-a790-4ee9-95b6-d5cdeaf36fa2&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_segments_post&quot;,
+  &quot;status&quot;: &quot;success&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-4">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-4">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h2 id="list">list</h2>
+<h3 id="get-drive-apiv1segmentssegment_idstatisticsoverview" class="operation" data-method="get"><code>GET</code> /drive-api/v1/segments/{segment_id}/statistics/overview</h3>
+<p>Operation ID: <code>v1_segment_statistics_overview_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |
+| <code>significant_date</code> | <code>query</code> | <code>string</code> | No | Optional significant-date label to compute statistics relative to. |
+| <code>date_to</code> | <code>query</code> | <code>string (date)</code> | No | Optional end date to compute statistics up to. |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-ok-5" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].parameters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].statistics_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The shape of the statistic's values. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------------|---------------------------------------| | <code>aggregate</code> | A single summary value | | <code>time_series</code> | A series of values over time |</td>
+</tr>
+<tr>
+<td><code>data[].values</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;name&quot;: &quot;total_customers&quot;,
+      &quot;type&quot;: &quot;aggregate&quot;,
+      &quot;values&quot;: [
+        {
+          &quot;total&quot;: 163
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;category_l1_spending&quot;,
+      &quot;parameters&quot;: {
+        &quot;category_l1s&quot;: [
+          &quot;gambling_and_lotteries&quot;
+        ]
+      },
+      &quot;statistics_id&quot;: &quot;8ac57892-cb04-487e-8323-2a2a9d08b392&quot;,
+      &quot;type&quot;: &quot;aggregate&quot;,
+      &quot;values&quot;: [
+        {
+          &quot;mean&quot;: 267.67,
+          &quot;percentile_50&quot;: 250
+        }
+      ]
+    }
+  ],
+  &quot;operation_id&quot;: &quot;v1_segment_statistics_overview_get&quot;
+}
+</code></pre>
+<h5 id="404-segment-does-not-exist-1" class="status" data-status="4xx">404: Segment does not exist</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-5">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv2segments" class="operation" data-method="get"><code>GET</code> /drive-api/v2/segments</h3>
+<p>Operation ID: <code>v2_segments_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>max_per_page</code> | <code>query</code> | <code>integer</code> | No | Maximum number of segments to return per page. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | The page of results to retrieve. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Filter segments by name. |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="200-ok-6" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------------|-------------------------------------------------| | <code>manual</code> | Built from criteria/groups | | <code>uploaded_list</code> | A fixed customer list from an uploaded file |</td>
+</tr>
+<tr>
+<td><code>data[].tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.max_per_page</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.page</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.results</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;23303f83-a790-4ee9-95b6-d5cdeaf36fa2&quot;,
+      &quot;name&quot;: &quot;High Credit Utilisation&quot;,
+      &quot;tags&quot;: [
+        &quot;January Campaign&quot;
+      ]
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;max_per_page&quot;: 25,
+    &quot;page&quot;: 1,
+    &quot;results&quot;: 1
+  },
+  &quot;operation_id&quot;: &quot;v2_segments_get&quot;
+}
+</code></pre>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-6">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1tags" class="operation" data-method="get"><code>GET</code> /drive-api/v1/tags</h3>
+<p>Operation ID: <code>v1_segment_tags_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-ok-7" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].created_by</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].tag</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.results</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;created_at&quot;: &quot;2023-11-06T00:00:00Z&quot;,
+      &quot;created_by&quot;: &quot;70a7a98b-805a-43cc-a9a3-f07e88c84025&quot;,
+      &quot;tag&quot;: &quot;January Campaign&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;results&quot;: 1
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_tags_get&quot;
+}
+</code></pre>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-7">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-drive-apiv1segmentssegment_idsimilarityother_segment_id" class="operation" data-method="get"><code>GET</code> /drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}</h3>
+<p>Operation ID: <code>v1_compare_segments_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |
+| <code>other_segment_id</code> | <code>path</code> | <code>string</code> | Yes | The ID of the segment to compare against. |
+| <code>refresh</code> | <code>query</code> | <code>boolean</code> | No | If true, re-runs both segments instead of using cached results. |</p>
+<h4 id="responses-13">Responses</h4>
+<h5 id="200-ok-8" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment Similarity</td>
+</tr>
+<tr>
+<td><code>data.intersection_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.jaccard_index</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.union_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;intersection_count&quot;: 10,
+    &quot;jaccard_index&quot;: 0.25,
+    &quot;union_count&quot;: 40
+  },
+  &quot;operation_id&quot;: &quot;v1_compare_segments_get&quot;
+}
+</code></pre>
+<h5 id="400-invalid-segment-1" class="status" data-status="4xx">400: Invalid segment</h5>
+<h5 id="404-segment-does-not-exist-2" class="status" data-status="4xx">404: Segment does not exist</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-8">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv2criteriadraftscriteria_id" class="operation" data-method="get"><code>GET</code> /drive-api/v2/criteria/drafts/{criteria_id}</h3>
+<p>Operation ID: <code>v2_criteria_draft_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-14">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>criteria_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the criteria. |</p>
+<h4 id="responses-14">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivecriteriajson-media-type" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.criteria+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.criteria+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object or object or object and object</code></td>
+<td>No</td>
+<td>Segment Criteria (Saved)</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.criteria_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;criteria&quot;: &quot;flag&quot;,
+    &quot;id&quot;: &quot;0ba9049e-25e9-43f2-8ea8-1fcf9dde581e&quot;,
+    &quot;name&quot;: &quot;renter&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;criteria_id&quot;: &quot;0ba9049e-25e9-43f2-8ea8-1fcf9dde581e&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_draft_get&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-5">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-5">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="get-drive-apiv2criteriaoptions" class="operation" data-method="get"><code>GET</code> /drive-api/v2/criteria/options</h3>
+<p>Operation ID: <code>v2_criteria_options_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-15">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>filter</code> | <code>query</code> | <code>string</code> | No | Narrow the set of returned criteria options to a single category. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-------------------|-----------------------------------------| | <code>flags</code> | Flag-based criteria options | | <code>segments</code> | Segment-dependency criteria options | | <code>custom_criteria</code> | Custom criteria options | |</p>
+<h4 id="responses-15">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivecriteria-optionsjson-media-type" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.criteria-options+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.criteria-options+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[]._template</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].category</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].hierarchy</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].short_title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata._links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;_template&quot;: {
+        &quot;value&quot;: {
+          &quot;criteria&quot;: &quot;flag&quot;,
+          &quot;name&quot;: &quot;employed&quot;
+        }
+      },
+      &quot;category&quot;: &quot;Lifetime&quot;,
+      &quot;description&quot;: &quot;Customers that are receiving employment income&quot;,
+      &quot;hierarchy&quot;: [
+        &quot;Employment&quot;,
+        &quot;Employment status&quot;
+      ],
+      &quot;id&quot;: &quot;employed&quot;,
+      &quot;short_title&quot;: &quot;Employed&quot;,
+      &quot;tags&quot;: [],
+      &quot;title&quot;: &quot;Employed&quot;
+    },
+    {
+      &quot;_template&quot;: {
+        &quot;value&quot;: {
+          &quot;criteria&quot;: &quot;segment_dependency&quot;,
+          &quot;segment_id&quot;: &quot;1a164dda-0462-4135-bb79-e6032e1a7528&quot;
+        }
+      },
+      &quot;category&quot;: &quot;Segment Dependency&quot;,
+      &quot;description&quot;: &quot;Customers who took part in the first campaign&quot;,
+      &quot;hierarchy&quot;: [
+        &quot;Segments&quot;,
+        &quot;Segments&quot;
+      ],
+      &quot;id&quot;: &quot;segment_1a164dda-0462-4135-bb79-e6032e1a7528&quot;,
+      &quot;short_title&quot;: &quot;Customers in Campaign 1&quot;,
+      &quot;tags&quot;: [],
+      &quot;title&quot;: &quot;Customers in Campaign 1&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;_links&quot;: {}
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_options_get&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-6">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-6">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="get-drive-apiv1segmentssegment_id" class="operation" data-method="get"><code>GET</code> /drive-api/v1/segments/{segment_id}</h3>
+<p>Operation ID: <code>v1_segment_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-16">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="responses-16">Responses</h4>
+<h5 id="200-ok-9" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment</td>
+</tr>
+<tr>
+<td><code>data.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------------|-------------------------------------------------| | <code>manual</code> | Built from criteria/groups | | <code>uploaded_list</code> | A fixed customer list from an uploaded file |</td>
+</tr>
+<tr>
+<td><code>data.tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;23303f83-a790-4ee9-95b6-d5cdeaf36fa2&quot;,
+    &quot;name&quot;: &quot;High Credit Utilisation&quot;,
+    &quot;source&quot;: &quot;manual&quot;
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_get&quot;
+}
+</code></pre>
+<h5 id="404-segment-not-found" class="status" data-status="4xx">404: Segment not found</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-9">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv2segmentssegment_idcriteria" class="operation" data-method="get"><code>GET</code> /drive-api/v2/segments/{segment_id}/criteria</h3>
+<p>Operation ID: <code>v2_segments_criteria_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-17">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="responses-17">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivecriteriajson-media-type-1" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.criteria+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.criteria+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object or object or object and object</code></td>
+<td>No</td>
+<td>Segment Criteria (Saved)</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.criteria_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;criteria&quot;: &quot;flag&quot;,
+    &quot;id&quot;: &quot;0ba9049e-25e9-43f2-8ea8-1fcf9dde581e&quot;,
+    &quot;name&quot;: &quot;renter&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;criteria_id&quot;: &quot;0ba9049e-25e9-43f2-8ea8-1fcf9dde581e&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_segments_criteria_get&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-7">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-7">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="get-drive-apiv2segmentssegment_idcriteriaactive-options" class="operation" data-method="get"><code>GET</code> /drive-api/v2/segments/{segment_id}/criteria/active-options</h3>
+<p>Operation ID: <code>v2_segment_criteria_active_options_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-18">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="responses-18">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivecriteria-optionsjson-media-type-1" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.criteria-options+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.criteria-options+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[]._template</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].category</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].hierarchy</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].short_title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata._links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;category&quot;: &quot;Lifetime&quot;,
+      &quot;description&quot;: &quot;Customers that are receiving employment income&quot;,
+      &quot;hierarchy&quot;: [
+        &quot;Employment&quot;,
+        &quot;Employment status&quot;
+      ],
+      &quot;id&quot;: &quot;employed&quot;,
+      &quot;short_title&quot;: &quot;Employed&quot;,
+      &quot;tags&quot;: [],
+      &quot;title&quot;: &quot;Employed&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;_links&quot;: {}
+  },
+  &quot;operation_id&quot;: &quot;v2_segment_criteria_active_options_get&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-8">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-8">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h2 id="patch">patch</h2>
+<h3 id="patch-drive-apiv1segmentssegment_id" class="operation" data-method="patch"><code>PATCH</code> /drive-api/v1/segments/{segment_id}</h3>
+<p>Operation ID: <code>v1_segment_patch</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-19">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="request-body-6">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;description&quot;: &quot;Updated description&quot;,
+  &quot;name&quot;: &quot;New segment name&quot;,
+  &quot;tags&quot;: [
+    &quot;September Campaign&quot;
+  ]
+}
+</code></pre>
+<h4 id="responses-19">Responses</h4>
+<h5 id="200-ok-10" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Segment</td>
+</tr>
+<tr>
+<td><code>data.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.fixed_customer_list_size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>How the segment was created. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------------|-------------------------------------------------| | <code>manual</code> | Built from criteria/groups | | <code>uploaded_list</code> | A fixed customer list from an uploaded file |</td>
+</tr>
+<tr>
+<td><code>data.tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;description&quot;: &quot;Updated description&quot;,
+    &quot;id&quot;: &quot;23303f83-a790-4ee9-95b6-d5cdeaf36fa2&quot;,
+    &quot;name&quot;: &quot;New segment name&quot;,
+    &quot;tags&quot;: [
+      &quot;September Campaign&quot;
+    ]
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_patch&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-4">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-10">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-drive-apiv1segmentssegment_id" class="operation" data-method="delete"><code>DELETE</code> /drive-api/v1/segments/{segment_id}</h3>
+<p>Operation ID: <code>v1_segment_delete</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-20">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |</p>
+<h4 id="responses-20">Responses</h4>
+<h5 id="200-ok-11" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.segment_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;metadata&quot;: {
+    &quot;segment_id&quot;: &quot;23303f83-a790-4ee9-95b6-d5cdeaf36fa2&quot;
+  },
+  &quot;operation_id&quot;: &quot;v1_segment_delete&quot;
+}
+</code></pre>
+<h5 id="422-segment-cannot-be-deleted-it-is-in-use-as-a-dependency-of-other-segments" class="status" data-status="4xx">422: Segment cannot be deleted, it is in use as a dependency of other segments</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-11">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="put-drive-apiv2segmentssegment_idcriteriacriteria_id" class="operation" data-method="put"><code>PUT</code> /drive-api/v2/segments/{segment_id}/criteria/{criteria_id}</h3>
+<p>Operation ID: <code>v2_segments_criteria_put</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-21">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>segment_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the segment. |
+| <code>criteria_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the criteria. |</p>
+<h4 id="responses-21">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivenotificationjson-media-type" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<p><code>application/vnd.bud.drive.notification+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.resource_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The outcome of the operation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|---------------------------------------------| | <code>success</code> | The operation completed successfully |</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;code_id&quot;: &quot;segment_criteria_updated&quot;,
+  &quot;operation_id&quot;: &quot;v2_segments_criteria_put&quot;,
+  &quot;status&quot;: &quot;success&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-9">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-9">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h3 id="put-drive-apiv2criteriadraftscriteria_id" class="operation" data-method="put"><code>PUT</code> /drive-api/v2/criteria/drafts/{criteria_id}</h3>
+<p>Operation ID: <code>v2_criteria_draft_put</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-22">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>criteria_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the criteria. |</p>
+<h4 id="request-body-7">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object or object or object</code>.</p>
+<h4 id="responses-22">Responses</h4>
+<h5 id="200-ok-response-uses-the-applicationvndbuddrivevisualisationjson-media-type-updating-a-draft-re-runs-it-and-returns-the-resulting-count" class="status" data-status="2xx">200: OK. Response uses the <code>application/vnd.bud.drive.visualisation+json</code> media type, updating a draft re-runs it and returns the resulting count</h5>
+<p><code>application/vnd.bud.drive.visualisation+json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.value</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.visualisation_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The shape of the visualisation. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|--------------------------------------------------| | <code>counter</code> | A single numeric value visualisation |</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.run_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;name&quot;: &quot;total_customers&quot;,
+    &quot;value&quot;: 87421,
+    &quot;visualisation_type&quot;: &quot;counter&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;run_id&quot;: &quot;48c675f4-4fc7-43f3-80fd-114ec632f4f7&quot;,
+    &quot;run_type&quot;: &quot;expiring&quot;
+  },
+  &quot;operation_id&quot;: &quot;v2_criteria_draft_put&quot;
+}
+</code></pre>
+<h5 id="4xx-request-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-10">4XX: Request error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+<h5 id="5xx-internal-error-response-uses-the-applicationvndbuddrivenotificationjson-media-type-10">5XX: Internal error. Response uses the <code>application/vnd.bud.drive.notification+json</code> media type</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

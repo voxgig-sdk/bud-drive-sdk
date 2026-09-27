@@ -1,0 +1,1127 @@
+# Entity: drive_campaigns_api
+
+main: kit: entity: drive_campaigns_api: {
+
+  alias: field: {}
+
+  fields: {
+    audience: {
+      fo: "uuid"
+      h: "Audience"
+      n: "audience"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "The ID of the segment this campaign targets."
+      t: "`$STRING`"
+    }
+    branding: {
+      h: "Branding"
+      n: "branding"
+      r: false
+      sh: "Overrides your configured value for this run only."
+      t: "`$STRING`"
+    }
+    campaign_goal: {
+      h: "Campaign Goal"
+      n: "campaign_goal"
+      r: true
+      sh: "The business goal the campaign should serve, in plain language."
+      t: "`$STRING`"
+    }
+    campaign_id: {
+      fo: "uuid"
+      h: "Campaign Id"
+      n: "campaign_id"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    channels: {
+      h: "Channels"
+      n: "channels"
+      r: false
+      t: "`$OBJECT`"
+    }
+    completed_at: {
+      fo: "date-time"
+      h: "Completed At"
+      n: "completed_at"
+      r: false
+      t: "`$STRING`"
+    }
+    context: {
+      h: "Context"
+      n: "context"
+      r: false
+      sh: "Overrides your configured value for this run only."
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    created_by: {
+      h: "Created By"
+      n: "created_by"
+      r: false
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    duration: {
+      h: "Duration"
+      n: "duration"
+      r: false
+      t: "`$OBJECT`"
+    }
+    examples: {
+      h: "Examples"
+      n: "examples"
+      r: false
+      t: "`$ARRAY`"
+    }
+    extra_context: {
+      h: "Extra Context"
+      n: "extra_context"
+      r: false
+      sh: "Overrides your configured value for this run only."
+      t: "`$STRING`"
+    }
+    group: {
+      h: "Group"
+      n: "group"
+      r: false
+      t: "`$STRING`"
+    }
+    headline: {
+      h: "Headline"
+      n: "headline"
+      r: false
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    image_style: {
+      h: "Image Style"
+      n: "image_style"
+      r: false
+      sh: "Overrides your configured value for this run only."
+      t: "`$STRING`"
+    }
+    image_url: {
+      fo: "uri"
+      h: "Image Url"
+      n: "image_url"
+      r: false
+      t: "`$STRING`"
+    }
+    label: {
+      h: "Label"
+      n: "label"
+      r: false
+      t: "`$STRING`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$ARRAY`"
+    }
+    primary_button: {
+      h: "Primary Button"
+      n: "primary_button"
+      r: false
+      t: "`$OBJECT`"
+    }
+    priority_order: {
+      h: "Priority Order"
+      n: "priority_order"
+      r: false
+      t: "`$INTEGER`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "The campaign a completed run produced."
+      t: "`$OBJECT`"
+    }
+    schedule: {
+      h: "Schedule"
+      n: "schedule"
+      r: false
+      sh: "When the campaign is published."
+      t: "`$OBJECT`"
+    }
+    started_at: {
+      fo: "date-time"
+      h: "Started At"
+      n: "started_at"
+      r: false
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The campaign's current status."
+      t: "`$STRING`"
+    }
+    styling: {
+      h: "Styling"
+      n: "styling"
+      r: false
+      t: "`$OBJECT`"
+    }
+    template_id: {
+      fo: "uuid"
+      h: "Template Id"
+      n: "template_id"
+      r: false
+      t: "`$STRING`"
+    }
+    template_variables: {
+      h: "Template Variables"
+      n: "template_variables"
+      r: false
+      t: "`$OBJECT`"
+    }
+    templates: {
+      h: "Templates"
+      n: "templates"
+      r: false
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 3
+      }
+    }
+    tone_of_voice: {
+      h: "Tone Of Voice"
+      n: "tone_of_voice"
+      r: false
+      sh: "Overrides your configured value for this run only."
+      t: "`$STRING`"
+    }
+    trend: {
+      h: "Trend"
+      n: "trend"
+      r: false
+      t: "`$OBJECT`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "drive_campaigns_api"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /drive-api/v1/campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v1/campaigns"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v1/campaigns/agent"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v1/campaigns/agent"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              lit: "agent"
+            }
+          ]
+          t: {
+            req: {
+              branding: "`reqdata.branding`"
+              campaign_goal: "`reqdata.campaign_goal`"
+              context: "`reqdata.context`"
+              extra_context: "`reqdata.extra_context`"
+              image_style: "`reqdata.image_style`"
+              tone_of_voice: "`reqdata.tone_of_voice`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "created_by"
+                or: "created_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "items_per_page"
+                or: "items_per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page_token"
+                or: "page_token"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns"
+          q: {
+            exist: [
+              "created_by"
+              "items_per_page"
+              "page_token"
+              "status"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns/banner-widgets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "c3339af9-2426-44d4-9c4d-ddb8fd281e23"
+                k: "header"
+                n: "x_customer_id"
+                or: "x_customer_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "action_card"
+                k: "query"
+                n: "channel"
+                or: "channel"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns/banner-widgets"
+          q: {
+            exist: [
+              "channel"
+              "x_client_id"
+              "x_customer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              lit: "banner-widgets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns/content-variables"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns/content-variables"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              lit: "content-variables"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns/{campaign_id}/insights/performance/trends"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+                k: "param"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "daily"
+                k: "query"
+                n: "aggregation_type"
+                or: "aggregation_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metric"
+                or: "metric"
+                r: true
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns/{campaign_id}/insights/performance/trends"
+          q: {
+            exist: [
+              "aggregation_type"
+              "campaign_id"
+              "end_date"
+              "metric"
+              "start_date"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+            {
+              lit: "insights"
+            }
+            {
+              lit: "performance"
+            }
+            {
+              lit: "trends"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns/{campaign_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+                k: "param"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns/{campaign_id}"
+          q: {
+            exist: [
+              "campaign_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns/{campaign_id}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+                k: "param"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns/{campaign_id}/content"
+          q: {
+            "$action": "content"
+            exist: [
+              "campaign_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/campaigns/agent/{generation_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "ceca9875e4674c6699fc404b76f1786f"
+                k: "param"
+                n: "generation_id"
+                or: "generation_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaigns/agent/{generation_id}"
+          q: {
+            exist: [
+              "generation_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              lit: "agent"
+            }
+            {
+              var: "generation_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/campaign-templates/compiled-templates"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "source_type"
+                or: "source_type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/campaign-templates/compiled-templates"
+          q: {
+            exist: [
+              "source_type"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaign-templates"
+            }
+            {
+              lit: "compiled-templates"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /drive-api/v1/campaigns/{campaign_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+                k: "param"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/drive-api/v1/campaigns/{campaign_id}"
+          q: {
+            exist: [
+              "campaign_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /drive-api/v1/campaign-templates/templates/{template_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "89d133a9-02f8-4217-adb8-1d341fc91101"
+                k: "param"
+                n: "template_id"
+                or: "template_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/drive-api/v1/campaign-templates/templates/{template_id}"
+          q: {
+            exist: [
+              "template_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaign-templates"
+            }
+            {
+              lit: "templates"
+            }
+            {
+              var: "template_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /drive-api/v1/campaigns/{campaign_id}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+                k: "param"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/drive-api/v1/campaigns/{campaign_id}/content"
+          q: {
+            "$action": "content"
+            exist: [
+              "campaign_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /drive-api/v1/campaigns/{campaign_id}/status"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "b28efd2c-5a58-42cd-bed7-5564eb877ca7"
+                k: "param"
+                n: "campaign_id"
+                or: "campaign_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/drive-api/v1/campaigns/{campaign_id}/status"
+          q: {
+            "$action": "status"
+            exist: [
+              "campaign_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+            {
+              lit: "status"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

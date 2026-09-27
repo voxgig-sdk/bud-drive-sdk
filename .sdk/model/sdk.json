@@ -1,1 +1,5011 @@
-{"name":"bud-drive"}
+{
+  "NAME": "BUD-DRIVE",
+  "Name": "BudDrive",
+  "def": "bud-drive-openapi.json",
+  "main": {
+    "api": {
+      "entity": {},
+      "guide": {}
+    },
+    "custom": {
+      "plurals": {}
+    },
+    "def": {
+      "desc": ""
+    },
+    "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
+      "config": {
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        },
+        "repr": "auto"
+      },
+      "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "github-pages": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "github-pages",
+            "name": "github-pages",
+            "origname": "",
+            "output": {
+              "path": "docs"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          },
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
+      "entity": {
+        "drive_campaigns_api": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "audience": {
+              "a": true,
+              "fo": "uuid",
+              "h": "Audience",
+              "n": "audience",
+              "op": {
+                "create": {
+                  "req": true,
+                  "type": "`$STRING`"
+                }
+              },
+              "r": false,
+              "sh": "The ID of the segment this campaign targets.",
+              "t": "`$STRING`"
+            },
+            "branding": {
+              "a": true,
+              "h": "Branding",
+              "n": "branding",
+              "r": false,
+              "sh": "Overrides your configured value for this run only.",
+              "t": "`$STRING`"
+            },
+            "campaign_goal": {
+              "a": true,
+              "h": "Campaign Goal",
+              "n": "campaign_goal",
+              "r": true,
+              "sh": "The business goal the campaign should serve, in plain language.",
+              "t": "`$STRING`"
+            },
+            "campaign_id": {
+              "a": true,
+              "fo": "uuid",
+              "h": "Campaign Id",
+              "n": "campaign_id",
+              "op": {
+                "list": {
+                  "req": false,
+                  "type": "`$STRING`"
+                }
+              },
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "channels": {
+              "a": true,
+              "h": "Channels",
+              "n": "channels",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "completed_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Completed At",
+              "n": "completed_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "context": {
+              "a": true,
+              "h": "Context",
+              "n": "context",
+              "r": false,
+              "sh": "Overrides your configured value for this run only.",
+              "t": "`$STRING`"
+            },
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "created_by": {
+              "a": true,
+              "h": "Created By",
+              "n": "created_by",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "duration": {
+              "a": true,
+              "h": "Duration",
+              "n": "duration",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "examples": {
+              "a": true,
+              "h": "Examples",
+              "n": "examples",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "extra_context": {
+              "a": true,
+              "h": "Extra Context",
+              "n": "extra_context",
+              "r": false,
+              "sh": "Overrides your configured value for this run only.",
+              "t": "`$STRING`"
+            },
+            "group": {
+              "a": true,
+              "h": "Group",
+              "n": "group",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "headline": {
+              "a": true,
+              "h": "Headline",
+              "n": "headline",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "image_style": {
+              "a": true,
+              "h": "Image Style",
+              "n": "image_style",
+              "r": false,
+              "sh": "Overrides your configured value for this run only.",
+              "t": "`$STRING`"
+            },
+            "image_url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Image Url",
+              "n": "image_url",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "label": {
+              "a": true,
+              "h": "Label",
+              "n": "label",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "message": {
+              "a": true,
+              "h": "Message",
+              "n": "message",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "op": {
+                "create": {
+                  "req": true,
+                  "type": "`$STRING`"
+                }
+              },
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "parameters": {
+              "a": true,
+              "h": "Parameters",
+              "n": "parameters",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "primary_button": {
+              "a": true,
+              "h": "Primary Button",
+              "n": "primary_button",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "priority_order": {
+              "a": true,
+              "h": "Priority Order",
+              "n": "priority_order",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "result": {
+              "a": true,
+              "h": "Result",
+              "n": "result",
+              "r": false,
+              "sh": "The campaign a completed run produced.",
+              "t": "`$OBJECT`"
+            },
+            "schedule": {
+              "a": true,
+              "h": "Schedule",
+              "n": "schedule",
+              "r": false,
+              "sh": "When the campaign is published.",
+              "t": "`$OBJECT`"
+            },
+            "started_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Started At",
+              "n": "started_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "The campaign's current status.",
+              "t": "`$STRING`"
+            },
+            "styling": {
+              "a": true,
+              "h": "Styling",
+              "n": "styling",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "template_id": {
+              "a": true,
+              "fo": "uuid",
+              "h": "Template Id",
+              "n": "template_id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "template_variables": {
+              "a": true,
+              "h": "Template Variables",
+              "n": "template_variables",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "templates": {
+              "a": true,
+              "h": "Templates",
+              "n": "templates",
+              "r": false,
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 3,
+                "count": 1,
+                "depth": 3
+              }
+            },
+            "tone_of_voice": {
+              "a": true,
+              "h": "Tone Of Voice",
+              "n": "tone_of_voice",
+              "r": false,
+              "sh": "Overrides your configured value for this run only.",
+              "t": "`$STRING`"
+            },
+            "trend": {
+              "a": true,
+              "h": "Trend",
+              "n": "trend",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "drive_campaigns_api",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v1/campaigns",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v1/campaigns",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v1/campaigns/agent",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v1/campaigns/agent",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "lit": "agent"
+                    }
+                  ],
+                  "t": {
+                    "req": {
+                      "branding": "`reqdata.branding`",
+                      "campaign_goal": "`reqdata.campaign_goal`",
+                      "context": "`reqdata.context`",
+                      "extra_context": "`reqdata.extra_context`",
+                      "image_style": "`reqdata.image_style`",
+                      "tone_of_voice": "`reqdata.tone_of_voice`"
+                    },
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "created_by",
+                        "or": "created_by",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "items_per_page",
+                        "or": "items_per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page_token",
+                        "or": "page_token",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "status",
+                        "or": "status",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns",
+                  "q": {
+                    "exist": [
+                      "created_by",
+                      "items_per_page",
+                      "page_token",
+                      "status",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns/banner-widgets",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "c3339af9-2426-44d4-9c4d-ddb8fd281e23",
+                        "k": "header",
+                        "n": "x_customer_id",
+                        "or": "x_customer_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "action_card",
+                        "k": "query",
+                        "n": "channel",
+                        "or": "channel",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns/banner-widgets",
+                  "q": {
+                    "exist": [
+                      "channel",
+                      "x_client_id",
+                      "x_customer_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "lit": "banner-widgets"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns/content-variables",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns/content-variables",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "lit": "content-variables"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns/{campaign_id}/insights/performance/trends",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+                        "k": "param",
+                        "n": "campaign_id",
+                        "or": "campaign_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "daily",
+                        "k": "query",
+                        "n": "aggregation_type",
+                        "or": "aggregation_type",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "end_date",
+                        "or": "end_date",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "metric",
+                        "or": "metric",
+                        "r": true,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "start_date",
+                        "or": "start_date",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns/{campaign_id}/insights/performance/trends",
+                  "q": {
+                    "exist": [
+                      "aggregation_type",
+                      "campaign_id",
+                      "end_date",
+                      "metric",
+                      "start_date",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "var": "campaign_id"
+                    },
+                    {
+                      "lit": "insights"
+                    },
+                    {
+                      "lit": "performance"
+                    },
+                    {
+                      "lit": "trends"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns/{campaign_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+                        "k": "param",
+                        "n": "campaign_id",
+                        "or": "campaign_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns/{campaign_id}",
+                  "q": {
+                    "exist": [
+                      "campaign_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "var": "campaign_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns/{campaign_id}/content",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+                        "k": "param",
+                        "n": "campaign_id",
+                        "or": "campaign_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns/{campaign_id}/content",
+                  "q": {
+                    "$action": "content",
+                    "exist": [
+                      "campaign_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "var": "campaign_id"
+                    },
+                    {
+                      "lit": "content"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaigns/agent/{generation_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "ceca9875e4674c6699fc404b76f1786f",
+                        "k": "param",
+                        "n": "generation_id",
+                        "or": "generation_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaigns/agent/{generation_id}",
+                  "q": {
+                    "exist": [
+                      "generation_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "lit": "agent"
+                    },
+                    {
+                      "var": "generation_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/campaign-templates/compiled-templates",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "source_type",
+                        "or": "source_type",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/campaign-templates/compiled-templates",
+                  "q": {
+                    "exist": [
+                      "source_type",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaign-templates"
+                    },
+                    {
+                      "lit": "compiled-templates"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                }
+              ]
+            },
+            "remove": {
+              "input": "data",
+              "name": "remove",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /drive-api/v1/campaigns/{campaign_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+                        "k": "param",
+                        "n": "campaign_id",
+                        "or": "campaign_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/drive-api/v1/campaigns/{campaign_id}",
+                  "q": {
+                    "exist": [
+                      "campaign_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "var": "campaign_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /drive-api/v1/campaign-templates/templates/{template_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "89d133a9-02f8-4217-adb8-1d341fc91101",
+                        "k": "param",
+                        "n": "template_id",
+                        "or": "template_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/drive-api/v1/campaign-templates/templates/{template_id}",
+                  "q": {
+                    "exist": [
+                      "template_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaign-templates"
+                    },
+                    {
+                      "lit": "templates"
+                    },
+                    {
+                      "var": "template_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "update": {
+              "input": "data",
+              "name": "update",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "PUT /drive-api/v1/campaigns/{campaign_id}/content",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+                        "k": "param",
+                        "n": "campaign_id",
+                        "or": "campaign_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "PUT",
+                  "o": "/drive-api/v1/campaigns/{campaign_id}/content",
+                  "q": {
+                    "$action": "content",
+                    "exist": [
+                      "campaign_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "var": "campaign_id"
+                    },
+                    {
+                      "lit": "content"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "PUT /drive-api/v1/campaigns/{campaign_id}/status",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "b28efd2c-5a58-42cd-bed7-5564eb877ca7",
+                        "k": "param",
+                        "n": "campaign_id",
+                        "or": "campaign_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "PUT",
+                  "o": "/drive-api/v1/campaigns/{campaign_id}/status",
+                  "q": {
+                    "$action": "status",
+                    "exist": [
+                      "campaign_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    },
+                    {
+                      "var": "campaign_id"
+                    },
+                    {
+                      "lit": "status"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "drive_mcp_api": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "error": {
+              "a": true,
+              "h": "Error",
+              "n": "error",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "op": {
+                "create": {
+                  "req": false,
+                  "type": "`$STRING`"
+                }
+              },
+              "r": true,
+              "t": "`$STRING`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 0
+              }
+            },
+            "jsonrpc": {
+              "a": true,
+              "h": "Jsonrpc",
+              "n": "jsonrpc",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "method": {
+              "a": true,
+              "h": "Method",
+              "n": "method",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "params": {
+              "a": true,
+              "h": "Params",
+              "n": "params",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "result": {
+              "a": true,
+              "h": "Result",
+              "n": "result",
+              "r": false,
+              "t": "`$OBJECT`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "drive_mcp_api",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-mcp/v1/campaigns",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-mcp/v1/campaigns",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-mcp"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "campaigns"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-mcp/v1/copilot",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-mcp/v1/copilot",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-mcp"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "copilot"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-mcp/v1/segments",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-mcp/v1/segments",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-mcp"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "drive_segments_api": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "created_by": {
+              "a": true,
+              "h": "Created By",
+              "n": "created_by",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "criteria": {
+              "a": true,
+              "h": "Criteria",
+              "n": "criteria",
+              "r": true,
+              "t": "`$ANY`",
+              "union": {
+                "branches": 3,
+                "count": 1,
+                "depth": 0
+              }
+            },
+            "criteria_from": {
+              "a": true,
+              "fo": "uuid",
+              "h": "Criteria From",
+              "n": "criteria_from",
+              "r": true,
+              "sh": "The ID of the segment whose criteria should be copied.",
+              "t": "`$STRING`"
+            },
+            "customers": {
+              "a": true,
+              "h": "Customers",
+              "n": "customers",
+              "r": true,
+              "sh": "Customer IDs to include in the fixed customer list.",
+              "t": "`$ARRAY`"
+            },
+            "customers_from": {
+              "a": true,
+              "fo": "uuid",
+              "h": "Customers From",
+              "n": "customers_from",
+              "r": true,
+              "sh": "The ID of the segment whose current members should be copied.",
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "fixed_customer_list": {
+              "a": true,
+              "h": "Fixed Customer List",
+              "n": "fixed_customer_list",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
+            "fixed_customer_list_size": {
+              "a": true,
+              "h": "Fixed Customer List Size",
+              "n": "fixed_customer_list_size",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "from_criteria_id": {
+              "a": true,
+              "fo": "uuid",
+              "h": "From Criteria Id",
+              "n": "from_criteria_id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "fo": "uuid",
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "intersection_count": {
+              "a": true,
+              "h": "Intersection Count",
+              "n": "intersection_count",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "jaccard_index": {
+              "a": true,
+              "h": "Jaccard Index",
+              "n": "jaccard_index",
+              "r": false,
+              "t": "`$NUMBER`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "op": {
+                "list": {
+                  "req": false,
+                  "type": "`$STRING`"
+                },
+                "patch": {
+                  "req": false,
+                  "type": "`$STRING`"
+                }
+              },
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "parameters": {
+              "a": true,
+              "h": "Parameters",
+              "n": "parameters",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "source": {
+              "a": true,
+              "h": "Source",
+              "n": "source",
+              "r": false,
+              "sh": "How the segment was created.",
+              "t": "`$STRING`"
+            },
+            "statistics_id": {
+              "a": true,
+              "h": "Statistics Id",
+              "n": "statistics_id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "suggestion": {
+              "a": true,
+              "h": "Suggestion",
+              "n": "suggestion",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "tag": {
+              "a": true,
+              "h": "Tag",
+              "n": "tag",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "tags": {
+              "a": true,
+              "h": "Tags",
+              "n": "tags",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "The shape of the statistic's values.",
+              "t": "`$STRING`"
+            },
+            "union_count": {
+              "a": true,
+              "h": "Union Count",
+              "n": "union_count",
+              "r": false,
+              "t": "`$INTEGER`"
+            },
+            "upload": {
+              "a": true,
+              "h": "Upload",
+              "n": "upload",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "values": {
+              "a": true,
+              "h": "Values",
+              "n": "values",
+              "r": false,
+              "t": "`$ARRAY`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "drive_segments_api",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v1/segments/{segment_id}/query",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v1/segments/{segment_id}/query",
+                  "q": {
+                    "$action": "query",
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "query"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v2/criteria/drafts/{criteria_id}/run",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e",
+                        "k": "param",
+                        "n": "draft_id",
+                        "or": "criteria_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v2/criteria/drafts/{criteria_id}/run",
+                  "q": {
+                    "$action": "run",
+                    "exist": [
+                      "draft_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "criteria_id": "draft_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "drafts"
+                    },
+                    {
+                      "var": "draft_id"
+                    },
+                    {
+                      "lit": "run"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v2/segments/{segment_id}/criteria/run",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v2/segments/{segment_id}/criteria/run",
+                  "q": {
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "run"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v1/segments/from-existing/criteria",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v1/segments/from-existing/criteria",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "lit": "from-existing"
+                    },
+                    {
+                      "lit": "criteria"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v1/segments/from-existing/fixed-customers",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v1/segments/from-existing/fixed-customers",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "lit": "from-existing"
+                    },
+                    {
+                      "lit": "fixed-customers"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v1/segments/upload",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v1/segments/upload",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "lit": "upload"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v2/criteria/drafts",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v2/criteria/drafts",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "drafts"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v2/criteria/run",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v2/criteria/run",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "run"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v2/criteria/suggestions/segment-name",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v2/criteria/suggestions/segment-name",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "suggestions"
+                    },
+                    {
+                      "lit": "segment-name"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /drive-api/v2/segments",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/drive-api/v2/segments",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "segments"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/segments/{segment_id}/statistics/overview",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "date_to",
+                        "or": "date_to",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "significant_date",
+                        "or": "significant_date",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/segments/{segment_id}/statistics/overview",
+                  "q": {
+                    "exist": [
+                      "date_to",
+                      "segment_id",
+                      "significant_date",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "statistics"
+                    },
+                    {
+                      "lit": "overview"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v2/segments",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "max_per_page",
+                        "or": "max_per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "search",
+                        "or": "search",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v2/segments",
+                  "q": {
+                    "exist": [
+                      "max_per_page",
+                      "page",
+                      "search",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "segments"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/tags",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/tags",
+                  "q": {
+                    "exist": [
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "tags"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "7e8aedf9-6be5-4807-afe0-aa292fb2cde2",
+                        "k": "param",
+                        "n": "other_segment_id",
+                        "or": "other_segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "refresh",
+                        "or": "refresh",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}",
+                  "q": {
+                    "exist": [
+                      "other_segment_id",
+                      "refresh",
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "similarity"
+                    },
+                    {
+                      "var": "other_segment_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v2/criteria/drafts/{criteria_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e",
+                        "k": "param",
+                        "n": "criteria_id",
+                        "or": "criteria_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v2/criteria/drafts/{criteria_id}",
+                  "q": {
+                    "exist": [
+                      "criteria_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "drafts"
+                    },
+                    {
+                      "var": "criteria_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v2/criteria/options",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v2/criteria/options",
+                  "q": {
+                    "exist": [
+                      "filter",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "options"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v1/segments/{segment_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v1/segments/{segment_id}",
+                  "q": {
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v2/segments/{segment_id}/criteria",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v2/segments/{segment_id}/criteria",
+                  "q": {
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "criteria"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /drive-api/v2/segments/{segment_id}/criteria/active-options",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/drive-api/v2/segments/{segment_id}/criteria/active-options",
+                  "q": {
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "active-options"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "patch": {
+              "input": "data",
+              "name": "patch",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "PATCH /drive-api/v1/segments/{segment_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "PATCH",
+                  "o": "/drive-api/v1/segments/{segment_id}",
+                  "q": {
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.data`"
+                  }
+                }
+              ]
+            },
+            "remove": {
+              "input": "data",
+              "name": "remove",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /drive-api/v1/segments/{segment_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/drive-api/v1/segments/{segment_id}",
+                  "q": {
+                    "exist": [
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.metadata`"
+                  }
+                }
+              ]
+            },
+            "update": {
+              "input": "data",
+              "name": "update",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "PUT /drive-api/v2/segments/{segment_id}/criteria/{criteria_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e",
+                        "k": "param",
+                        "n": "criteria_id",
+                        "or": "criteria_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "23303f83-a790-4ee9-95b6-d5cdeaf36fa2",
+                        "k": "param",
+                        "n": "segment_id",
+                        "or": "segment_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "PUT",
+                  "o": "/drive-api/v2/segments/{segment_id}/criteria/{criteria_id}",
+                  "q": {
+                    "exist": [
+                      "criteria_id",
+                      "segment_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "segments"
+                    },
+                    {
+                      "var": "segment_id"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "var": "criteria_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "PUT /drive-api/v2/criteria/drafts/{criteria_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "header": [
+                      {
+                        "a": true,
+                        "ex": "8711bbef-b357-4c2d-97ca-0d9df4206e9a",
+                        "k": "header",
+                        "n": "x_client_id",
+                        "or": "x_client_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e",
+                        "k": "param",
+                        "n": "criteria_id",
+                        "or": "criteria_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "PUT",
+                  "o": "/drive-api/v2/criteria/drafts/{criteria_id}",
+                  "q": {
+                    "exist": [
+                      "criteria_id",
+                      "x_client_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "drive-api"
+                    },
+                    {
+                      "lit": "v2"
+                    },
+                    {
+                      "lit": "criteria"
+                    },
+                    {
+                      "lit": "drafts"
+                    },
+                    {
+                      "var": "criteria_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "debug": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "max": 100,
+              "redact": [
+                "authorization",
+                "cookie",
+                "set-cookie",
+                "api-key",
+                "apikey",
+                "x-api-key",
+                "idempotency-key"
+              ]
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "onEntry": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Request/response capture ring buffer for debugging",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreDone": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "PreUnexpected": {
+              "active": true,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "debug",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Debug capture",
+          "transport": "none",
+          "version": "0.0.1"
+        },
+        "idempotency": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "header": "Idempotency-Key",
+              "methods": [
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+              ],
+              "ops": [
+                "create",
+                "update",
+                "remove"
+              ]
+            },
+            "optspec": {
+              "keygen": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Idempotency keys for safe retries of mutating operations",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "idempotency",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Idempotency",
+          "transport": "none",
+          "version": "0.0.1"
+        },
+        "metrics": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false
+            },
+            "optspec": {
+              "now": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Statistics capture: per-operation counters and latency",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreDone": {
+              "active": true,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "PreUnexpected": {
+              "active": true,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "metrics",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Metrics",
+          "transport": "none",
+          "version": "0.0.1"
+        },
+        "paging": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "afterVar": "after",
+              "cursorParam": "cursor",
+              "firstVar": "first",
+              "limitParam": "limit",
+              "pageParam": "page",
+              "startPage": 1
+            },
+            "optspec": {
+              "limit": "`$NUMBER`",
+              "ops": "`$LIST`"
+            },
+            "strict": false
+          },
+          "description": "Pagination signals for list operations",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "paging",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Paging",
+          "transport": "none",
+          "version": "0.0.1"
+        },
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Client-side rate limiting via a token bucket",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Rate limiting",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Automatic retry of transient failures with exponential backoff",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Retry",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "test": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
+          },
+          "description": "In-memory mock transport for testing without a live server",
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Test transport",
+          "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Per-request timeout with transport abort",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "js": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Timeout",
+          "transport": "wrap",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicDriveCampaignsApiFlow": {
+          "active": true,
+          "entity": "drive_campaigns_api",
+          "key$": "BasicDriveCampaignsApiFlow",
+          "kind": "basic",
+          "name": "BasicDriveCampaignsApiFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_campaigns_api_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "drive_campaigns_api_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_campaigns_api_ref01",
+                "srcdatavar": "drive_campaigns_api_ref01_data",
+                "suffix": "_up0",
+                "textfield": "audience"
+              },
+              "m": {},
+              "o": "update",
+              "s": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-drive_campaigns_api_ref01"
+                  }
+                }
+              ],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_campaigns_api_ref01",
+                "srcdatavar": "drive_campaigns_api_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-drive_campaigns_api_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_campaigns_api_ref01",
+                "suffix": "_rm0"
+              },
+              "m": {
+                "id": "drive_campaigns_api01"
+              },
+              "o": "remove",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "suffix": "_rt0"
+              },
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemNotExists",
+                  "def": {
+                    "ref": "drive_campaigns_api_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicDriveMcpApiFlow": {
+          "active": true,
+          "entity": "drive_mcp_api",
+          "key$": "BasicDriveMcpApiFlow",
+          "kind": "basic",
+          "name": "BasicDriveMcpApiFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_mcp_api_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            }
+          ]
+        },
+        "BasicDriveSegmentsApiFlow": {
+          "active": true,
+          "entity": "drive_segments_api",
+          "key$": "BasicDriveSegmentsApiFlow",
+          "kind": "basic",
+          "name": "BasicDriveSegmentsApiFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_segments_api_ref01"
+              },
+              "m": {
+                "segment_id": "segment01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "drive_segments_api_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_segments_api_ref01",
+                "srcdatavar": "drive_segments_api_ref01_data",
+                "suffix": "_up0",
+                "textfield": "created_at"
+              },
+              "m": {},
+              "o": "update",
+              "s": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-drive_segments_api_ref01"
+                  }
+                }
+              ],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_segments_api_ref01",
+                "srcdatavar": "drive_segments_api_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "drive_segments_api01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-drive_segments_api_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "drive_segments_api_ref01",
+                "suffix": "_rm0"
+              },
+              "m": {
+                "id": "drive_segments_api01"
+              },
+              "o": "remove",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "suffix": "_rt0"
+              },
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemNotExists",
+                  "def": {
+                    "ref": "drive_segments_api_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "info": {
+        "contact": {
+          "email": "contact@thisisbud.com",
+          "name": "API Support",
+          "url": "http://www.thisisbud.com/support"
+        },
+        "description": "Drive lets you understand your customers using the flags it compiles from data across every\nsource you bring in — not just transactions — build segments from those flags, and run\npersonalised campaigns against them. Drive works in a loop: **understand** your customers (via\nthe flags that make up Drive's criteria), **segment** them (Drive Segments API), and **engage**\nthem (Drive Campaigns API). Measuring a campaign's performance feeds back into segmentation, so\nthe next audience is sharper than the last.\n\nCampaigns don't have to be built step by step, either: describe the outcome you want in plain\nlanguage and Drive's campaign agent finds the matching audience, writes the copy, generates the\nartwork, and estimates the opportunity for you.\n\nSegments V2 endpoints return non-standard vendor content types\n(`application/vnd.bud.drive.notification+json`, `.criteria+json`, `.visualisation+json`,\n`.criteria-options+json`) rather than plain `application/json` — check the `Content-Type` of\nthese responses rather than assuming JSON.\n",
+        "security": {
+          "in": "header",
+          "name": "Authorization",
+          "prefix": "Bearer",
+          "scheme": "OAuth2",
+          "type": "oauth2"
+        },
+        "servers": [
+          {
+            "description": "Bud sandbox",
+            "url": "https://api-sandbox.thisisbud.com"
+          }
+        ],
+        "summary": "Drive lets you understand your customers using the flags it compiles from data across every source you bring in — not just transactions — build segments from those flags, and run personalised campaigns against them.",
+        "title": "Drive API",
+        "version": "1.0.0",
+        "website": "https://thisisbud.com",
+        "x-logo": {
+          "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATAAAABuCAQAAAAKAYdLAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4wQDDggcbXcx7wAABeJJREFUeNrt3W2IFVUcx/HvXRW1VdQedy1bZVfoYX0osVQyfSGElKbRA5oFIaIlhAkWUYm6gvqqDMHMoBeKlhayCCZC2AMRPay7aJrSZmauZhQqaj7t7u1Fi965987s7D1n7pk7/j73zX2Y85//mXt2Zu45Z2ZBREREREREREREREREREREREREREREREREREREREREREREREREROIiZSFGH+YxgsOs5U/X1bFiPDPpQT3bu1DmcaZyg+vErWpjD+s47zoN6Mte0qRJc4Iq18lYMJv2jvosD11mRUeJpD32UO7664BFGQl94DoZY704fbU2rQwKVWYwbc6bQlSPBaYbtMz4K7nP53lpGkK/q8+7MTxUmeEWtmJcGX+j5psmM0I3l9vCirKAV36OuE46QsbfaHL/9opnL9tcpxBf3V0nkAgzWMRj9HadhrH+3Gk7pBqYDZdY3oXfnHE2gc1U2gyoQ6Rk+pKZdgOqgYnXF7TYDGe3gcWgW85QH9cJxMAVm8HsNrBqhhV1U9g33XUCzo1gsM1wdhtYio8ZWsytYdksFrpOwbGhbLYb0PavyLs5wA+c9v28lRa+Zzt/+y5RwwKqaOCdgCjZRvEit/A1a7jou8xwJjOMAb7D+ylqqCmw1imeZ0oCBrv7Mzp+/QofFTDCdZG13Jw3Wi1nOpbZT9+QGUziUkeZ3T49z+P4pqCRuCkhM1jjfMwwqsdG182rsAaWJs0JxuWJ9knGEq+EzODHjDLTcj5NsbjgwehwDazm6vyL5D2MG5i7booKdjE25917M57XhoxUG1hmJUsjrmWtlVl18ZQ2DeCyH6ycT7kpIJ+wuQWVeZJXI69HcpsXHDQN4LajtZIlkcbvzWqn9St1R3nPNIT93wzt/MSZPO+nqKA65699Nos5FdHmgZkMzHnvIj9zLm9+Q7jd0nqP8VtkdSqWNppYxT+u08g+yW8OnKRXw4ac08hnPUscyvjkw5AZXM4os9jzyY6sdZ3h5YC++jLm0lrASf50T5krzEn0QbOLbB8in2FvwKfNPJczCXd0hLV7wPPqL8bybt691//aWWfhkPo2681PjZPDbgP7lYZOl1nNJs9rW4elXD2zfkK8wIFOy2w1XuuWyOpTkuw2sHOhlqrzvIqu59gbuYEdIcqcjSyb65SLX5EHOepgrbuKtJ6nHNQtxtx0U5xM8DoXMkez7K5xM7Tp4iS4WOvszvss5feSP9Fvo5EVnDDfHGJfpd157Y48xFRGmfaEaWcu/qqYZxpCDcxcqR8Mg9xlGkANzNz+BDcx4zEJNTBzv5gPCSeXTvJtmM+3PJqIKdNj6GE3pJsG5mIwOMp1ptnABgd1sq+G7ebnXZncHCKjG3+M1zpLTzMz7AZ00cBG5pmlFb3JmkQTSpPd21HZbWD9Qy21zPPK/zricNH6+B7mvZFreTpEtAFWt0dpsnoWZreBVTG+kyVS1GVN4/vDd9lJVIRY5yzfPdPlrPHHdTwYItr1bkLcTia8M1qPM9F3yRRjcuaYprNmHxzyfNbQyQlnGTM47ynhndFan7WuCywLODz35I2sC9DCXheZHBNpsXvZmu1fkZXs5rjPnPzb8hyAzrIzINr9HOBIwNXat+ZcleS1hame1714izc55jNvbVDBtz7pyWuJuI15P/tnx1F0UwzsQpprO5nil2KIQSZbqcspnwp57+iu2MQT1mMmhNue/MMR3xfwMi8VYRhnmJqXP/MG1lZwyVNMy9l/FR4tf/mdvB553Uz2sXFn+n1YaGCNBZZr5mH25by7xzCb3PKrmM+lgmK1BV4hdc0+2g2zjq8m1wlAOY1dvqXGKep87oZYzUmDW3Vs8+myuIf6Am6AsiT0Nljp/CYl0Twaze9ZaaN3u5w5jAy5L2ylhe/4nAu+S1Qwl+oCsrjCV2wM2KXfwSPUcmPIGv9LPZ91Ye1TEnEb80ztNLE+Dv8MS0RERERERERERERERERERERERERERERERERERERERERERERERERs+Q/rhi5WauEgfQAAAABJRU5ErkJggg=="
+        }
+      },
+      "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "in": "",
+          "name": "",
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
+      "phase": {
+        "build": {
+          "active": true
+        },
+        "top": {
+          "active": true
+        }
+      },
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
+      "target": {
+        "go": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "go",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "",
+              "package": "",
+              "state": "pending",
+              "url": "",
+              "vault": {
+                "alias": "",
+                "env": "",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "go-cli",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "phase": {
+            "agentguide": {
+              "active": false
+            },
+            "entity": {
+              "active": false
+            },
+            "feature": {
+              "active": false
+            },
+            "readme": {
+              "active": false
+            },
+            "test": {
+              "active": false
+            }
+          },
+          "provides": {},
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "",
+              "package": "",
+              "state": "pending",
+              "url": "",
+              "vault": {
+                "alias": "",
+                "env": "",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "root"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [],
+          "title": "Go CLI"
+        },
+        "go-mcp": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "go-mcp",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "phase": {
+            "agentguide": {
+              "active": false
+            },
+            "entity": {
+              "active": false
+            },
+            "feature": {
+              "active": false
+            },
+            "readme": {
+              "active": false
+            },
+            "test": {
+              "active": false
+            }
+          },
+          "provides": {},
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "",
+              "package": "",
+              "state": "pending",
+              "url": "",
+              "vault": {
+                "alias": "",
+                "env": "",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "root"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [],
+          "title": "Go MCP server"
+        },
+        "js": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            }
+          },
+          "ext": "js",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "js",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "npm",
+              "package": "",
+              "state": "pending",
+              "url": "https://registry.npmjs.org",
+              "vault": {
+                "alias": "npm",
+                "env": "",
+                "recipe": "npm"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [
+            "test/runner.js"
+          ],
+          "title": "JavaScript"
+        },
+        "lua": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "--"
+          },
+          "deps": {
+            "dkjson": {
+              "active": true,
+              "kind": "prod",
+              "version": "2.5"
+            }
+          },
+          "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "lua",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "luarocks",
+              "package": "",
+              "state": "pending",
+              "url": "https://luarocks.org",
+              "vault": {
+                "alias": "luarocks",
+                "env": "LUAROCKS_API_KEY",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
+          "title": "Lua"
+        },
+        "php": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "php",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "packagist",
+              "package": "",
+              "state": "pending",
+              "url": "https://packagist.org",
+              "vault": {
+                "alias": "packagist",
+                "env": "PACKAGIST_API_TOKEN",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
+          "title": "PHP"
+        },
+        "py": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "#"
+          },
+          "deps": {
+            "requests": {
+              "active": true,
+              "kind": "prod",
+              "version": "2.33"
+            }
+          },
+          "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "py",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "pypi",
+              "package": "",
+              "state": "pending",
+              "url": "https://pypi.org",
+              "vault": {
+                "alias": "pypi",
+                "env": "",
+                "recipe": "pypi"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
+          "title": "Python"
+        },
+        "ts": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "bud-drive",
+            "package": "",
+            "path": ""
+          },
+          "name": "ts",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "npm",
+              "package": "",
+              "state": "pending",
+              "url": "https://registry.npmjs.org",
+              "vault": {
+                "alias": "npm",
+                "env": "",
+                "recipe": "npm"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
+          "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": true
+        }
+      }
+    }
+  },
+  "name": "bud-drive",
+  "name-": "bud-drive",
+  "name_": "bud_drive",
+  "name__orig": "bud-drive",
+  "origin": "voxgig-sdk"
+}

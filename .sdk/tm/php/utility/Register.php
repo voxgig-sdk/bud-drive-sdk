@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+// BudDrive SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+BudDriveUtility::setRegistrar(function (BudDriveUtility $u): void {
+    $u->clean = [BudDriveClean::class, 'call'];
+    $u->done = [BudDriveDone::class, 'call'];
+    $u->make_error = [BudDriveMakeError::class, 'call'];
+    $u->feature_add = [BudDriveFeatureAdd::class, 'call'];
+    $u->feature_hook = [BudDriveFeatureHook::class, 'call'];
+    $u->feature_init = [BudDriveFeatureInit::class, 'call'];
+    $u->fetcher = [BudDriveFetcher::class, 'call'];
+    $u->make_fetch_def = [BudDriveMakeFetchDef::class, 'call'];
+    $u->make_context = [BudDriveMakeContext::class, 'call'];
+    $u->make_options = [BudDriveMakeOptions::class, 'call'];
+    $u->make_request = [BudDriveMakeRequest::class, 'call'];
+    $u->make_response = [BudDriveMakeResponse::class, 'call'];
+    $u->make_result = [BudDriveMakeResult::class, 'call'];
+    $u->make_point = [BudDriveMakePoint::class, 'call'];
+    $u->make_spec = [BudDriveMakeSpec::class, 'call'];
+    $u->make_url = [BudDriveMakeUrl::class, 'call'];
+    $u->param = [BudDriveParam::class, 'call'];
+    $u->prepare_auth = [BudDrivePrepareAuth::class, 'call'];
+    $u->prepare_body = [BudDrivePrepareBody::class, 'call'];
+    $u->prepare_headers = [BudDrivePrepareHeaders::class, 'call'];
+    $u->prepare_method = [BudDrivePrepareMethod::class, 'call'];
+    $u->prepare_params = [BudDrivePrepareParams::class, 'call'];
+    $u->prepare_path = [BudDrivePreparePath::class, 'call'];
+    $u->prepare_query = [BudDrivePrepareQuery::class, 'call'];
+    $u->graphql_body = [BudDriveGraphql::class, 'body'];
+    $u->graphql_errors = [BudDriveGraphql::class, 'errors'];
+    $u->result_basic = [BudDriveResultBasic::class, 'call'];
+    $u->result_body = [BudDriveResultBody::class, 'call'];
+    $u->result_headers = [BudDriveResultHeaders::class, 'call'];
+    $u->transform_request = [BudDriveTransformRequest::class, 'call'];
+    $u->transform_response = [BudDriveTransformResponse::class, 'call'];
+});

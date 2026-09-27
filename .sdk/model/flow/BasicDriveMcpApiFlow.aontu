@@ -1,0 +1,18 @@
+# BasicDriveMcpApiFlow
+
+main: kit: flow: BasicDriveMcpApiFlow:
+{
+  entity: "drive_mcp_api",
+  kind: "basic",
+  name: "BasicDriveMcpApiFlow",
+  step: [
+    {
+      i: {
+        ref: "drive_mcp_api_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicDriveMcpApiFlow"
+}

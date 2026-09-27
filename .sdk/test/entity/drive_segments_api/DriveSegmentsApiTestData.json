@@ -1,0 +1,242 @@
+{
+  "existing": {
+    "drive_segments_api": {
+      "DRIVE_SEGMENTS_API00": {
+        "created_at": "sf0",
+        "created_by": "sf1",
+        "criteria": "sf2",
+        "criteria_from": "sf3",
+        "customers": [],
+        "customers_from": "sf5",
+        "description": "sf6",
+        "fixed_customer_list": false,
+        "fixed_customer_list_size": 248,
+        "from_criteria_id": "FROM_CRITERIA01",
+        "id": "DRIVE_SEGMENTS_API00",
+        "intersection_count": 251,
+        "jaccard_index": 252,
+        "name": "sfd",
+        "parameters": {},
+        "source": "sff",
+        "statistics_id": "STATISTICS01",
+        "suggestion": {},
+        "tag": "s102",
+        "tags": [],
+        "type": "s104",
+        "union_count": 261,
+        "upload": {},
+        "values": [],
+        "segment_id": "SEGMENT01",
+        "draft_id": "DRAFT01",
+        "other_segment_id": "OTHER_SEGMENT01",
+        "criteria_id": "CRITERIA01"
+      },
+      "DRIVE_SEGMENTS_API01": {
+        "created_at": "s1e0",
+        "created_by": "s1e1",
+        "criteria": "s1e2",
+        "criteria_from": "s1e3",
+        "customers": [],
+        "customers_from": "s1e5",
+        "description": "s1e6",
+        "fixed_customer_list": false,
+        "fixed_customer_list_size": 488,
+        "from_criteria_id": "FROM_CRITERIA01",
+        "id": "DRIVE_SEGMENTS_API01",
+        "intersection_count": 491,
+        "jaccard_index": 492,
+        "name": "s1ed",
+        "parameters": {},
+        "source": "s1ef",
+        "statistics_id": "STATISTICS01",
+        "suggestion": {},
+        "tag": "s1f2",
+        "tags": [],
+        "type": "s1f4",
+        "union_count": 501,
+        "upload": {},
+        "values": [],
+        "segment_id": "SEGMENT01",
+        "draft_id": "DRAFT01",
+        "other_segment_id": "OTHER_SEGMENT01",
+        "criteria_id": "CRITERIA01"
+      },
+      "DRIVE_SEGMENTS_API02": {
+        "created_at": "s2d0",
+        "created_by": "s2d1",
+        "criteria": "s2d2",
+        "criteria_from": "s2d3",
+        "customers": [],
+        "customers_from": "s2d5",
+        "description": "s2d6",
+        "fixed_customer_list": false,
+        "fixed_customer_list_size": 728,
+        "from_criteria_id": "FROM_CRITERIA01",
+        "id": "DRIVE_SEGMENTS_API02",
+        "intersection_count": 731,
+        "jaccard_index": 732,
+        "name": "s2dd",
+        "parameters": {},
+        "source": "s2df",
+        "statistics_id": "STATISTICS01",
+        "suggestion": {},
+        "tag": "s2e2",
+        "tags": [],
+        "type": "s2e4",
+        "union_count": 741,
+        "upload": {},
+        "values": [],
+        "segment_id": "SEGMENT01",
+        "draft_id": "DRAFT01",
+        "other_segment_id": "OTHER_SEGMENT01",
+        "criteria_id": "CRITERIA01"
+      }
+    }
+  },
+  "new": {
+    "drive_segments_api": {
+      "drive_segments_api_ref01": {
+        "created_at": "s3c0",
+        "created_by": "s3c1",
+        "criteria": "s3c2",
+        "criteria_from": "s3c3",
+        "customers": [],
+        "customers_from": "s3c5",
+        "description": "s3c6",
+        "fixed_customer_list": false,
+        "fixed_customer_list_size": 968,
+        "from_criteria_id": "FROM_CRITERIA01",
+        "intersection_count": 971,
+        "jaccard_index": 972,
+        "name": "s3cd",
+        "parameters": {},
+        "source": "s3cf",
+        "statistics_id": "STATISTICS01",
+        "suggestion": {},
+        "tag": "s3d2",
+        "tags": [],
+        "type": "s3d4",
+        "union_count": 981,
+        "upload": {},
+        "values": []
+      }
+    }
+  },
+  "requests": {
+    "POST /drive-api/v1/segments/{segment_id}/query": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v2/criteria/drafts/{criteria_id}/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v2/segments/{segment_id}/criteria/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v1/segments/from-existing/criteria": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v1/segments/from-existing/fixed-customers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v1/segments/upload": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v2/criteria/drafts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v2/criteria/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v2/criteria/suggestions/segment-name": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v2/segments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/segments/{segment_id}/statistics/overview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v2/segments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/tags": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v2/criteria/drafts/{criteria_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v2/criteria/options": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/segments/{segment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v2/segments/{segment_id}/criteria": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v2/segments/{segment_id}/criteria/active-options": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /drive-api/v1/segments/{segment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /drive-api/v1/segments/{segment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /drive-api/v2/segments/{segment_id}/criteria/{criteria_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /drive-api/v2/criteria/drafts/{criteria_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

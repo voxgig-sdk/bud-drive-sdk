@@ -1,0 +1,92 @@
+package voxgigbuddrivesdk
+
+import (
+	"github.com/voxgig-sdk/bud-drive-sdk/go/core"
+	"github.com/voxgig-sdk/bud-drive-sdk/go/entity"
+	"github.com/voxgig-sdk/bud-drive-sdk/go/feature"
+	_ "github.com/voxgig-sdk/bud-drive-sdk/go/utility"
+)
+
+// Type aliases preserve external API.
+type BudDriveSDK = core.BudDriveSDK
+type Context = core.Context
+type Utility = core.Utility
+type Feature = core.Feature
+type Entity = core.Entity
+type BudDriveEntity = core.BudDriveEntity
+type FetcherFunc = core.FetcherFunc
+type Spec = core.Spec
+type Result = core.Result
+type Response = core.Response
+type Operation = core.Operation
+type Control = core.Control
+type BudDriveError = core.BudDriveError
+
+// BaseFeature from feature package.
+type BaseFeature = feature.BaseFeature
+
+func init() {
+	core.NewBaseFeatureFunc = func() core.Feature {
+		return feature.NewBaseFeature()
+	}
+	core.NewDebugFeatureFunc = func() core.Feature {
+		return feature.NewDebugFeature()
+	}
+	core.NewIdempotencyFeatureFunc = func() core.Feature {
+		return feature.NewIdempotencyFeature()
+	}
+	core.NewMetricsFeatureFunc = func() core.Feature {
+		return feature.NewMetricsFeature()
+	}
+	core.NewPagingFeatureFunc = func() core.Feature {
+		return feature.NewPagingFeature()
+	}
+	core.NewRatelimitFeatureFunc = func() core.Feature {
+		return feature.NewRatelimitFeature()
+	}
+	core.NewRetryFeatureFunc = func() core.Feature {
+		return feature.NewRetryFeature()
+	}
+	core.NewTestFeatureFunc = func() core.Feature {
+		return feature.NewTestFeature()
+	}
+	core.NewTimeoutFeatureFunc = func() core.Feature {
+		return feature.NewTimeoutFeature()
+	}
+	core.NewDriveCampaignsApiEntityFunc = func(client *core.BudDriveSDK, entopts map[string]any) core.BudDriveEntity {
+		return entity.NewDriveCampaignsApiEntity(client, entopts)
+	}
+	core.NewDriveMcpApiEntityFunc = func(client *core.BudDriveSDK, entopts map[string]any) core.BudDriveEntity {
+		return entity.NewDriveMcpApiEntity(client, entopts)
+	}
+	core.NewDriveSegmentsApiEntityFunc = func(client *core.BudDriveSDK, entopts map[string]any) core.BudDriveEntity {
+		return entity.NewDriveSegmentsApiEntity(client, entopts)
+	}
+}
+
+// Constructor re-exports.
+var NewBudDriveSDK = core.NewBudDriveSDK
+var TestSDK = core.TestSDK
+var NewContext = core.NewContext
+var NewSpec = core.NewSpec
+var NewResult = core.NewResult
+var NewResponse = core.NewResponse
+var NewOperation = core.NewOperation
+var MakeConfig = core.MakeConfig
+var SharedConfig = core.SharedConfig
+
+// No-arg convenience constructors. Go has no default-argument syntax,
+// so these aliases let callers write `sdk.New()` / `sdk.Test()`
+// instead of `sdk.NewBudDriveSDK(nil)` / `sdk.TestSDK(nil, nil)`
+// for the common no-options case.
+func New() *BudDriveSDK  { return NewBudDriveSDK(nil) }
+func Test() *BudDriveSDK { return TestSDK(nil, nil) }
+var NewBaseFeature = feature.NewBaseFeature
+var NewDebugFeature = feature.NewDebugFeature
+var NewIdempotencyFeature = feature.NewIdempotencyFeature
+var NewMetricsFeature = feature.NewMetricsFeature
+var NewPagingFeature = feature.NewPagingFeature
+var NewRatelimitFeature = feature.NewRatelimitFeature
+var NewRetryFeature = feature.NewRetryFeature
+var NewTestFeature = feature.NewTestFeature
+var NewTimeoutFeature = feature.NewTimeoutFeature

@@ -1,0 +1,96 @@
+# BasicDriveCampaignsApiFlow
+
+main: kit: flow: BasicDriveCampaignsApiFlow:
+{
+  entity: "drive_campaigns_api",
+  kind: "basic",
+  name: "BasicDriveCampaignsApiFlow",
+  step: [
+    {
+      i: {
+        ref: "drive_campaigns_api_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "drive_campaigns_api_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "drive_campaigns_api_ref01",
+        srcdatavar: "drive_campaigns_api_ref01_data",
+        suffix: "_up0",
+        textfield: "audience"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-drive_campaigns_api_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "drive_campaigns_api_ref01",
+        srcdatavar: "drive_campaigns_api_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-drive_campaigns_api_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "drive_campaigns_api_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "drive_campaigns_api01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "drive_campaigns_api_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDriveCampaignsApiFlow"
+}

@@ -1,0 +1,196 @@
+# Entity: drive_mcp_api
+
+main: kit: entity: drive_mcp_api: {
+
+  alias: field: {}
+
+  fields: {
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    jsonrpc: {
+      h: "Jsonrpc"
+      n: "jsonrpc"
+      r: true
+      t: "`$STRING`"
+    }
+    method: {
+      h: "Method"
+      n: "method"
+      r: true
+      t: "`$STRING`"
+    }
+    params: {
+      h: "Params"
+      n: "params"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "drive_mcp_api"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /drive-mcp/v1/campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-mcp/v1/campaigns"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-mcp"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-mcp/v1/copilot"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-mcp/v1/copilot"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-mcp"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "copilot"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-mcp/v1/segments"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-mcp/v1/segments"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-mcp"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

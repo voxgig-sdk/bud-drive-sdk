@@ -1,0 +1,232 @@
+{
+  "existing": {
+    "drive_campaigns_api": {
+      "DRIVE_CAMPAIGNS_API00": {
+        "audience": "s15e",
+        "branding": "s15f",
+        "campaign_goal": "s160",
+        "campaign_id": "CAMPAIGN01",
+        "channels": {},
+        "completed_at": "s163",
+        "context": "s164",
+        "created_at": "s165",
+        "created_by": "s166",
+        "description": "s167",
+        "duration": {},
+        "examples": [],
+        "extra_context": "s16a",
+        "group": "s16b",
+        "headline": {},
+        "id": "DRIVE_CAMPAIGNS_API00",
+        "image_style": "s16e",
+        "image_url": "s16f",
+        "label": "s170",
+        "message": "s171",
+        "name": "s172",
+        "parameters": [],
+        "primary_button": {},
+        "priority_order": 373,
+        "result": {},
+        "schedule": {},
+        "started_at": "s178",
+        "status": "s179",
+        "styling": {},
+        "template_id": "TEMPLATE01",
+        "template_variables": {},
+        "templates": [],
+        "tone_of_voice": "s17e",
+        "trend": {},
+        "type": "s180",
+        "generation_id": "GENERATION01"
+      },
+      "DRIVE_CAMPAIGNS_API01": {
+        "audience": "s2bc",
+        "branding": "s2bd",
+        "campaign_goal": "s2be",
+        "campaign_id": "CAMPAIGN01",
+        "channels": {},
+        "completed_at": "s2c1",
+        "context": "s2c2",
+        "created_at": "s2c3",
+        "created_by": "s2c4",
+        "description": "s2c5",
+        "duration": {},
+        "examples": [],
+        "extra_context": "s2c8",
+        "group": "s2c9",
+        "headline": {},
+        "id": "DRIVE_CAMPAIGNS_API01",
+        "image_style": "s2cc",
+        "image_url": "s2cd",
+        "label": "s2ce",
+        "message": "s2cf",
+        "name": "s2d0",
+        "parameters": [],
+        "primary_button": {},
+        "priority_order": 723,
+        "result": {},
+        "schedule": {},
+        "started_at": "s2d6",
+        "status": "s2d7",
+        "styling": {},
+        "template_id": "TEMPLATE01",
+        "template_variables": {},
+        "templates": [],
+        "tone_of_voice": "s2dc",
+        "trend": {},
+        "type": "s2de",
+        "generation_id": "GENERATION01"
+      },
+      "DRIVE_CAMPAIGNS_API02": {
+        "audience": "s41a",
+        "branding": "s41b",
+        "campaign_goal": "s41c",
+        "campaign_id": "CAMPAIGN01",
+        "channels": {},
+        "completed_at": "s41f",
+        "context": "s420",
+        "created_at": "s421",
+        "created_by": "s422",
+        "description": "s423",
+        "duration": {},
+        "examples": [],
+        "extra_context": "s426",
+        "group": "s427",
+        "headline": {},
+        "id": "DRIVE_CAMPAIGNS_API02",
+        "image_style": "s42a",
+        "image_url": "s42b",
+        "label": "s42c",
+        "message": "s42d",
+        "name": "s42e",
+        "parameters": [],
+        "primary_button": {},
+        "priority_order": 1073,
+        "result": {},
+        "schedule": {},
+        "started_at": "s434",
+        "status": "s435",
+        "styling": {},
+        "template_id": "TEMPLATE01",
+        "template_variables": {},
+        "templates": [],
+        "tone_of_voice": "s43a",
+        "trend": {},
+        "type": "s43c",
+        "generation_id": "GENERATION01"
+      }
+    }
+  },
+  "new": {
+    "drive_campaigns_api": {
+      "drive_campaigns_api_ref01": {
+        "audience": "s578",
+        "branding": "s579",
+        "campaign_goal": "s57a",
+        "campaign_id": "CAMPAIGN01",
+        "channels": {},
+        "completed_at": "s57d",
+        "context": "s57e",
+        "created_at": "s57f",
+        "created_by": "s580",
+        "description": "s581",
+        "duration": {},
+        "examples": [],
+        "extra_context": "s584",
+        "group": "s585",
+        "headline": {},
+        "image_style": "s588",
+        "image_url": "s589",
+        "label": "s58a",
+        "message": "s58b",
+        "name": "s58c",
+        "parameters": [],
+        "primary_button": {},
+        "priority_order": 1423,
+        "result": {},
+        "schedule": {},
+        "started_at": "s592",
+        "status": "s593",
+        "styling": {},
+        "template_id": "TEMPLATE01",
+        "template_variables": {},
+        "templates": [],
+        "tone_of_voice": "s598",
+        "trend": {},
+        "type": "s59a"
+      }
+    }
+  },
+  "requests": {
+    "POST /drive-api/v1/campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /drive-api/v1/campaigns/agent": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns/banner-widgets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns/content-variables": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns/{campaign_id}/insights/performance/trends": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns/{campaign_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns/{campaign_id}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaigns/agent/{generation_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /drive-api/v1/campaign-templates/compiled-templates": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /drive-api/v1/campaigns/{campaign_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /drive-api/v1/campaign-templates/templates/{template_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /drive-api/v1/campaigns/{campaign_id}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /drive-api/v1/campaigns/{campaign_id}/status": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

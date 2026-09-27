@@ -1,0 +1,104 @@
+# BasicDriveSegmentsApiFlow
+
+main: kit: flow: BasicDriveSegmentsApiFlow:
+{
+  entity: "drive_segments_api",
+  kind: "basic",
+  name: "BasicDriveSegmentsApiFlow",
+  step: [
+    {
+      i: {
+        ref: "drive_segments_api_ref01"
+      }
+
+      m: {
+        segment_id: "segment01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "drive_segments_api_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "drive_segments_api_ref01",
+        srcdatavar: "drive_segments_api_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-drive_segments_api_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "drive_segments_api_ref01",
+        srcdatavar: "drive_segments_api_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "drive_segments_api01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-drive_segments_api_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "drive_segments_api_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "drive_segments_api01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "drive_segments_api_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDriveSegmentsApiFlow"
+}

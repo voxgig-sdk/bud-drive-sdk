@@ -1,0 +1,241 @@
+-- Typed models for the BudDrive SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class DriveCampaignsApi
+---@field audience? string
+---@field branding? string
+---@field campaign_goal string
+---@field campaign_id string
+---@field channels? table
+---@field completed_at? string
+---@field context? string
+---@field created_at? string
+---@field created_by? string
+---@field description? string
+---@field duration? table
+---@field examples? table
+---@field extra_context? string
+---@field group? string
+---@field headline? table
+---@field id? string
+---@field image_style? string
+---@field image_url? string
+---@field label? string
+---@field message? string
+---@field name? string
+---@field parameters? table
+---@field primary_button? table
+---@field priority_order? number
+---@field result? table
+---@field schedule? table
+---@field started_at? string
+---@field status? string
+---@field styling? table
+---@field template_id? string
+---@field template_variables? table
+---@field templates? table
+---@field tone_of_voice? string
+---@field trend? table
+---@field type? string
+
+---@class DriveCampaignsApiLoadMatch
+---@field campaign_id string
+
+---@class DriveCampaignsApiListMatch
+---@field created_by? string
+---@field items_per_page? number
+---@field page_token? string
+---@field status? string
+
+---@class DriveCampaignsApiCreateData
+---@field audience? string
+---@field branding? string
+---@field campaign_goal string
+---@field campaign_id string
+---@field channels? table
+---@field completed_at? string
+---@field context? string
+---@field created_at? string
+---@field created_by? string
+---@field description? string
+---@field duration? table
+---@field examples? table
+---@field extra_context? string
+---@field group? string
+---@field headline? table
+---@field id? string
+---@field image_style? string
+---@field image_url? string
+---@field label? string
+---@field message? string
+---@field name? string
+---@field parameters? table
+---@field primary_button? table
+---@field priority_order? number
+---@field result? table
+---@field schedule? table
+---@field started_at? string
+---@field status? string
+---@field styling? table
+---@field template_id? string
+---@field template_variables? table
+---@field templates? table
+---@field tone_of_voice? string
+---@field trend? table
+---@field type? string
+
+---@class DriveCampaignsApiUpdateData
+---@field campaign_id string
+---@field audience? string
+---@field branding? string
+---@field campaign_goal? string
+---@field channels? table
+---@field completed_at? string
+---@field context? string
+---@field created_at? string
+---@field created_by? string
+---@field description? string
+---@field duration? table
+---@field examples? table
+---@field extra_context? string
+---@field group? string
+---@field headline? table
+---@field id? string
+---@field image_style? string
+---@field image_url? string
+---@field label? string
+---@field message? string
+---@field name? string
+---@field parameters? table
+---@field primary_button? table
+---@field priority_order? number
+---@field result? table
+---@field schedule? table
+---@field started_at? string
+---@field status? string
+---@field styling? table
+---@field template_id? string
+---@field template_variables? table
+---@field templates? table
+---@field tone_of_voice? string
+---@field trend? table
+---@field type? string
+
+---@class DriveCampaignsApiRemoveMatch
+---@field campaign_id string
+
+---@class DriveMcpApi
+---@field error? table
+---@field id string
+---@field jsonrpc string
+---@field method string
+---@field params? table
+---@field result? table
+
+---@class DriveMcpApiCreateData
+---@field error? table
+---@field id string
+---@field jsonrpc string
+---@field method string
+---@field params? table
+---@field result? table
+
+---@class DriveSegmentsApi
+---@field created_at? string
+---@field created_by? string
+---@field criteria any
+---@field criteria_from string
+---@field customers table
+---@field customers_from string
+---@field description? string
+---@field fixed_customer_list? boolean
+---@field fixed_customer_list_size? number
+---@field from_criteria_id? string
+---@field id string
+---@field intersection_count? number
+---@field jaccard_index? number
+---@field name string
+---@field parameters? table
+---@field source? string
+---@field statistics_id? string
+---@field suggestion? table
+---@field tag? string
+---@field tags? table
+---@field type? string
+---@field union_count? number
+---@field upload? table
+---@field values? table
+
+---@class DriveSegmentsApiLoadMatch
+---@field segment_id string
+
+---@class DriveSegmentsApiListMatch
+---@field max_per_page? number
+---@field page? number
+---@field search? string
+
+---@class DriveSegmentsApiCreateData
+---@field created_at? string
+---@field created_by? string
+---@field criteria any
+---@field criteria_from string
+---@field customers table
+---@field customers_from string
+---@field description? string
+---@field fixed_customer_list? boolean
+---@field fixed_customer_list_size? number
+---@field from_criteria_id? string
+---@field id string
+---@field intersection_count? number
+---@field jaccard_index? number
+---@field name string
+---@field parameters? table
+---@field source? string
+---@field statistics_id? string
+---@field suggestion? table
+---@field tag? string
+---@field tags? table
+---@field type? string
+---@field union_count? number
+---@field upload? table
+---@field values? table
+
+---@class DriveSegmentsApiUpdateData
+---@field criteria_id string
+---@field segment_id? string
+---@field created_at? string
+---@field created_by? string
+---@field criteria? any
+---@field criteria_from? string
+---@field customers? table
+---@field customers_from? string
+---@field description? string
+---@field fixed_customer_list? boolean
+---@field fixed_customer_list_size? number
+---@field from_criteria_id? string
+---@field id? string
+---@field intersection_count? number
+---@field jaccard_index? number
+---@field name? string
+---@field parameters? table
+---@field source? string
+---@field statistics_id? string
+---@field suggestion? table
+---@field tag? string
+---@field tags? table
+---@field type? string
+---@field union_count? number
+---@field upload? table
+---@field values? table
+
+---@class DriveSegmentsApiRemoveMatch
+---@field segment_id string
+
+local M = {}
+
+return M

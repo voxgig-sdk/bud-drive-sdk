@@ -1,0 +1,3235 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>DriveCampaignsApi | Drive API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Drive API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/bud-drive-sdk">voxgig-sdk/bud-drive-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Drive API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a aria-current="page" href="../api/drive_campaigns_api.html">DriveCampaignsApi</a><div class="nav-sections"><a class="nav-section" href="#post-drive-apiv1campaigns">POST /drive-api/v1/campaigns</a>
+<a class="nav-section" href="#post-drive-apiv1campaignsagent">POST /drive-api/v1/campaigns/agent</a>
+<a class="nav-section" href="#get-drive-apiv1campaigns">GET /drive-api/v1/campaigns</a>
+<a class="nav-section" href="#get-drive-apiv1campaignsbanner-widgets">GET /drive-api/v1/campaigns/banner-widgets</a>
+<a class="nav-section" href="#get-drive-apiv1campaignscontent-variables">GET /drive-api/v1/campaigns/content-variables</a>
+<a class="nav-section" href="#get-drive-apiv1campaignscampaign_idinsightsperformancetrends">GET /drive-api/v1/campaigns/{campaign_id}/insights/performance/trends</a>
+<a class="nav-section" href="#get-drive-apiv1campaignscampaign_id">GET /drive-api/v1/campaigns/{campaign_id}</a>
+<a class="nav-section" href="#get-drive-apiv1campaignscampaign_idcontent">GET /drive-api/v1/campaigns/{campaign_id}/content</a>
+<a class="nav-section" href="#get-drive-apiv1campaignsagentgeneration_id">GET /drive-api/v1/campaigns/agent/{generation_id}</a>
+<a class="nav-section" href="#get-drive-apiv1campaign-templatescompiled-templates">GET /drive-api/v1/campaign-templates/compiled-templates</a>
+<a class="nav-section" href="#delete-drive-apiv1campaignscampaign_id">DELETE /drive-api/v1/campaigns/{campaign_id}</a>
+<a class="nav-section" href="#delete-drive-apiv1campaign-templatestemplatestemplate_id">DELETE /drive-api/v1/campaign-templates/templates/{template_id}</a>
+<a class="nav-section" href="#put-drive-apiv1campaignscampaign_idcontent">PUT /drive-api/v1/campaigns/{campaign_id}/content</a>
+<a class="nav-section" href="#put-drive-apiv1campaignscampaign_idstatus">PUT /drive-api/v1/campaigns/{campaign_id}/status</a></div>
+<a href="../api/drive_mcp_api.html">DriveMcpApi</a>
+<a href="../api/drive_segments_api.html">DriveSegmentsApi</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="drivecampaignsapi">DriveCampaignsApi</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv1campaigns"><code>/drive-api/v1/campaigns</code></a></td>
+<td><code>create</code></td>
+<td>Created</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-drive-apiv1campaignsagent"><code>/drive-api/v1/campaigns/agent</code></a></td>
+<td><code>create</code></td>
+<td>Accepted</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaigns"><code>/drive-api/v1/campaigns</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaignsbanner-widgets"><code>/drive-api/v1/campaigns/banner-widgets</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaignscontent-variables"><code>/drive-api/v1/campaigns/content-variables</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaignscampaign_idinsightsperformancetrends"><code>/drive-api/v1/campaigns/{campaign_id}/insights/performance/trends</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaignscampaign_id"><code>/drive-api/v1/campaigns/{campaign_id}</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaignscampaign_idcontent"><code>/drive-api/v1/campaigns/{campaign_id}/content</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaignsagentgeneration_id"><code>/drive-api/v1/campaigns/agent/{generation_id}</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-drive-apiv1campaign-templatescompiled-templates"><code>/drive-api/v1/campaign-templates/compiled-templates</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-drive-apiv1campaignscampaign_id"><code>/drive-api/v1/campaigns/{campaign_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-drive-apiv1campaign-templatestemplatestemplate_id"><code>/drive-api/v1/campaign-templates/templates/{template_id}</code></a></td>
+<td><code>remove</code></td>
+<td>No Content</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-drive-apiv1campaignscampaign_idcontent"><code>/drive-api/v1/campaigns/{campaign_id}/content</code></a></td>
+<td><code>update</code></td>
+<td>Updated</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-drive-apiv1campaignscampaign_idstatus"><code>/drive-api/v1/campaigns/{campaign_id}/status</code></a></td>
+<td><code>update</code></td>
+<td>Status Updated</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">drive_campaigns_apis, err := client.DriveCampaignsApi(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(drive_campaigns_apis)
+drive_campaigns_api, err := client.DriveCampaignsApi(nil).Load(map[string]any{&quot;campaign_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(drive_campaigns_api)
+created, err := client.DriveCampaignsApi(nil).Create(map[string]any{&quot;campaign_goal&quot;: &quot;example&quot;, &quot;campaign_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.DriveCampaignsApi(nil).Update(map[string]any{&quot;campaign_id&quot;: &quot;example&quot;, &quot;audience&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.DriveCampaignsApi(nil).Remove(map[string]any{&quot;campaign_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const drive_campaigns_apis = await client.DriveCampaignsApi().list()
+const drive_campaigns_api = await client.DriveCampaignsApi().load({ campaign_id: &quot;example&quot; })
+const created = await client.DriveCampaignsApi().create({ campaign_goal: &quot;example&quot;, campaign_id: &quot;example&quot; })
+const updated = await client.DriveCampaignsApi().update({ campaign_id: &quot;example&quot;, audience: &quot;example&quot; })
+await client.DriveCampaignsApi().remove({ campaign_id: &quot;example&quot; })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local drive_campaigns_apis, err = client:DriveCampaignsApi():list()
+local drive_campaigns_api, err = client:DriveCampaignsApi():load({ campaign_id = &quot;example&quot; })
+local created, err = client:DriveCampaignsApi():create({ campaign_goal = &quot;example&quot;, campaign_id = &quot;example&quot; })
+local updated, err = client:DriveCampaignsApi():update({ campaign_id = &quot;example&quot;, audience = &quot;example&quot; })
+local removed, err = client:DriveCampaignsApi():remove({ campaign_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$drive_campaigns_apis = $client-&gt;DriveCampaignsApi()-&gt;list();
+$drive_campaigns_api = $client-&gt;DriveCampaignsApi()-&gt;load([&quot;campaign_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;DriveCampaignsApi()-&gt;create([&quot;campaign_goal&quot; =&gt; &quot;example&quot;, &quot;campaign_id&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;DriveCampaignsApi()-&gt;update([&quot;campaign_id&quot; =&gt; &quot;example&quot;, &quot;audience&quot; =&gt; &quot;example&quot;]);
+$client-&gt;DriveCampaignsApi()-&gt;remove([&quot;campaign_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">drive_campaigns_apis = client.DriveCampaignsApi().list()
+drive_campaigns_api = client.DriveCampaignsApi().load({&quot;campaign_id&quot;: &quot;example&quot;})
+created = client.DriveCampaignsApi().create({ &quot;campaign_goal&quot;: &quot;example&quot;, &quot;campaign_id&quot;: &quot;example&quot; })
+updated = client.DriveCampaignsApi().update({&quot;campaign_id&quot;: &quot;example&quot;, &quot;audience&quot;: &quot;example&quot;})
+client.DriveCampaignsApi().remove({&quot;campaign_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const drive_campaigns_apis = await client.DriveCampaignsApi().list()
+const drive_campaigns_api = await client.DriveCampaignsApi().load({ campaign_id: &quot;example&quot; })
+const created = await client.DriveCampaignsApi().create({ campaign_goal: &quot;example&quot;, campaign_id: &quot;example&quot; })
+const updated = await client.DriveCampaignsApi().update({ campaign_id: &quot;example&quot;, audience: &quot;example&quot; })
+await client.DriveCampaignsApi().remove({ campaign_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the segment this campaign targets.</td>
+</tr>
+<tr>
+<td><code>branding</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only.</td>
+</tr>
+<tr>
+<td><code>campaign_goal</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The business goal the campaign should serve, in plain language.</td>
+</tr>
+<tr>
+<td><code>campaign_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Campaign Id</td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Channels</td>
+</tr>
+<tr>
+<td><code>completed_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Completed At</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Created By</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Duration</td>
+</tr>
+<tr>
+<td><code>examples</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Examples</td>
+</tr>
+<tr>
+<td><code>extra_context</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only.</td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Group</td>
+</tr>
+<tr>
+<td><code>headline</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Headline</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>image_style</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only.</td>
+</tr>
+<tr>
+<td><code>image_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Image Url</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Message</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Parameters</td>
+</tr>
+<tr>
+<td><code>primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Primary Button</td>
+</tr>
+<tr>
+<td><code>priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Priority Order</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The campaign a completed run produced.</td>
+</tr>
+<tr>
+<td><code>schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published.</td>
+</tr>
+<tr>
+<td><code>started_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Started At</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The campaign's current status.</td>
+</tr>
+<tr>
+<td><code>styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Styling</td>
+</tr>
+<tr>
+<td><code>template_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Template Id</td>
+</tr>
+<tr>
+<td><code>template_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Template Variables</td>
+</tr>
+<tr>
+<td><code>templates</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Templates</td>
+</tr>
+<tr>
+<td><code>tone_of_voice</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only.</td>
+</tr>
+<tr>
+<td><code>trend</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Trend</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Type</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-drive-apiv1campaigns" class="operation" data-method="post"><code>POST</code> /drive-api/v1/campaigns</h3>
+<p>Operation ID: <code>drive_v1_campaigns_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>audience</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The ID of the segment this campaign targets.</td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Channels</td>
+</tr>
+<tr>
+<td><code>channels.action_card</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Action Card Channel</td>
+</tr>
+<tr>
+<td><code>channels.action_card.headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>channels.action_card.primary_button.text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.primary_button.url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.accent_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.font</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.text_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where the styling values come from. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|-------------------------------------------------------------| | <code>custom</code> | Styling is set explicitly on the campaign | | <code>brand</code> | Styling inherits the organisation's brand defaults |</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Duration</td>
+</tr>
+<tr>
+<td><code>duration.interval_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unit <code>intervals</code> is measured in. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------|-----------------------------------| | <code>DAY</code> | Duration measured in days | | <code>WEEK</code> | Duration measured in weeks | | <code>MONTH</code> | Duration measured in months |</td>
+</tr>
+<tr>
+<td><code>duration.intervals</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published. <code>type: </code>when_published`` starts immediately; trigger-based schedules are expressed as BudQL, see <a href="https://docs.thisisbud.com/docs/custom-insights">docs.thisisbud.com/docs/custom-insights</a>.</td>
+</tr>
+<tr>
+<td><code>schedule.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>template_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;audience&quot;: &quot;08bb7126-cbdb-4e92-b27d-2fabc72ea21a&quot;,
+  &quot;channels&quot;: {
+    &quot;action_card&quot;: {
+      &quot;headline&quot;: &quot;This is your headline&quot;,
+      &quot;image_url&quot;: &quot;https://thisisbud.com/campaign.png&quot;,
+      &quot;message&quot;: &quot;Welcome to this campaign&quot;,
+      &quot;primary_button&quot;: {
+        &quot;text&quot;: &quot;Click Here!&quot;,
+        &quot;url&quot;: &quot;https://thisisbud.com&quot;
+      },
+      &quot;priority_order&quot;: 0,
+      &quot;styling&quot;: {
+        &quot;accent_color&quot;: &quot;#cccccc&quot;,
+        &quot;font&quot;: &quot;Arial&quot;,
+        &quot;text_color&quot;: &quot;#ffffff&quot;,
+        &quot;type&quot;: &quot;custom&quot;
+      }
+    }
+  },
+  &quot;description&quot;: &quot;Here is the description&quot;,
+  &quot;duration&quot;: {
+    &quot;interval_type&quot;: &quot;DAY&quot;,
+    &quot;intervals&quot;: 30
+  },
+  &quot;name&quot;: &quot;This is a new campaign&quot;,
+  &quot;schedule&quot;: {
+    &quot;type&quot;: &quot;when_published&quot;
+  },
+  &quot;template_id&quot;: &quot;0fdb0218-eaae-4b3f-9ce2-694404b3399c&quot;
+}
+</code></pre>
+<h4 id="responses">Responses</h4>
+<h5 id="201-created" class="status" data-status="2xx">201: Created</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.campaign_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;campaign_id&quot;: &quot;b28efd2c-5a58-42cd-bed7-5564eb877ca7&quot;
+  },
+  &quot;operation_id&quot;: &quot;drive_v1_campaigns_post&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-drive-apiv1campaignsagent" class="operation" data-method="post"><code>POST</code> /drive-api/v1/campaigns/agent</h3>
+<p>Operation ID: <code>drive_v1_campaigns_agent_post</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>branding</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only. Leave it out to use what Bud has configured for you, or send an empty string to drop it for this run. Nothing sent here is saved against your organisation.</td>
+</tr>
+<tr>
+<td><code>campaign_goal</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The business goal the campaign should serve, in plain language.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only. Leave it out to use what Bud has configured for you, or send an empty string to drop it for this run. Nothing sent here is saved against your organisation.</td>
+</tr>
+<tr>
+<td><code>extra_context</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only. Leave it out to use what Bud has configured for you, or send an empty string to drop it for this run. Nothing sent here is saved against your organisation.</td>
+</tr>
+<tr>
+<td><code>image_style</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only. Leave it out to use what Bud has configured for you, or send an empty string to drop it for this run. Nothing sent here is saved against your organisation.</td>
+</tr>
+<tr>
+<td><code>tone_of_voice</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Overrides your configured value for this run only. Leave it out to use what Bud has configured for you, or send an empty string to drop it for this run. Nothing sent here is saved against your organisation.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;campaign_goal&quot;: &quot;find people who earn more than 2200 USD a month and are renters&quot;
+}
+</code></pre>
+<h4 id="responses-1">Responses</h4>
+<h5 id="202-accepted" class="status" data-status="2xx">202: Accepted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID to poll for progress.</td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>enum: pending, running, completed, failed</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;ceca9875e4674c6699fc404b76f1786f&quot;,
+    &quot;status&quot;: &quot;pending&quot;
+  },
+  &quot;operation_id&quot;: &quot;drive_v1_campaigns_agent_post&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-1">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-1">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-drive-apiv1campaigns" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns</h3>
+<p>Operation ID: <code>drive_v1_campaigns_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>status</code> | <code>query</code> | <code>string</code> | No | Filter campaigns by status. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|------------------------------------------------------------------| | <code>live</code> | Currently running | | <code>paused</code> | Temporarily paused | | <code>ended</code> | Finished | | <code>pending</code> | Scheduled but not yet live (derived, not settable directly) | |
+| <code>created_by</code> | <code>query</code> | <code>string</code> | No | Filter campaigns by the identifier of the user who created them. |
+| <code>items_per_page</code> | <code>query</code> | <code>integer</code> | No | Maximum number of campaigns to return per page. Max 1000, default 100. |
+| <code>page_token</code> | <code>query</code> | <code>string</code> | No | Pagination token from a previous request's <code>metadata.</code>next_page_token``. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].audience</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the segment this campaign targets.</td>
+</tr>
+<tr>
+<td><code>data[].campaign_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Channels</td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Action Card Channel</td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.primary_button.text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.primary_button.url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.styling.accent_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.styling.font</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.styling.text_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].channels.action_card.styling.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where the styling values come from. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|-------------------------------------------------------------| | <code>custom</code> | Styling is set explicitly on the campaign | | <code>brand</code> | Styling inherits the organisation's brand defaults |</td>
+</tr>
+<tr>
+<td><code>data[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].created_by</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Duration</td>
+</tr>
+<tr>
+<td><code>data[].duration.interval_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unit <code>intervals</code> is measured in. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------|-----------------------------------| | <code>DAY</code> | Duration measured in days | | <code>WEEK</code> | Duration measured in weeks | | <code>MONTH</code> | Duration measured in months |</td>
+</tr>
+<tr>
+<td><code>data[].duration.intervals</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published. <code>type: </code>when_published`` starts immediately; trigger-based schedules are expressed as BudQL, see <a href="https://docs.thisisbud.com/docs/custom-insights">docs.thisisbud.com/docs/custom-insights</a>.</td>
+</tr>
+<tr>
+<td><code>data[].schedule.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The campaign's current status. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|------------------------------------------------------------------| | <code>live</code> | Currently running | | <code>paused</code> | Temporarily paused | | <code>ended</code> | Finished | | <code>pending</code> | Scheduled but not yet live (derived, not settable directly) |</td>
+</tr>
+<tr>
+<td><code>data[].template_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.items_per_page</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.next_page_token</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;audience&quot;: &quot;08bb7126-cbdb-4e92-b27d-2fabc72ea21a&quot;,
+      &quot;campaign_id&quot;: &quot;b28efd2c-5a58-42cd-bed7-5564eb877ca7&quot;,
+      &quot;created_at&quot;: &quot;2026-07-07T00:30:00Z&quot;,
+      &quot;created_by&quot;: &quot;auth0|65423dc3277ae1aa42014e01&quot;,
+      &quot;description&quot;: &quot;Here is the description&quot;,
+      &quot;name&quot;: &quot;This is a new campaign&quot;,
+      &quot;status&quot;: &quot;live&quot;,
+      &quot;template_id&quot;: &quot;0fdb0218-eaae-4b3f-9ce2-694404b3399c&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;items_per_page&quot;: 100,
+    &quot;next_page_token&quot;: &quot;...&quot;
+  },
+  &quot;operation_id&quot;: &quot;drive_v1_campaigns_get&quot;
+}
+</code></pre>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-2">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1campaignsbanner-widgets" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns/banner-widgets</h3>
+<p>Operation ID: <code>drive_v1_campaigns_banner_widgets_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>X-Customer-Id</code> | <code>header</code> | <code>string (uuid)</code> | Yes | A unique identifier for a Customer, as registered on Bud's platform. |
+| <code>channel</code> | <code>query</code> | <code>string</code> | No | The channel to retrieve eligible banner widgets for. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------------|-------------------------------------------------------------| | <code>action_card</code> | The only currently supported customer-facing channel | |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-ok-1" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].campaign_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>data[].primary_button.text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].primary_button.url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>data[].styling.accent_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].styling.font</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].styling.text_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].styling.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where the styling values come from. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|-------------------------------------------------------------| | <code>custom</code> | Styling is set explicitly on the campaign | | <code>brand</code> | Styling inherits the organisation's brand defaults |</td>
+</tr>
+<tr>
+<td><code>data[].template_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;campaign_id&quot;: &quot;b28efd2c-5a58-42cd-bed7-5564eb877ca7&quot;,
+      &quot;created_at&quot;: &quot;2026-07-07T00:30:00Z&quot;,
+      &quot;headline&quot;: &quot;Hello {{ customer_name }} - want better insurance?&quot;,
+      &quot;image_url&quot;: &quot;https://thisisbud.com/campaign.png&quot;,
+      &quot;message&quot;: &quot;You earn {{ mean_income }} - we can get you some better insurance!&quot;,
+      &quot;primary_button&quot;: {
+        &quot;text&quot;: &quot;Click here!&quot;,
+        &quot;url&quot;: &quot;https://thisisbud.com/click-here&quot;
+      },
+      &quot;priority_order&quot;: 0,
+      &quot;styling&quot;: {
+        &quot;type&quot;: &quot;brand&quot;
+      },
+      &quot;template_variables&quot;: {
+        &quot;customer_name&quot;: &quot;Jim&quot;,
+        &quot;mean_income&quot;: &quot;10000&quot;
+      }
+    }
+  ],
+  &quot;operation_id&quot;: &quot;drive_v1_campaigns_banner_widgets_get&quot;
+}
+</code></pre>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-3">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1campaignscontent-variables" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns/content-variables</h3>
+<p>Operation ID: <code>drive_v1_campaigns_content_variables_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-ok-2" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].examples</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].examples[].currency</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].examples[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].group</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].label</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].parameters</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].parameters[].label</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].parameters[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].parameters[].type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;description&quot;: &quot;The customer's total spend in a given category over a time window.&quot;,
+      &quot;examples&quot;: [
+        {
+          &quot;currency&quot;: &quot;GBP&quot;,
+          &quot;value&quot;: &quot;100.00&quot;
+        }
+      ],
+      &quot;group&quot;: &quot;Spending&quot;,
+      &quot;label&quot;: &quot;Total Spending Per Category&quot;,
+      &quot;name&quot;: &quot;total_spending_per_category&quot;,
+      &quot;parameters&quot;: [
+        {
+          &quot;label&quot;: &quot;Category&quot;,
+          &quot;name&quot;: &quot;category&quot;,
+          &quot;type&quot;: &quot;category_l2&quot;
+        },
+        {
+          &quot;label&quot;: &quot;Intervals&quot;,
+          &quot;name&quot;: &quot;intervals&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        {
+          &quot;label&quot;: &quot;Interval Type&quot;,
+          &quot;name&quot;: &quot;interval_type&quot;,
+          &quot;type&quot;: &quot;interval_type&quot;
+        }
+      ],
+      &quot;type&quot;: &quot;currency&quot;
+    }
+  ],
+  &quot;operation_id&quot;: &quot;drive_v1_campaigns_content_variables_get&quot;
+}
+</code></pre>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-4">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-drive-apiv1campaignscampaign_idinsightsperformancetrends" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns/{campaign_id}/insights/performance/trends</h3>
+<p>Operation ID: <code>drive_campaign_insights_performance_trends_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>campaign_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the campaign. |
+| <code>start_date</code> | <code>query</code> | <code>string (date)</code> | No | Start of the date range to retrieve performance trends for. |
+| <code>end_date</code> | <code>query</code> | <code>string (date)</code> | No | End of the date range to retrieve performance trends for. |
+| <code>aggregation_type</code> | <code>query</code> | <code>string</code> | No | Whether trend values are aggregated daily or cumulatively. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |--------------|----------------------------------------| | <code>daily</code> | Per-day values | | <code>cumulative</code> | A running total over the period | |
+| <code>metrics</code> | <code>query</code> | <code>array of string</code> | Yes | One or more of: <code>campaign_audience</code>, <code>customers_triggered</code>, <code>impressions_total</code>, <code>impressions_unique</code>, <code>impression_rate</code>, <code>primary_button_total_clicks</code>, <code>primary_button_unique_clicks</code>, <code>primary_button_click_efficiency</code>, <code>secondary_button_total_clicks</code>, <code>secondary_button_unique_clicks</code>, <code>secondary_button_click_efficiency</code>, <code>secondary_button_no_primary_button_unique_clicks</code>. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-ok-3" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;campaign_audience&quot;: {
+      &quot;headline&quot;: {
+        &quot;format&quot;: &quot;counter&quot;,
+        &quot;value&quot;: 12000
+      },
+      &quot;trend&quot;: {
+        &quot;format&quot;: &quot;trend&quot;,
+        &quot;value&quot;: [
+          {
+            &quot;date&quot;: &quot;2026-07-01&quot;,
+            &quot;value&quot;: 12000
+          }
+        ]
+      }
+    },
+    &quot;primary_button_unique_clicks&quot;: {
+      &quot;headline&quot;: {
+        &quot;format&quot;: &quot;counter&quot;,
+        &quot;value&quot;: 340
+      },
+      &quot;trend&quot;: {
+        &quot;format&quot;: &quot;trend&quot;,
+        &quot;value&quot;: [
+          {
+            &quot;date&quot;: &quot;2026-07-01&quot;,
+            &quot;value&quot;: 340
+          }
+        ]
+      }
+    }
+  },
+  &quot;operation_id&quot;: &quot;drive_campaign_insights_performance_trends_get&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-2">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-5">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1campaignscampaign_id" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns/{campaign_id}</h3>
+<p>Operation ID: <code>drive_v1_campaign_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>campaign_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the campaign. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-ok-4" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign</td>
+</tr>
+<tr>
+<td><code>data.audience</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The ID of the segment this campaign targets.</td>
+</tr>
+<tr>
+<td><code>data.campaign_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Channels</td>
+</tr>
+<tr>
+<td><code>data.channels.action_card</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Action Card Channel</td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.primary_button.text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.primary_button.url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.styling.accent_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.styling.font</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.styling.text_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.channels.action_card.styling.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where the styling values come from. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|-------------------------------------------------------------| | <code>custom</code> | Styling is set explicitly on the campaign | | <code>brand</code> | Styling inherits the organisation's brand defaults |</td>
+</tr>
+<tr>
+<td><code>data.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.created_by</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Duration</td>
+</tr>
+<tr>
+<td><code>data.duration.interval_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unit <code>intervals</code> is measured in. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------|-----------------------------------| | <code>DAY</code> | Duration measured in days | | <code>WEEK</code> | Duration measured in weeks | | <code>MONTH</code> | Duration measured in months |</td>
+</tr>
+<tr>
+<td><code>data.duration.intervals</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published. <code>type: </code>when_published`` starts immediately; trigger-based schedules are expressed as BudQL, see <a href="https://docs.thisisbud.com/docs/custom-insights">docs.thisisbud.com/docs/custom-insights</a>.</td>
+</tr>
+<tr>
+<td><code>data.schedule.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The campaign's current status. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |-----------|------------------------------------------------------------------| | <code>live</code> | Currently running | | <code>paused</code> | Temporarily paused | | <code>ended</code> | Finished | | <code>pending</code> | Scheduled but not yet live (derived, not settable directly) |</td>
+</tr>
+<tr>
+<td><code>data.template_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;audience&quot;: &quot;08bb7126-cbdb-4e92-b27d-2fabc72ea21a&quot;,
+    &quot;campaign_id&quot;: &quot;b28efd2c-5a58-42cd-bed7-5564eb877ca7&quot;,
+    &quot;created_at&quot;: &quot;2026-07-07T00:30:00Z&quot;,
+    &quot;created_by&quot;: &quot;auth0|65423dc3277ae1aa42014e01&quot;,
+    &quot;description&quot;: &quot;Here is the description&quot;,
+    &quot;name&quot;: &quot;This is a new campaign&quot;,
+    &quot;status&quot;: &quot;live&quot;,
+    &quot;template_id&quot;: &quot;0fdb0218-eaae-4b3f-9ce2-694404b3399c&quot;
+  },
+  &quot;operation_id&quot;: &quot;drive_v1_campaign_get&quot;
+}
+</code></pre>
+<h5 id="404-campaign-not-found" class="status" data-status="4xx">404: Campaign not found</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-6">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1campaignscampaign_idcontent" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns/{campaign_id}/content</h3>
+<p>Operation ID: <code>drive_v1_campaign_content_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>campaign_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the campaign. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-ok-5" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Content</td>
+</tr>
+<tr>
+<td><code>data.current.audience</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Channels</td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Action Card Channel</td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card.headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card.image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card.primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card.priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.channels.action_card.styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>data.current.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Duration</td>
+</tr>
+<tr>
+<td><code>data.current.duration.interval_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unit <code>intervals</code> is measured in. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------|-----------------------------------| | <code>DAY</code> | Duration measured in days | | <code>WEEK</code> | Duration measured in weeks | | <code>MONTH</code> | Duration measured in months |</td>
+</tr>
+<tr>
+<td><code>data.current.duration.intervals</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.current.schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published. <code>type: </code>when_published`` starts immediately; trigger-based schedules are expressed as BudQL, see <a href="https://docs.thisisbud.com/docs/custom-insights">docs.thisisbud.com/docs/custom-insights</a>.</td>
+</tr>
+<tr>
+<td><code>data.current.schedule.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Content</td>
+</tr>
+<tr>
+<td><code>data.draft.audience</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Channels</td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Action Card Channel</td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card.headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card.image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card.primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card.priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.channels.action_card.styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>data.draft.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Duration</td>
+</tr>
+<tr>
+<td><code>data.draft.duration.interval_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unit <code>intervals</code> is measured in. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------|-----------------------------------| | <code>DAY</code> | Duration measured in days | | <code>WEEK</code> | Duration measured in weeks | | <code>MONTH</code> | Duration measured in months |</td>
+</tr>
+<tr>
+<td><code>data.draft.duration.intervals</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.draft.schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published. <code>type: </code>when_published`` starts immediately; trigger-based schedules are expressed as BudQL, see <a href="https://docs.thisisbud.com/docs/custom-insights">docs.thisisbud.com/docs/custom-insights</a>.</td>
+</tr>
+<tr>
+<td><code>data.draft.schedule.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;current&quot;: {
+      &quot;audience&quot;: &quot;08bb7126-cbdb-4e92-b27d-2fabc72ea21a&quot;,
+      &quot;channels&quot;: {
+        &quot;action_card&quot;: {
+          &quot;headline&quot;: &quot;This is your headline&quot;,
+          &quot;message&quot;: &quot;Welcome to this campaign&quot;
+        }
+      },
+      &quot;description&quot;: &quot;Here is the description&quot;,
+      &quot;name&quot;: &quot;This is a new campaign&quot;
+    },
+    &quot;draft&quot;: {
+      &quot;audience&quot;: &quot;b308ce11-50ff-4a85-aa49-5124d04bdb30&quot;,
+      &quot;channels&quot;: {
+        &quot;action_card&quot;: {
+          &quot;headline&quot;: &quot;This is your new headline&quot;,
+          &quot;message&quot;: &quot;Welcome to this campaign&quot;
+        }
+      },
+      &quot;description&quot;: &quot;Here is the description&quot;,
+      &quot;name&quot;: &quot;This is a new campaign - updated!&quot;
+    }
+  },
+  &quot;operation_id&quot;: &quot;drive_v1_campaign_content_get&quot;
+}
+</code></pre>
+<h5 id="404-campaign-not-found-1" class="status" data-status="4xx">404: Campaign not found</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-7">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1campaignsagentgeneration_id" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaigns/agent/{generation_id}</h3>
+<p>Operation ID: <code>drive_v1_campaigns_agent_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>generation_id</code> | <code>path</code> | <code>string</code> | Yes | The ID returned when the campaign agent run was created. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-ok-6" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Agent Run</td>
+</tr>
+<tr>
+<td><code>data.completed_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The campaign a completed run produced. Null until the run reports <code>completed</code>.</td>
+</tr>
+<tr>
+<td><code>data.result.audience</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Who the campaign targets, delivered as a Drive segment.</td>
+</tr>
+<tr>
+<td><code>data.result.audience.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result.audience.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result.audience.segment_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The segment holding the audience. Usable anywhere segments are.</td>
+</tr>
+<tr>
+<td><code>data.result.audience.size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>How many customers matched when the run completed.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The campaign the agent built for this audience.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Customer-facing body copy.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.insight</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The data-driven insight about the audience that motivates the campaign.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.label</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A short internal label for whoever manages the campaign. Not shown to customers.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.objective</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The campaign's business goal, such as Acquisition, Upsell or Reduce Churn.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.primary_cta</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result.campaign.product</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The financial product being promoted.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.rationale</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Why this audience and this campaign. Not shown to customers.</td>
+</tr>
+<tr>
+<td><code>data.result.campaign.secondary_cta</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result.campaign.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Customer-facing headline.</td>
+</tr>
+<tr>
+<td><code>data.result.estimated_value</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The agent's estimate of how valuable this opportunity is.</td>
+</tr>
+<tr>
+<td><code>data.result.estimated_value.label</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result.estimated_value.tier</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.result.template_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The campaign template this run saved. Pass it as <code>template_id</code> to Create Campaign to turn the drafted campaign into a live one.</td>
+</tr>
+<tr>
+<td><code>data.started_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>enum: pending, running, completed, failed</code></td>
+<td>No</td>
+<td>Where the run has got to. <code>failed</code> is not final, a failed run may be retried automatically, so a later poll can return <code>running</code>.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;completed_at&quot;: &quot;2026-09-08T09:26:41Z&quot;,
+    &quot;created_at&quot;: &quot;2026-09-08T09:12:04Z&quot;,
+    &quot;id&quot;: &quot;ceca9875e4674c6699fc404b76f1786f&quot;,
+    &quot;result&quot;: {
+      &quot;audience&quot;: {
+        &quot;description&quot;: &quot;Customers earning over 2,200 USD a month who rent their home.&quot;,
+        &quot;name&quot;: &quot;High-earning renters&quot;,
+        &quot;segment_id&quot;: &quot;23303f83-a790-4ee9-95b6-d5cdeaf36fa2&quot;,
+        &quot;size&quot;: 4213
+      },
+      &quot;campaign&quot;: {
+        &quot;description&quot;: &quot;You're earning well. See how much you could borrow towards a first home.&quot;,
+        &quot;insight&quot;: &quot;28% of renters in this income band hold no lending product with us.&quot;,
+        &quot;label&quot;: &quot;High-earning renters&quot;,
+        &quot;objective&quot;: &quot;Acquisition&quot;,
+        &quot;primary_cta&quot;: &quot;Check eligibility&quot;,
+        &quot;product&quot;: &quot;Mortgage&quot;,
+        &quot;rationale&quot;: &quot;Targets renters with strong income who hold no lending product.&quot;,
+        &quot;secondary_cta&quot;: &quot;Learn more&quot;,
+        &quot;title&quot;: &quot;Ready to stop renting?&quot;
+      },
+      &quot;estimated_value&quot;: {
+        &quot;label&quot;: &quot;High&quot;,
+        &quot;tier&quot;: &quot;high&quot;
+      },
+      &quot;template_id&quot;: &quot;ceca9875e4674c6699fc404b76f1786f&quot;
+    },
+    &quot;started_at&quot;: &quot;2026-09-08T09:12:05Z&quot;,
+    &quot;status&quot;: &quot;completed&quot;
+  },
+  &quot;operation_id&quot;: &quot;drive_v1_campaigns_agent_get&quot;
+}
+</code></pre>
+<h5 id="4xx-the-request-contains-an-invalid-payload-3">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-8">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-drive-apiv1campaign-templatescompiled-templates" class="operation" data-method="get"><code>GET</code> /drive-api/v1/campaign-templates/compiled-templates</h3>
+<p>Operation ID: <code>v1_compiled_templates_get</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>source_type</code> | <code>query</code> | <code>string</code> | No | Optional filter to return only templates with the specified source type. |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-ok-7" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.templates</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.templates[].campaign_fields</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Template Fields</td>
+</tr>
+<tr>
+<td><code>data.templates[].campaign_fields.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.templates[].campaign_fields.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.templates[].channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.templates[].criteria</code></td>
+<td><code>object or object or object</code></td>
+<td>No</td>
+<td>Segment Criteria</td>
+</tr>
+<tr>
+<td><code>data.templates[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Template Source</td>
+</tr>
+<tr>
+<td><code>data.templates[].source.metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.templates[].source.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where the template originates from. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|----------------------------------------------------------------------| | <code>manual</code> | Bud's internal creation process (only source type today; agentic template creation is expected to add more) |</td>
+</tr>
+<tr>
+<td><code>data.templates[].template_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;templates&quot;: [
+      {
+        &quot;campaign_fields&quot;: {
+          &quot;description&quot;: &quot;A description of the purpose of the campaign&quot;,
+          &quot;name&quot;: &quot;Campaign Name&quot;
+        },
+        &quot;channels&quot;: {},
+        &quot;criteria&quot;: {
+          &quot;operands&quot;: [
+            {
+              &quot;criteria&quot;: &quot;flag&quot;,
+              &quot;name&quot;: &quot;insight_name&quot;
+            },
+            {
+              &quot;operands&quot;: [
+                {
+                  &quot;criteria&quot;: &quot;flag&quot;,
+                  &quot;name&quot;: &quot;other_insight&quot;
+                }
+              ],
+              &quot;operator&quot;: &quot;logical_not&quot;
+            }
+          ],
+          &quot;operator&quot;: &quot;logical_and&quot;
+        },
+        &quot;source&quot;: {
+          &quot;metadata&quot;: {},
+          &quot;type&quot;: &quot;manual&quot;
+        },
+        &quot;template_id&quot;: &quot;89d133a9-02f8-4217-adb8-1d341fc91101&quot;
+      }
+    ]
+  },
+  &quot;operation_id&quot;: &quot;v1_compiled_templates_get&quot;
+}
+</code></pre>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-9">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-drive-apiv1campaignscampaign_id" class="operation" data-method="delete"><code>DELETE</code> /drive-api/v1/campaigns/{campaign_id}</h3>
+<p>Operation ID: <code>drive_v1_campaign_delete</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>campaign_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the campaign. |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="204-deleted" class="status" data-status="2xx">204: Deleted</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-10">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-drive-apiv1campaign-templatestemplatestemplate_id" class="operation" data-method="delete"><code>DELETE</code> /drive-api/v1/campaign-templates/templates/{template_id}</h3>
+<p>Operation ID: <code>v1_client_campaign_templates_delete</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>template_id</code> | <code>path</code> | <code>string</code> | Yes | The ID of the campaign template. |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="204-no-content" class="status" data-status="2xx">204: No Content</h5>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-11">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="put-drive-apiv1campaignscampaign_idcontent" class="operation" data-method="put"><code>PUT</code> /drive-api/v1/campaigns/{campaign_id}/content</h3>
+<p>Operation ID: <code>drive_v1_campaign_content_put</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>campaign_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the campaign. |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>audience</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Channels</td>
+</tr>
+<tr>
+<td><code>channels.action_card</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Action Card Channel</td>
+</tr>
+<tr>
+<td><code>channels.action_card.headline</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.image_url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.primary_button</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Button</td>
+</tr>
+<tr>
+<td><code>channels.action_card.primary_button.text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.primary_button.url</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.priority_order</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Styling</td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.accent_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.font</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.text_color</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels.action_card.styling.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Where the styling values come from. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|-------------------------------------------------------------| | <code>custom</code> | Styling is set explicitly on the campaign | | <code>brand</code> | Styling inherits the organisation's brand defaults |</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Campaign Duration</td>
+</tr>
+<tr>
+<td><code>duration.interval_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The unit <code>intervals</code> is measured in. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |---------|-----------------------------------| | <code>DAY</code> | Duration measured in days | | <code>WEEK</code> | Duration measured in weeks | | <code>MONTH</code> | Duration measured in months |</td>
+</tr>
+<tr>
+<td><code>duration.intervals</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>schedule</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>When the campaign is published. <code>type: </code>when_published`` starts immediately; trigger-based schedules are expressed as BudQL, see <a href="https://docs.thisisbud.com/docs/custom-insights">docs.thisisbud.com/docs/custom-insights</a>.</td>
+</tr>
+<tr>
+<td><code>schedule.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;audience&quot;: &quot;b308ce11-50ff-4a85-aa49-5124d04bdb30&quot;,
+  &quot;channels&quot;: {
+    &quot;action_card&quot;: {
+      &quot;headline&quot;: &quot;This is your new headline&quot;,
+      &quot;image_url&quot;: &quot;https://thisisbud.com/campaign.png&quot;,
+      &quot;message&quot;: &quot;Welcome to this campaign&quot;,
+      &quot;primary_button&quot;: {
+        &quot;text&quot;: &quot;Click Here!&quot;,
+        &quot;url&quot;: &quot;https://thisisbud.com&quot;
+      },
+      &quot;priority_order&quot;: 0,
+      &quot;styling&quot;: {
+        &quot;accent_color&quot;: &quot;#cccccc&quot;,
+        &quot;font&quot;: &quot;Arial&quot;,
+        &quot;text_color&quot;: &quot;#ffffff&quot;,
+        &quot;type&quot;: &quot;custom&quot;
+      }
+    }
+  },
+  &quot;description&quot;: &quot;Here is the description&quot;,
+  &quot;duration&quot;: {
+    &quot;interval_type&quot;: &quot;DAY&quot;,
+    &quot;intervals&quot;: 90
+  },
+  &quot;name&quot;: &quot;This is a new campaign - updated!&quot;,
+  &quot;schedule&quot;: {
+    &quot;type&quot;: &quot;when_published&quot;
+  }
+}
+</code></pre>
+<h4 id="responses-12">Responses</h4>
+<h5 id="204-updated" class="status" data-status="2xx">204: Updated</h5>
+<h5 id="4xx-the-request-contains-an-invalid-payload-4">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-12">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-drive-apiv1campaignscampaign_idstatus" class="operation" data-method="put"><code>PUT</code> /drive-api/v1/campaigns/{campaign_id}/status</h3>
+<p>Operation ID: <code>drive_v1_campaign_status_put</code>.</p>
+<p>Authentication: oauth2 (<code>OAuth2</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>X-Client-Id</code> | <code>header</code> | <code>string</code> | Yes | The API Client Identifier (Service Application Identifier). |
+| <code>campaign_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The ID of the campaign. |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The status to set. <code>pending</code>/<code>scheduled</code> states are derived, not settable directly. Potential values are subject to change and may be converted to enums at a future unspecified date. | Value | Description | |----------|-----------------------| | <code>live</code> | Currently running | | <code>paused</code> | Temporarily paused | | <code>ended</code> | Finished |</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;paused&quot;
+}
+</code></pre>
+<h4 id="responses-13">Responses</h4>
+<h5 id="204-status-updated" class="status" data-status="2xx">204: Status Updated</h5>
+<h5 id="4xx-the-request-contains-an-invalid-payload-5">4XX: The request contains an invalid payload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5xx-an-unexpected-error-occurred-on-the-server-side-13">5XX: An unexpected error occurred on the server side</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A descriptive enough string that is linked to the reason for the error.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An actual user friendly error message.</td>
+</tr>
+<tr>
+<td><code>operation_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A unique identifier/reference associated with a given endpoint/operation</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

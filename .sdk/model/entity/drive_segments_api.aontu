@@ -1,0 +1,1512 @@
+# Entity: drive_segments_api
+
+main: kit: entity: drive_segments_api: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      t: "`$STRING`"
+    }
+    created_by: {
+      h: "Created By"
+      n: "created_by"
+      r: false
+      t: "`$STRING`"
+    }
+    criteria: {
+      h: "Criteria"
+      n: "criteria"
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 0
+      }
+    }
+    criteria_from: {
+      fo: "uuid"
+      h: "Criteria From"
+      n: "criteria_from"
+      r: true
+      sh: "The ID of the segment whose criteria should be copied."
+      t: "`$STRING`"
+    }
+    customers: {
+      h: "Customers"
+      n: "customers"
+      r: true
+      sh: "Customer IDs to include in the fixed customer list."
+      t: "`$ARRAY`"
+    }
+    customers_from: {
+      fo: "uuid"
+      h: "Customers From"
+      n: "customers_from"
+      r: true
+      sh: "The ID of the segment whose current members should be copied."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    fixed_customer_list: {
+      h: "Fixed Customer List"
+      n: "fixed_customer_list"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    fixed_customer_list_size: {
+      h: "Fixed Customer List Size"
+      n: "fixed_customer_list_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    from_criteria_id: {
+      fo: "uuid"
+      h: "From Criteria Id"
+      n: "from_criteria_id"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    intersection_count: {
+      h: "Intersection Count"
+      n: "intersection_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    jaccard_index: {
+      h: "Jaccard Index"
+      n: "jaccard_index"
+      r: false
+      t: "`$NUMBER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        patch: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$OBJECT`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      sh: "How the segment was created."
+      t: "`$STRING`"
+    }
+    statistics_id: {
+      h: "Statistics Id"
+      n: "statistics_id"
+      r: false
+      t: "`$STRING`"
+    }
+    suggestion: {
+      h: "Suggestion"
+      n: "suggestion"
+      r: false
+      t: "`$OBJECT`"
+    }
+    tag: {
+      h: "Tag"
+      n: "tag"
+      r: false
+      t: "`$STRING`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      t: "`$ARRAY`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The shape of the statistic's values."
+      t: "`$STRING`"
+    }
+    union_count: {
+      h: "Union Count"
+      n: "union_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    upload: {
+      h: "Upload"
+      n: "upload"
+      r: false
+      t: "`$OBJECT`"
+    }
+    values: {
+      h: "Values"
+      n: "values"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "drive_segments_api"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /drive-api/v1/segments/{segment_id}/query"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v1/segments/{segment_id}/query"
+          q: {
+            "$action": "query"
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "query"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v2/criteria/drafts/{criteria_id}/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+                k: "param"
+                n: "draft_id"
+                or: "criteria_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v2/criteria/drafts/{criteria_id}/run"
+          q: {
+            "$action": "run"
+            exist: [
+              "draft_id"
+              "x_client_id"
+            ]
+          }
+          r: {
+            param: {
+              criteria_id: "draft_id"
+            }
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "drafts"
+            }
+            {
+              var: "draft_id"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v2/segments/{segment_id}/criteria/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v2/segments/{segment_id}/criteria/run"
+          q: {
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v1/segments/from-existing/criteria"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v1/segments/from-existing/criteria"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              lit: "from-existing"
+            }
+            {
+              lit: "criteria"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v1/segments/from-existing/fixed-customers"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v1/segments/from-existing/fixed-customers"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              lit: "from-existing"
+            }
+            {
+              lit: "fixed-customers"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v1/segments/upload"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v1/segments/upload"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              lit: "upload"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v2/criteria/drafts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v2/criteria/drafts"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "drafts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v2/criteria/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v2/criteria/run"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v2/criteria/suggestions/segment-name"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v2/criteria/suggestions/segment-name"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "suggestions"
+            }
+            {
+              lit: "segment-name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /drive-api/v2/segments"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/drive-api/v2/segments"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "segments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /drive-api/v1/segments/{segment_id}/statistics/overview"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "date_to"
+                or: "date_to"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "significant_date"
+                or: "significant_date"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/segments/{segment_id}/statistics/overview"
+          q: {
+            exist: [
+              "date_to"
+              "segment_id"
+              "significant_date"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "statistics"
+            }
+            {
+              lit: "overview"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v2/segments"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "max_per_page"
+                or: "max_per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v2/segments"
+          q: {
+            exist: [
+              "max_per_page"
+              "page"
+              "search"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "segments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/tags"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/tags"
+          q: {
+            exist: [
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "tags"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "7e8aedf9-6be5-4807-afe0-aa292fb2cde2"
+                k: "param"
+                n: "other_segment_id"
+                or: "other_segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "refresh"
+                or: "refresh"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}"
+          q: {
+            exist: [
+              "other_segment_id"
+              "refresh"
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "similarity"
+            }
+            {
+              var: "other_segment_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v2/criteria/drafts/{criteria_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+                k: "param"
+                n: "criteria_id"
+                or: "criteria_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v2/criteria/drafts/{criteria_id}"
+          q: {
+            exist: [
+              "criteria_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "drafts"
+            }
+            {
+              var: "criteria_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v2/criteria/options"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v2/criteria/options"
+          q: {
+            exist: [
+              "filter"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "options"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v1/segments/{segment_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v1/segments/{segment_id}"
+          q: {
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v2/segments/{segment_id}/criteria"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v2/segments/{segment_id}/criteria"
+          q: {
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "criteria"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /drive-api/v2/segments/{segment_id}/criteria/active-options"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/drive-api/v2/segments/{segment_id}/criteria/active-options"
+          q: {
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "active-options"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /drive-api/v1/segments/{segment_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/drive-api/v1/segments/{segment_id}"
+          q: {
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /drive-api/v1/segments/{segment_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/drive-api/v1/segments/{segment_id}"
+          q: {
+            exist: [
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.metadata`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /drive-api/v2/segments/{segment_id}/criteria/{criteria_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+                k: "param"
+                n: "criteria_id"
+                or: "criteria_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "23303f83-a790-4ee9-95b6-d5cdeaf36fa2"
+                k: "param"
+                n: "segment_id"
+                or: "segment_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/drive-api/v2/segments/{segment_id}/criteria/{criteria_id}"
+          q: {
+            exist: [
+              "criteria_id"
+              "segment_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "segments"
+            }
+            {
+              var: "segment_id"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              var: "criteria_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /drive-api/v2/criteria/drafts/{criteria_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "8711bbef-b357-4c2d-97ca-0d9df4206e9a"
+                k: "header"
+                n: "x_client_id"
+                or: "x_client_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "0ba9049e-25e9-43f2-8ea8-1fcf9dde581e"
+                k: "param"
+                n: "criteria_id"
+                or: "criteria_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/drive-api/v2/criteria/drafts/{criteria_id}"
+          q: {
+            exist: [
+              "criteria_id"
+              "x_client_id"
+            ]
+          }
+          s: [
+            {
+              lit: "drive-api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "criteria"
+            }
+            {
+              lit: "drafts"
+            }
+            {
+              var: "criteria_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

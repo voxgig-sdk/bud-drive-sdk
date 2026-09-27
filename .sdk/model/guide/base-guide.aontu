@@ -1,0 +1,155 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 33
+  metrics: count: method: 40
+
+  entity: drive_campaigns_api: {
+    path: "/drive-api/v1/campaign-templates/compiled-templates": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/campaign-templates/templates/{template_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/drive-api/v1/campaigns": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+    }
+    path: "/drive-api/v1/campaigns/agent": {
+      op: create: method: *POST
+      op: create: transform: req: "branding": *("`reqdata.branding`")|top
+      op: create: transform: req: "campaign_goal": *("`reqdata.campaign_goal`")|top
+      op: create: transform: req: "context": *("`reqdata.context`")|top
+      op: create: transform: req: "extra_context": *("`reqdata.extra_context`")|top
+      op: create: transform: req: "image_style": *("`reqdata.image_style`")|top
+      op: create: transform: req: "tone_of_voice": *("`reqdata.tone_of_voice`")|top
+    }
+    path: "/drive-api/v1/campaigns/agent/{generation_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/campaigns/banner-widgets": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/campaigns/content-variables": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/campaigns/{campaign_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/drive-api/v1/campaigns/{campaign_id}/content": {
+      action: "content": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: update: method: *PUT
+    }
+    path: "/drive-api/v1/campaigns/{campaign_id}/insights/performance/trends": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/campaigns/{campaign_id}/status": {
+      action: "status": {}
+      op: update: method: *PUT
+    }
+  }
+
+  entity: drive_mcp_api: {
+    path: "/drive-mcp/v1/campaigns": {
+      op: create: method: *POST
+    }
+    path: "/drive-mcp/v1/copilot": {
+      op: create: method: *POST
+    }
+    path: "/drive-mcp/v1/segments": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: drive_segments_api: {
+    path: "/drive-api/v1/segments/from-existing/criteria": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/segments/from-existing/fixed-customers": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/segments/upload": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/segments/{segment_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.metadata`")|top
+    }
+    path: "/drive-api/v1/segments/{segment_id}/query": {
+      action: "query": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/segments/{segment_id}/similarity/{other_segment_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/segments/{segment_id}/statistics/overview": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v1/tags": {
+      op: list: method: *GET
+    }
+    path: "/drive-api/v2/criteria/drafts": {
+      op: create: method: *POST
+    }
+    path: "/drive-api/v2/criteria/drafts/{criteria_id}": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/drive-api/v2/criteria/drafts/{criteria_id}/run": {
+      action: "run": {}
+      rename: param: "criteria_id": *"draft_id"
+      op: create: method: *POST
+    }
+    path: "/drive-api/v2/criteria/options": {
+      op: load: method: *GET
+    }
+    path: "/drive-api/v2/criteria/run": {
+      op: create: method: *POST
+    }
+    path: "/drive-api/v2/criteria/suggestions/segment-name": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/drive-api/v2/segments": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/drive-api/v2/segments/{segment_id}/criteria": {
+      op: load: method: *GET
+    }
+    path: "/drive-api/v2/segments/{segment_id}/criteria/active-options": {
+      op: load: method: *GET
+    }
+    path: "/drive-api/v2/segments/{segment_id}/criteria/run": {
+      op: create: method: *POST
+    }
+    path: "/drive-api/v2/segments/{segment_id}/criteria/{criteria_id}": {
+      op: update: method: *PUT
+    }
+  }
+
+}
